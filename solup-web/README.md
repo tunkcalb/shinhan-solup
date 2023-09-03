@@ -3,3 +3,6 @@
 
 # 계좌인증   
 ![계좌인증](https://github.com/tunkcalb/shinhan-solup/assets/122415844/7e6ba995-b4f3-4e06-a210-8afd86d61f55)
+
+# 가게정보 등록 및 시작 
+![가게정보등록](https://github.com/tunkcalb/shinhan-solup/assets/122415844/e3300418-9e7f-4985-8a1a-c1b93aa20461)
