@@ -1,5 +1,6 @@
 package com.example.solup.entity;
 
+import com.example.solup.dto.TradeHistoryDto;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -39,4 +40,17 @@ public class TradeHistory {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
+
+    public TradeHistoryDto toDto(){
+        return TradeHistoryDto.builder()
+                .id(this.id)
+                .date(this.date)
+                .deposit(this.deposit)
+                .withdraw(this.withdraw)
+                .content(this.content)
+                .balance(this.balance)
+                .category(this.category)
+                .accountId(this.account.getId())
+                .build();
+    }
 }
