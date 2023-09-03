@@ -9,3 +9,6 @@
 
 # 뉴비 가이드   
 ![가이드](https://github.com/tunkcalb/shinhan-solup/assets/122415844/49bc05c5-7bca-4c8a-ba3c-215f3ad8a413)
+
+# 거래내역 분류
+![카테고리분류](https://github.com/tunkcalb/shinhan-solup/assets/122415844/cd0b8efc-f3bd-4620-974b-53719d58fff5)
