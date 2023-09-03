@@ -1,5 +1,7 @@
 package com.example.solup.entity;
 
+import com.example.solup.dto.AccountDto;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -23,4 +25,13 @@ public class Account {
 
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<TradeHistory> tradeHistories = new ArrayList<>();
+
+    public AccountDto toDto(){
+        return AccountDto.builder()
+                .id(this.id)
+                .number(this.number)
+                .balance(this.balance)
+                .tradeHistories(this.tradeHistories)
+                .build();
+    }
 }

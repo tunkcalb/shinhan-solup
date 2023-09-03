@@ -1,5 +1,6 @@
 package com.example.solup.controller.account;
 
+import com.example.solup.dto.AccountDto;
 import com.example.solup.dto.TradeHistoryDto;
 import com.example.solup.service.account.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -17,5 +18,10 @@ public class AccountController {
     @GetMapping
     public List<TradeHistoryDto> findAll(@RequestParam long accountId){
         return accountService.findAll(accountId);
+    }
+
+    @GetMapping
+    public AccountDto findAccount(@RequestParam long userId){
+        return accountService.findAccount(userId);
     }
 }
