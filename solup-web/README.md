@@ -12,3 +12,6 @@
 
 # 거래내역 분류
 ![카테고리분류](https://github.com/tunkcalb/shinhan-solup/assets/122415844/cd0b8efc-f3bd-4620-974b-53719d58fff5)
+
+# 손익현황 정산 
+![손익정산](https://github.com/tunkcalb/shinhan-solup/assets/122415844/3466475c-2dc3-48ff-bdc3-fda8bde8be28)
