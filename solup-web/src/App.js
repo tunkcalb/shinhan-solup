@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import Home from 'solup-web/src/pages/Home.js';
-import Login from 'C:/Users/SSAFY/Desktop/solup-web/src/pages/Login.js';
-import Header from 'C:/Users/SSAFY/Desktop/solup-web/src/components/Header.js';
-import logoImage from 'C:/Users/SSAFY/Desktop/solup-web/src/assets/solup logo-blue.png';
+import Home from './pages/Home.js';
+import Login from './pages/Login.js';
+import Header from './components/Header.js';
+import logoImage from './assets/solup-logo-blue.png';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-    <Header logo={logoImage} />
+    <Header logoImage={logoImage} />
     <Router>
       <Switch>
         <Route path="/login">
