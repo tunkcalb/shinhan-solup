@@ -3,6 +3,8 @@ package com.example.solup.entity;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 // 사용자가 등록한 계좌 정보
 @Getter
@@ -15,10 +17,10 @@ public class Account {
     @Column
     private String number;
 
-    // 잔액
+    // 잔고
     @Column
     private String balance;
 
-//    @ManyToOne
-
+    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<TradeHistory> tradeHistories = new ArrayList<>();
 }

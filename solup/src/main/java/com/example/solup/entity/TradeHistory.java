@@ -32,7 +32,11 @@ public class TradeHistory {
     @Column
     private Integer balance;
 
-    //
+    // 입금 지출 구분(입금 : 1, 출금 : 2)
     @Column
-    private
+    private Integer category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private Account account;
 }

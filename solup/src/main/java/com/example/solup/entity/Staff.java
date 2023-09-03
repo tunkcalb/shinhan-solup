@@ -18,7 +18,7 @@ public class Staff {
     private String account;
     
     // User(=사장)과 연결
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 }

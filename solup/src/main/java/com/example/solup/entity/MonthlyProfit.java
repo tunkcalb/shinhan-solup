@@ -29,7 +29,7 @@ public class MonthlyProfit {
     private LocalDateTime date;
 
     // User와 연결
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 }
