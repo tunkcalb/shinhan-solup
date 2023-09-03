@@ -22,7 +22,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/signup")
-    public ResponseEntity<UserDto> signup(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> signup(@RequestBody UserDto userDto) throws Exception{
         try{
             return ResponseEntity.ok(userService.save(userDto));
         } catch (DuplicateFormatFlagsException e){
@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("/user/login")
-    public ResponseEntity<UserDto> login(@RequestBody UserDto userDto){
+    public ResponseEntity<UserDto> login(@RequestBody UserDto userDto) throws Exception{
         try{
             return ResponseEntity.ok(userService.login(userDto));
         } catch (NoSuchElementException e){
