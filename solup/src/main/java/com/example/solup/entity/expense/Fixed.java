@@ -25,7 +25,7 @@ public class Fixed {
     @Column
     private LocalDateTime date;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 }
