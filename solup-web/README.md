@@ -5,13 +5,13 @@
 ![계좌인증](https://github.com/tunkcalb/shinhan-solup/assets/122415844/7e6ba995-b4f3-4e06-a210-8afd86d61f55)
 
 # 가게정보 등록 및 시작 
-![가게정보등록](https://github.com/tunkcalb/shinhan-solup/assets/122415844/e3300418-9e7f-4985-8a1a-c1b93aa20461)
+추가수정
 
 # 뉴비 가이드   
-![가이드](https://github.com/tunkcalb/shinhan-solup/assets/122415844/49bc05c5-7bca-4c8a-ba3c-215f3ad8a413)
+추가수정
 
 # 거래내역 분류
-![카테고리분류](https://github.com/tunkcalb/shinhan-solup/assets/122415844/cd0b8efc-f3bd-4620-974b-53719d58fff5)
+추가수정
 
 # 손익현황 정산 
-![손익정산](https://github.com/tunkcalb/shinhan-solup/assets/122415844/3466475c-2dc3-48ff-bdc3-fda8bde8be28)
+추가수정
