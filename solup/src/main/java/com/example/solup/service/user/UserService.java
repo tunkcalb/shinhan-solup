@@ -34,4 +34,9 @@ public class UserService {
         }
 
     }
+
+    public String findByUsername(String username) {
+        if(userRepository.findByUsername(username) != null) return "이미 존재하는 ID입니다";
+        return "사용 가능한 ID입니다";
+    }
 }
