@@ -17,12 +17,12 @@ import java.util.List;
 public class AccountController {
     private final AccountService accountService;
 
-    @GetMapping
+    @GetMapping("/account/history")
     public List<TradeHistoryDto> findAll(@RequestParam long accountId){
         return accountService.findAll(accountId);
     }
 
-    @GetMapping
+    @GetMapping("/account")
     public AccountDto findAccount(@RequestParam long userId){
         return accountService.findAccount(userId);
     }
