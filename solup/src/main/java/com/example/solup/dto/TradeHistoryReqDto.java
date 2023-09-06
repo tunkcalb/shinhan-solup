@@ -16,6 +16,4 @@ public class TradeHistoryReqDto {
     private Integer category;
     private String expenseType;
     private String expenseCategory;
-    private String expenseTitle;
-    private String expenseContent;
 }

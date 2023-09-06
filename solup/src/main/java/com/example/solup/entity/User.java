@@ -48,18 +48,6 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<MonthlyProfit> monthlyProfits = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-//    private List<Fixed> fixeds = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-//    private List<Variable> variables = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-//    private List<Surplus> surpluses = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-//    private List<Living> livings = new ArrayList<>();
-
     @Builder
     private User(long id, String username, String password, String name) {
         this.id = id;

@@ -31,15 +31,15 @@ public class AccountController {
         return ResponseEntity.ok(accountService.getMainPageAccount(userId));
     }
 
-    @GetMapping("/account/{accountId}/trade-history")
-    public ResponseEntity<?> getTradeHistories(@PathVariable("accountId")Long accountId) {
-        return ResponseEntity.ok("G");
+    @GetMapping("/account/{userId}/trade-history")
+    public ResponseEntity<List<TradeHistoryDto>> getTradeHistories(@PathVariable("userId")Long userId) {
+        return ResponseEntity.ok(accountService.findTradeHistories(userId));
     }
 
-    @PostMapping("/account/{accountId}/trade-history")
-    public ResponseEntity<?> saveTradeHistory(@PathVariable("accountId")Long accountId,
+    @PostMapping("/account/{userId}/trade-history")
+    public ResponseEntity<String> saveTradeHistory(@PathVariable("userId")Long userId,
                                               @RequestBody TradeHistoryReqDto tradeHistoryReqDto) {
-
-        return ResponseEntity.ok("g");
+        accountService.categorizeTradeHistory(userId, tradeHistoryReqDto);
+        return ResponseEntity.ok("분류 완료");
     }
 }
