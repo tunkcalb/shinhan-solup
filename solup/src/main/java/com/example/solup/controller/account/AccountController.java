@@ -13,7 +13,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/account")
 public class AccountController {
     private final AccountService accountService;
 
@@ -27,12 +26,17 @@ public class AccountController {
         return accountService.findAccount(userId);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/account/{userId}")
     public ResponseEntity<MainPageAccountDto> getMainPageAccountInfo(@PathVariable("userId") Long userId) {
         return ResponseEntity.ok(accountService.getMainPageAccount(userId));
     }
 
-    @PostMapping("/{accountId}/trade-history")
+    @GetMapping("/account/{accountId}/trade-history")
+    public ResponseEntity<?> getTradeHistories(@PathVariable("accountId")Long accountId) {
+        return ResponseEntity.ok("G");
+    }
+
+    @PostMapping("/account/{accountId}/trade-history")
     public ResponseEntity<?> saveTradeHistory(@PathVariable("accountId")Long accountId,
                                               @RequestBody TradeHistoryReqDto tradeHistoryReqDto) {
 

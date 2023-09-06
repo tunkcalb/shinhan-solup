@@ -14,6 +14,8 @@ public class TradeHistoryReqDto {
     private String content;
     private Integer balance;
     private Integer category;
-
-    // 고정비
+    private String expenseType;
+    private String expenseCategory;
+    private String expenseTitle;
+    private String expenseContent;
 }
