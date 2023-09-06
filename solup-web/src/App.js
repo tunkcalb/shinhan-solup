@@ -7,7 +7,7 @@ import Header from './components/Header.js';
 import logoImage from './assets/solup-logo-blue.png';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
