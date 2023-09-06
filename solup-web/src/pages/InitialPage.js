@@ -6,7 +6,7 @@ function InitialPage() {
     <div className="initial-page">
       <h2>환영합니다</h2>
       <p>로그인하거나 회원가입하세요.</p>
-      <Link to="/login">
+      <Link to="/home">
         <button>로그인</button>
       </Link>
       <Link to="/signup">
