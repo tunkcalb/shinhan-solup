@@ -1,6 +1,7 @@
 package com.example.solup.controller.user;
 
 import com.example.solup.dto.Response;
+import com.example.solup.dto.StoreDto;
 import com.example.solup.dto.UserDto;
 import com.example.solup.entity.User;
 import com.example.solup.service.user.UserService;
@@ -35,5 +36,11 @@ public class UserController {
     public Response<String> checkUsername(@RequestBody String username){
         String response = userService.findByUsername(username);
         return new Response<>("200", "", response);
+    }
+
+    @PostMapping("/user/store/{userId}")
+    public Response<StoreDto.Response> registStore(@PathVariable Long userId, @RequestBody StoreDto.Request request){
+        StoreDto.Response response = userService.registStore(userId, request);
+        return new Response<>("200", "가게 등록 성공", response);
     }
 }
