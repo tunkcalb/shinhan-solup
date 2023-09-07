@@ -1,5 +1,6 @@
 package com.example.solup.controller.user;
 
+import com.example.solup.dto.Response;
 import com.example.solup.dto.UserDto;
 import com.example.solup.entity.User;
 import com.example.solup.service.user.UserService;
@@ -19,26 +20,20 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/signup")
-    public ResponseEntity<UserDto> signup(@RequestBody UserDto userDto) throws Exception{
-        try{
-            return ResponseEntity.ok(userService.save(userDto));
-        } catch (DuplicateFormatFlagsException e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Duplicate username");
-        }
+    public Response<UserDto> signup(@RequestBody UserDto userDto) throws Exception{
+            UserDto response = userService.save(userDto);
+            return new Response<>("201", "회원가입 성공", response);
     }
 
     @GetMapping("/user/login")
-    public ResponseEntity<UserDto> login(@RequestBody UserDto userDto) throws Exception{
-        try{
-            return ResponseEntity.ok(userService.login(userDto));
-        } catch (NoSuchElementException e){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found");
-        }
-
+    public Response<UserDto> login(@RequestBody UserDto userDto) throws Exception{
+             UserDto response = userService.login(userDto);
+             return new Response<>("200", "로그인 성공", response);
     }
 
     @GetMapping("/user/check")
-    public String checkUsername(@RequestBody String username){
-        return userService.findByUsername(username);
+    public Response<String> checkUsername(@RequestBody String username){
+        String response = userService.findByUsername(username);
+        return new Response<>("200", "", response);
     }
 }
