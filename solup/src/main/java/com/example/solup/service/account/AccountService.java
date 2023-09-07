@@ -1,9 +1,6 @@
 package com.example.solup.service.account;
 
-import com.example.solup.dto.AccountDto;
-import com.example.solup.dto.MainPageAccountDto;
-import com.example.solup.dto.TradeHistoryDto;
-import com.example.solup.dto.TradeHistoryReqDto;
+import com.example.solup.dto.*;
 import com.example.solup.entity.Account;
 import com.example.solup.entity.TradeHistory;
 import com.example.solup.entity.User;
@@ -88,5 +85,15 @@ public class AccountService {
         return user.getAccount().getTradeHistories().stream()
                 .map(TradeHistoryDto::new)
                 .collect(Collectors.toList());
+    }
+
+    public CategorizedDto getCategorized(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
+
+        Account account = user.getAccount();
+
+        // 이번달의 수익과 고정비, 변동비를 가져와서 그것을 뺀 마진을 계산하고 넘겨준다.
+        
     }
 }
