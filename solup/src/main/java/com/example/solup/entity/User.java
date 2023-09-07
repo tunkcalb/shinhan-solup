@@ -5,10 +5,7 @@ import com.example.solup.entity.expense.Fixed;
 import com.example.solup.entity.expense.Living;
 import com.example.solup.entity.expense.Surplus;
 import com.example.solup.entity.expense.Variable;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,6 +14,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Setter
 public class User {
 
     @Id
