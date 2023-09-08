@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "googleBeVietnamPro";
+  src: url(./assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Bold.ttf);
+}
+
+:root {
+  --font-googleBeVietnamPro : "googleBeVietnamPro";
+}
