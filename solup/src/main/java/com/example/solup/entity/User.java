@@ -30,6 +30,9 @@ public class User {
     @Column
     private String name;
 
+    @Column
+    private String phoneNumber;
+
     // 계좌 연결
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
@@ -47,11 +50,12 @@ public class User {
     private List<MonthlyProfit> monthlyProfits = new ArrayList<>();
 
     @Builder
-    private User(long id, String username, String password, String name) {
+    private User(long id, String username, String password, String name, String phoneNumber) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
+        this.phoneNumber = phoneNumber;
     }
 
     public UserDto toDto(){
@@ -59,6 +63,7 @@ public class User {
                 .id(this.id)
                 .username(this.username)
                 .name(this.name)
+                .phoneNumber(this.phoneNumber)
                 .build();
     }
 }
