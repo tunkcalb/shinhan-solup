@@ -15,11 +15,14 @@ public class UserDto {
 
     private String name;
 
+    private String phoneNumber;
+
     public User toEnity(){
         return User.builder()
                 .username(this.username)
                 .password(this.password)
                 .name(this.name)
+                .phoneNumber(this.phoneNumber)
                 .build();
     }
 
@@ -29,7 +32,8 @@ public class UserDto {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
+                ", name=" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }
