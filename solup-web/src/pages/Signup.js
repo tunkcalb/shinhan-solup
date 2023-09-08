@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // react-router-dom의 useNavigate 사용
 import { useDispatch, useSelector } from "react-redux"; // useDispatch 사용
 import { setIsLoggedIn } from "../redux/actions"; // 액션 임포트
+import Header from '../components/Header';
 
 function Signup() {
   const navigate = useNavigate();

@@ -1,20 +1,26 @@
 /* header.css */
 
 .header {
-    /* display: flex; */
-    justify-content: center; 
-    align-items: center; 
     height: 6.5rem;
-    background-color: tomato
+    background-color: tomato 
+    /* bgc은 색 구분용 */
   }
 
-.headerContent {
-  background-color: green;
+.headerContainer {
+  padding: 3.38rem 0 0;
 }
-
 .headerText {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: "Be Vietnam Pro";
+  font-weight: bold;
+  font-size: 24px;
+}
+
+img {
+  position: absolute;
+  left: 1.31rem;
   z-index: 1;
 }
