@@ -1,17 +1,18 @@
 package com.example.solup.dto.sms;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 public class SmsRequest {
-    private String recipientPhoneNumber;
-    private String title;
+    private String type;
+    private String contentType;
+    private String countryCode;
+    private String from;
     private String content;
-
+    private List<MessagesDto> messages;
 }

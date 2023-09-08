@@ -1,8 +1,9 @@
 package com.example.solup.controller.sms;
 
 import com.example.solup.dto.Response;
-import com.example.solup.dto.sms.SmsDto;
 import com.example.solup.dto.sms.SmsRequest;
+import com.example.solup.dto.sms.RequestDto;
+import com.example.solup.dto.sms.SmsResponse;
 import com.example.solup.service.sms.SmsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +23,8 @@ public class SmsController {
     private final SmsService smsService;
 
     @PostMapping("/user/sms")
-    public Response<SmsDto.Response> test(@RequestBody SmsRequest request) throws NoSuchAlgorithmException, URISyntaxException, UnsupportedEncodingException, InvalidKeyException, JsonProcessingException {
-        SmsDto.Response data = smsService.sendSms(request.getRecipientPhoneNumber(), request.getContent());
+    public Response<SmsResponse> test(@RequestBody RequestDto request) throws NoSuchAlgorithmException, URISyntaxException, UnsupportedEncodingException, InvalidKeyException, JsonProcessingException {
+        SmsResponse data = smsService.sendSms(request.getRecipientPhoneNumber(), request.getContent());
         return new Response<>("200", "sms 요청 성공", data);
     }
 }

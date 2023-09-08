@@ -1,7 +1,8 @@
 package com.example.solup.service.sms;
 
 import com.example.solup.dto.sms.MessagesDto;
-import com.example.solup.dto.sms.SmsDto;
+import com.example.solup.dto.sms.SmsRequest;
+import com.example.solup.dto.sms.SmsResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -36,12 +37,12 @@ public class SmsService {
     private String secretKey;
 
 
-    public SmsDto.Response sendSms(String recipientPhoneNumber, String content) throws JsonProcessingException, UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException, URISyntaxException {
+    public SmsResponse sendSms(String recipientPhoneNumber, String content) throws JsonProcessingException, UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException, URISyntaxException {
         Long time = System.currentTimeMillis();
         List<MessagesDto> messages = new ArrayList<>();
         messages.add(new MessagesDto(recipientPhoneNumber, content));
 
-        SmsDto.Request smsRequest = new SmsDto.Request("SMS", "COMM", "82", "발신자 전화번호", "내용", messages);
+        SmsRequest smsRequest = new SmsRequest("SMS", "COMM", "82", recipientPhoneNumber, content, messages);
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonBody = objectMapper.writeValueAsString(smsRequest);
 
@@ -56,7 +57,7 @@ public class SmsService {
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
-        SmsDto.Response smsResponse = restTemplate.postForObject(new URI("https://sens.apigw.ntruss.com/sms/v2/services/"+this.serviceId+"/messages"), body, SmsDto.Response.class);
+        SmsResponse smsResponse = restTemplate.postForObject(new URI("https://sens.apigw.ntruss.com/sms/v2/services/"+this.serviceId+"/messages"), body, SmsResponse.class);
 
         return smsResponse;
 

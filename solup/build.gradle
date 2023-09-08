@@ -34,6 +34,9 @@ dependencies {
 
 	// swagger
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
+
+	// sms
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
 }
 
 tasks.named('test') {
