@@ -94,6 +94,6 @@ public class AccountService {
         Account account = user.getAccount();
 
         // 이번달의 수익과 고정비, 변동비를 가져와서 그것을 뺀 마진을 계산하고 넘겨준다.
-        
+
     }
 }
