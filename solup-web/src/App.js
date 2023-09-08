@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home.js';
 import InitialPage from './pages/InitialPage.js';
-import Header from './components/Header.js';
-import logoImage from './assets/solup-logo-blue.png';
+// import Header from './components/Header.js';
+// import logoImage from './assets/solup-logo-blue.png';
 import Login from './pages/Login.js'
 import Signup from './pages/Signup.js';
 import CustomProducts from './pages/CustomProducts.js';
