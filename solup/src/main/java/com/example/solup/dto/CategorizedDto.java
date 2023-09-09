@@ -1,22 +1,21 @@
 package com.example.solup.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 public class CategorizedDto {
-    // 총 수익
-    private Integer income;
 
-    // 고정비
-    private Integer fixed;
-
-    // 변동비
-    private Integer variable;
-
-    // 순수익 : 수익 - (고정비 + 변동비)
-    private Integer netProfit;
-
+    @Builder
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Response{
+        private Integer income;
+        private Integer fixed;
+        private Integer variable;
+        private Integer netProfit;
+    }
 }

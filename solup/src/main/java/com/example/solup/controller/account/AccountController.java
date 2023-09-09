@@ -48,9 +48,9 @@ public class AccountController {
         return ResponseEntity.ok("분류 완료");
     }
 
-//    @Operation(description = "손익 현황 조회")
-//    @GetMapping("account/{userId}/categorized")
-//    public ResponseEntity<CategorizedDto> getCategorized(@PathVariable("userId") Long userId) {
-//
-//    }
+    @Operation(description = "손익 현황 조회")
+    @GetMapping("account/{userId}/categorized")
+    public ResponseEntity<CategorizedDto.Response> getCategorized(@PathVariable("userId") Long userId) {
+        return ResponseEntity.ok(accountService.getCategorized(userId));
+    }
 }
