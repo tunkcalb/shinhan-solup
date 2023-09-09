@@ -14,9 +14,8 @@ function ProfitStatus() {
 
   // 거래내역 분류 페이지로 이동하는 함수
   const redirectToClassificationPage = () => {
-    // 여기에 분류 페이지로 이동하는 코드를 추가하세요.
-    // 예를 들어, React Router를 사용한다면 다음과 같이 사용할 수 있습니다:
-    // history.push('/classification-page');
+    // 분류 페이지로 이동하는 코드
+    setIsClassified(true)
   };
 
   return (
