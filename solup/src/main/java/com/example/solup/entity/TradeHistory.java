@@ -2,6 +2,8 @@ package com.example.solup.entity;
 
 import com.example.solup.dto.TradeHistoryDto;
 import com.example.solup.entity.expense.Fixed;
+import com.example.solup.entity.expense.Living;
+import com.example.solup.entity.expense.Surplus;
 import com.example.solup.entity.expense.Variable;
 import lombok.Getter;
 import lombok.Setter;
@@ -55,6 +57,15 @@ public class TradeHistory {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "variable_id")
     private Variable variable;
+
+    // 정산하기로
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "living_id")
+    private Living living;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "surplus_id")
+    private Surplus surplus;
 
 //    public TradeHistoryDto toDto(){
 //        return TradeHistoryDto.builder()

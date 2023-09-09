@@ -1,9 +1,6 @@
 package com.example.solup.controller.account;
 
-import com.example.solup.dto.AccountDto;
-import com.example.solup.dto.MainPageAccountDto;
-import com.example.solup.dto.TradeHistoryDto;
-import com.example.solup.dto.TradeHistoryReqDto;
+import com.example.solup.dto.*;
 import com.example.solup.service.account.AccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -49,5 +46,11 @@ public class AccountController {
                                               @RequestBody TradeHistoryReqDto tradeHistoryReqDto) {
         accountService.categorizeTradeHistory(userId, tradeHistoryReqDto);
         return ResponseEntity.ok("분류 완료");
+    }
+
+    @Operation(description = "손익 현황 조회")
+    @GetMapping("account/{userId}/categorized")
+    public ResponseEntity<CategorizedDto.Response> getCategorized(@PathVariable("userId") Long userId) {
+        return ResponseEntity.ok(accountService.getCategorized(userId));
     }
 }
