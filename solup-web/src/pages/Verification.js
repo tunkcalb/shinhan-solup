@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router"; 큰일나면 수정한다
+import "./Verification.css"
+import Header from "../components/Header";
+import BlueButton from "../components/BlueButton";
+import WhiteButton from "../components/WhiteButton";
 
 function Verification() {
-const navigate = useNavigate();
+// const navigate = useNavigate(); 큰일나면 수정한다
 
   // State to store form values
   const [formData, setFormData] = useState({
@@ -25,46 +29,55 @@ const navigate = useNavigate();
     // Implement logic to send verification code here
   };
 
-  // Function to handle the "Next" button click
-  const handleNextClick = () => {
-    navigate("/signup")
-  };
+  // 큰일나면 수정한다
+  // const handleNextClick = () => {
+  //   navigate("/signup")
+  // };
 
   return (
     <div>
-      <p>본인인증을 진행해주세요</p>
-      <div>
-        <label htmlFor="name">이름</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-        />
+      <Header title="회원가입" />
+      <div className="container">
+        <div className="subTitle">본인인증을 진행해주세요</div>
+        <div className="inputForm">
+          <label htmlFor="name" className="inputTitle">이름</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="inputContent"
+          />
+        </div>
+
+        <div className="inputForm">
+          <label htmlFor="phoneNumber" className="inputTitle">전화번호</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleInputChange}
+            className="inputContent"
+          />
+          <WhiteButton title="인증번호 발송" destination="" />    
+        </div>
+        {/* <button onClick={handleSendVerificationCode}>인증번호 발송</button> */}
+
+        <div className="inputForm">
+          <label htmlFor="verificationCode" className="inputTitle">인증번호</label>
+          <input
+            type="text"
+            id="verificationCode"
+            name="verificationCode"
+            value={formData.verificationCode}
+            onChange={handleInputChange}
+            className="inputContent"
+          />
+        </div>
+        <BlueButton title="다음" destination="/signup" />
       </div>
-      <div>
-        <label htmlFor="phoneNumber">+82</label>
-        <input
-          type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          value={formData.phoneNumber}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button onClick={handleSendVerificationCode}>인증번호 발송</button>
-      <div>
-        <label htmlFor="verificationCode">인증번호</label>
-        <input
-          type="text"
-          id="verificationCode"
-          name="verificationCode"
-          value={formData.verificationCode}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button onClick={handleNextClick}>다음</button>
     </div>
   );
 }

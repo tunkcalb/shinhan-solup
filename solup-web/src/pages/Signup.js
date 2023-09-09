@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // react-router-dom의 useNavigate 사용
 import { useDispatch, useSelector } from "react-redux"; // useDispatch 사용
 import { setIsLoggedIn } from "../redux/actions"; // 액션 임포트
-import Header from '../components/Header';
+import "./Verification.css";
+import "./Signup.css"
+import Header from "../components/Header";
 
 function Signup() {
   const navigate = useNavigate();
@@ -41,43 +43,48 @@ function Signup() {
 
   return (
     <div>
-      {/* 아이디 입력란 */}
-      <div>
-        <label htmlFor="username">아이디</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-        />
+      <Header title="회원가입" />
+      <div className="container">
+        {/* 아이디 입력란 */}
+        <div className="inputForm">        
+          <label htmlFor="username" className="inputTitle">아이디</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            className="inputContent"
+          />
+          <button onClick={handleNextClick} className="whiteBtn">아이디 중복확인</button>
+        </div>
+        
+        
+        <div className="inputForm">
+          <label htmlFor="password" className="inputTitle">비밀번호</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            className="inputContent"
+          />
+        </div>
+        
+        <div className="inputForm">
+          <label htmlFor="confirmPassword" className="inputTitle">비밀번호 확인</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
+            className="inputContent"
+          />
+        </div>        
+        <button onClick={handleNextClick} className="blueBtn">회원가입 완료</button>
       </div>
-      
-      <button onClick={handleNextClick}>아이디 중복확인</button>
-      
-      <div>
-        <label htmlFor="password">비밀번호</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
-      </div>
-      
-      <div>
-        <label htmlFor="confirmPassword">비밀번호 확인</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-          value={formData.confirmPassword}
-          onChange={handleInputChange}
-        />
-      </div>
-      
-      <button onClick={handleNextClick}>회원가입 완료</button>
     </div>
   );
 }

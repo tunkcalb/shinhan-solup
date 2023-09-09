@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'; // useDispatch 임포트
 import { setIsLoggedIn } from '../redux/actions'; // 액션 임포트
+import Header from '../components/Header';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -24,30 +25,34 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2>로그인</h2>
-      <form onSubmit={handleLogin}>
-        <div className="form-group">
-          <label htmlFor="username">사용자 이름</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">비밀번호</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">로그인</button>
-      </form>
+      <Header title="로그인" />
+      <div className='container'>
+        <form onSubmit={handleLogin} >
+          <div className="inputForm">
+            <label htmlFor="username" className="inputTitle">아이디</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="inputContent"
+            />
+          </div>
+          <div className="inputForm">
+            <label htmlFor="password" className="inputTitle">비밀번호</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="inputContent"
+            />
+          </div>
+          <button type="submit" className='blueBtn'>로그인</button>
+        </form>
+      </div>
     </div>
   );
 }
