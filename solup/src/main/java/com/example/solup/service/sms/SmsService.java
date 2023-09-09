@@ -24,6 +24,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @Transactional
@@ -35,14 +36,19 @@ public class SmsService {
     private String accessKey;
     @Value("${sms.secretKey}")
     private String secretKey;
+    @Value("${phoneNumber}")
+    private String phoneNumber;
 
 
-    public SmsResponse sendSms(String recipientPhoneNumber, String content) throws JsonProcessingException, UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException, URISyntaxException {
+    public SmsResponse sendSms(String recipientPhoneNumber) throws JsonProcessingException, UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException, URISyntaxException {
         Long time = System.currentTimeMillis();
         List<MessagesDto> messages = new ArrayList<>();
+        String certificationNumber = generateNumber();
+        String content = "[SOLUP] 인증번호 [" + certificationNumber + "]를 입력해주세요.";
         messages.add(new MessagesDto(recipientPhoneNumber, content));
 
-        SmsRequest smsRequest = new SmsRequest("SMS", "COMM", "82", recipientPhoneNumber, content, messages);
+
+        SmsRequest smsRequest = new SmsRequest("SMS", "COMM", "82", phoneNumber, content, messages);
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonBody = objectMapper.writeValueAsString(smsRequest);
 
@@ -58,7 +64,7 @@ public class SmsService {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         SmsResponse smsResponse = restTemplate.postForObject(new URI("https://sens.apigw.ntruss.com/sms/v2/services/"+this.serviceId+"/messages"), body, SmsResponse.class);
-
+        smsResponse.setCertificationNumber(certificationNumber);
         return smsResponse;
 
     }
@@ -90,5 +96,15 @@ public class SmsService {
         String encodeBase64String = Base64.encodeBase64String(rawHmac);
 
         return encodeBase64String;
+    }
+
+    public String generateNumber(){
+        StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 4; i++) {
+            int digit = random.nextInt(10); // 0부터 9까지의 숫자
+            stringBuilder.append(digit);
+        }
+        return stringBuilder.toString();
     }
 }

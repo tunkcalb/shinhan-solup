@@ -24,7 +24,7 @@ public class SmsController {
 
     @PostMapping("/user/sms")
     public Response<SmsResponse> test(@RequestBody RequestDto request) throws NoSuchAlgorithmException, URISyntaxException, UnsupportedEncodingException, InvalidKeyException, JsonProcessingException {
-        SmsResponse data = smsService.sendSms(request.getRecipientPhoneNumber(), request.getContent());
+        SmsResponse data = smsService.sendSms(request.getRecipientPhoneNumber());
         return new Response<>("200", "sms 요청 성공", data);
     }
 }
