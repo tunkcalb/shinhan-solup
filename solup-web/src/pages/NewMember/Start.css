@@ -18,7 +18,11 @@
 
 .subText{
   font-family: "Be Vietnam Pro";
-  /* font-style: normal; */
-  font-weight: normal;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.125rem;
+}
+
+.imgContainer img {
+  width: 70%;
 }
