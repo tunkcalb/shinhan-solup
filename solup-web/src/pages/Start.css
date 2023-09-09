@@ -1,0 +1,24 @@
+.startContainer{
+  padding: 0rem 1.25rem 0rem;
+}
+
+.startContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 29rem;
+  padding: 0;
+}
+
+.mainText{
+  font-family: "Be Vietnam Pro";
+  font-weight: bold;
+  font-size:  1.5rem;
+}
+
+.subText{
+  font-family: "Be Vietnam Pro";
+  /* font-style: normal; */
+  font-weight: normal;
+  font-size: 1.125rem;
+}
