@@ -1,6 +1,6 @@
 import React from "react";
 import "./Start.css"
-import "./Verification.css"
+import "../Verification.css"
 import BlueButton from "../../components/BlueButton";
 import WhiteButton from "../../components/WhiteButton";
 

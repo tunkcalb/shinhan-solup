@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import "./Start.css"
-import "./Verification.css"
+import "../Verification.css"
 import BlueButton from "../../components/BlueButton";
 
 
