@@ -1,4 +1,4 @@
-package com.example.solup.dto;
+package com.example.solup.dto.user;
 
 import com.example.solup.entity.User;
 import lombok.Builder;

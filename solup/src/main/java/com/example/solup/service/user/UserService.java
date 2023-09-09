@@ -1,7 +1,8 @@
 package com.example.solup.service.user;
 
-import com.example.solup.dto.StoreDto;
-import com.example.solup.dto.UserDto;
+import com.example.solup.dto.revenue.RevenueAnalysisDto;
+import com.example.solup.dto.store.StoreDto;
+import com.example.solup.dto.user.UserDto;
 import com.example.solup.entity.Store;
 import com.example.solup.entity.User;
 import com.example.solup.exception.type.DuplicatedValueException;
@@ -53,5 +54,9 @@ public class UserService {
         user.setStore(store);
         userRepository.save(user);
         return store.toDto();
+    }
+
+    public RevenueAnalysisDto.Response getRevenueAnalysis(long userId) {
+
     }
 }

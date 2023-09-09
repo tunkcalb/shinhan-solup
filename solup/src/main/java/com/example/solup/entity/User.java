@@ -1,10 +1,6 @@
 package com.example.solup.entity;
 
-import com.example.solup.dto.UserDto;
-import com.example.solup.entity.expense.Fixed;
-import com.example.solup.entity.expense.Living;
-import com.example.solup.entity.expense.Surplus;
-import com.example.solup.entity.expense.Variable;
+import com.example.solup.dto.user.UserDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,6 +28,9 @@ public class User {
 
     @Column
     private String phoneNumber;
+
+    @Column
+    private String targetRevenue;
 
     // 계좌 연결
     @OneToOne(fetch = FetchType.LAZY)
