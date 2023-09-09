@@ -16,6 +16,15 @@ public class Staff {
 
     @Column
     private String account;
+
+    @Column(name = "hourly_rate")
+    private Integer hourlyRate;
+
+    @Column
+    private Integer salary;
+
+    @Column
+    private 
     
     // User(=사장)과 연결
     @ManyToOne(fetch = FetchType.LAZY)
