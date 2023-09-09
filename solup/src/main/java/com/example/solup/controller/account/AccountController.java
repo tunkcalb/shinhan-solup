@@ -50,7 +50,8 @@ public class AccountController {
 
     @Operation(description = "손익 현황 조회")
     @GetMapping("account/{userId}/categorized")
-    public ResponseEntity<CategorizedDto.Response> getCategorized(@PathVariable("userId") Long userId) {
-        return ResponseEntity.ok(accountService.getCategorized(userId));
+    public Response<CategorizedDto.Response> getCategorized(@PathVariable("userId") Long userId) {
+        CategorizedDto.Response response = accountService.getCategorized(userId);
+        return new Response<>("200", "조회 성공", response);
     }
 }
