@@ -17,6 +17,9 @@ import ProfitStatusPage from './pages/ProfitStatusPage';
 import MarginSettlement from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
 import AccountQuestion from './pages/NewMember/AccountQuestion';
+import AuthAccount from './pages/NewMember/AuthAccount';
+import RegisterStore from './pages/NewMember/RegisterStore';
+import ReadyToSolup from './pages/NewMember/ReadyToSolup';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,6 +54,9 @@ function App() {
           <Route path="/margin-settlement" element={<MarginSettlement />} />
           <Route path="/trade-history" element={<TradeHistory />} />
           <Route path='/account-question' element={<AccountQuestion />} />
+          <Route path='/auth-account' element={<AuthAccount />} />
+          <Route path='/register-store' element={<RegisterStore />} />
+          <Route path='/ready-to-solup' element={<ReadyToSolup />} />
         </Routes>
       </div>
     </Provider>
