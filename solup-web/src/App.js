@@ -12,14 +12,14 @@ import EmployeeManagement from './pages/EmployeeManagement.js';
 import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
-import Start from './pages/NewMember/Start';
+import Start from './pages/NewCustomer/Start';
 import ProfitStatusPage from './pages/ProfitStatusPage';
 import MarginSettlement from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
-import AccountQuestion from './pages/NewMember/AccountQuestion';
-import AuthAccount from './pages/NewMember/AuthAccount';
-import RegisterStore from './pages/NewMember/RegisterStore';
-import ReadyToSolup from './pages/NewMember/ReadyToSolup';
+import AccountQuestion from './pages/NewCustomer/AccountQuestion';
+import AuthAccount from './pages/NewCustomer/AuthAccount';
+import RegisterStore from './pages/NewCustomer/RegisterStore';
+import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
