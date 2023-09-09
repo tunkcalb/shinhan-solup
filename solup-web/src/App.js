@@ -12,6 +12,9 @@ import EmployeeManagement from './pages/EmployeeManagement.js';
 import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
+import ProfitStatusPage from './pages/ProfitStatusPage';
+import MarginSettlement from './pages/MarginSettlement';
+import TradeHistory from './pages/TradeHistory';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +44,9 @@ function App() {
           <Route path="/employee-management" element={<EmployeeManagement />} />
           <Route path="/my-loans" element={<MyLoans />} />
           <Route path="/sales-analysis" element={<SalesAnalysis />} />
+          <Route path="/profit-status" element={<ProfitStatusPage />} />
+          <Route path="/margin-settlement" element={<MarginSettlement />} />
+          <Route path="/trade-history" element={<TradeHistory />} />
         </Routes>
       </div>
     </Provider>
