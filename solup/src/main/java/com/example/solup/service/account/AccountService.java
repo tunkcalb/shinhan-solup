@@ -95,24 +95,9 @@ public class AccountService {
                 .orElseThrow(() -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
 
         Long accountId = user.getAccount().getId();
-        
-        // 현재 유저의 이번달 거래내역 전체 불러옴
-        List<TradeHistory> tradeHistories = tradeHistoryRepository.findAllByDateBetweenAndAccountId(getCurrentMonthStart(), getCurrentMonthEnd(), accountId);
-
-        Integer income = 0;
-        Integer fixed = 0;
-        Integer variable = 0;
-        // 이번달의 수익과 고정비, 변동비를 가져와서 그것을 뺀 마진을 계산하고 넘겨준다.
-        for (TradeHistory tradeHistory : tradeHistories) {
-            if (tradeHistory.getCategory() == 1) {
-                income += tradeHistory.getDeposit();
-            } else if (tradeHistory.getFixed() != null) {
-                fixed += tradeHistory.getWithdraw();
-            } else if (tradeHistory.getVariable() != null) {
-                variable += tradeHistory.getWithdraw();
-            }
-        }
-
+        Integer income = tradeHistoryRepository.getCurrentMonthIncome(accountId);
+        Integer fixed = tradeHistoryRepository.getCurrentMonthFixed(accountId);
+        Integer variable = tradeHistoryRepository.getCurrentMonthVariable(accountId);
         Integer netProfit = income - fixed - variable;
 
         return CategorizedDto.Response
@@ -124,15 +109,15 @@ public class AccountService {
                 .build();
     }
 
-    private LocalDateTime getCurrentMonthStart() {
-        LocalDateTime currentDate = LocalDateTime.now();
-        YearMonth yearMonth = YearMonth.of(currentDate.getYear(), currentDate.getMonth());
-        return yearMonth.atDay(1).atStartOfDay();
-    }
-
-    private LocalDateTime getCurrentMonthEnd() {
-        LocalDateTime currentDate = LocalDateTime.now();
-        YearMonth yearMonth = YearMonth.of(currentDate.getYear(), currentDate.getMonth());
-        return yearMonth.atEndOfMonth().atTime(23, 59, 59);
-    }
+//    private LocalDateTime getCurrentMonthStart() {
+//        LocalDateTime currentDate = LocalDateTime.now();
+//        YearMonth yearMonth = YearMonth.of(currentDate.getYear(), currentDate.getMonth());
+//        return yearMonth.atDay(1).atStartOfDay();
+//    }
+//
+//    private LocalDateTime getCurrentMonthEnd() {
+//        LocalDateTime currentDate = LocalDateTime.now();
+//        YearMonth yearMonth = YearMonth.of(currentDate.getYear(), currentDate.getMonth());
+//        return yearMonth.atEndOfMonth().atTime(23, 59, 59);
+//    }
 }
