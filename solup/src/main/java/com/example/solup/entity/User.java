@@ -1,6 +1,7 @@
 package com.example.solup.entity;
 
 import com.example.solup.dto.user.UserDto;
+import com.example.solup.entity.staff.Staff;
 import lombok.*;
 
 import javax.persistence.*;
