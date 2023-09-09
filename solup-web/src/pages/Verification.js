@@ -37,7 +37,7 @@ function Verification() {
   return (
     <div>
       <Header title="회원가입" />
-      <div className="formContainer">
+      <div className="container">
         <div className="subTitle">본인인증을 진행해주세요</div>
         <div className="inputForm">
           <label htmlFor="name" className="inputTitle">이름</label>

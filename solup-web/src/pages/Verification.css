@@ -6,9 +6,9 @@
 
 }
 
-.formContainer {
+.container {
   min-height: calc(100vh - 6.5rem);
-  background-color: silver;
+  /* background-color: silver;  테스트 용입니다 */
   padding: 3rem 1.25rem 5.56rem;
   /* padding: 3rem 1.25rem 0rem; */
 }
@@ -31,7 +31,7 @@
   height: 3.1875rem;
   padding: 0;
   margin-top: 0.5rem;
-  
+
   border: none; 
   border-radius: 0.75rem;
   background: #EBEBEB;
