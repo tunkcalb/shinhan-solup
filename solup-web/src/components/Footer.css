@@ -9,14 +9,16 @@
 }
 
 .navBarContainer {
+  background-color: orange;
   margin-top: 1.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.11181rem;
+
 }
-.navBar img {
+/* .navBar img {
   background-color: pink;
   width: 2.46381rem;
   height: 2.46381rem;
-}
+  margin-right: 2.11181rem;
+} */

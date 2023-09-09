@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // react-router-dom의 useNavigate 사용
 import { useDispatch, useSelector } from "react-redux"; // useDispatch 사용
 import { setIsLoggedIn } from "../redux/actions"; // 액션 임포트
-import Header from '../components/Header';
+import "./Verification.css"
 
 function Signup() {
   const navigate = useNavigate();
@@ -41,8 +41,9 @@ function Signup() {
 
   return (
     <div>
+      
       {/* 아이디 입력란 */}
-      <div>
+      <div>        
         <label htmlFor="username">아이디</label>
         <input
           type="text"
