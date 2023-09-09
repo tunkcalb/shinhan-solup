@@ -11,7 +11,4 @@ import lombok.Setter;
 @Getter
 public class RequestDto {
     private String recipientPhoneNumber;
-    private String title;
-    private String content;
-
 }
