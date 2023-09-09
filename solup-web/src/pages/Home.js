@@ -2,6 +2,7 @@ import React from 'react';
 import AccountInfo from '../components/Home/AccountInfo.js'
 import ProfitStatus from '../components/Home/ProfitStatus.js'
 import ServiceMenu from '../components/Home/ServiceMenu.js'
+import NavBar from '../components/Footer.js';
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
         <AccountInfo />
         <ProfitStatus />
         <ServiceMenu />
+        <NavBar />
     </div>
   );
 }
