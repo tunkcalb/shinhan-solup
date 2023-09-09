@@ -1,4 +1,4 @@
-package com.example.solup.dto;
+package com.example.solup.dto.store;
 
 import com.example.solup.entity.Store;
 import lombok.AllArgsConstructor;
