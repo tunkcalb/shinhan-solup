@@ -12,6 +12,7 @@ import EmployeeManagement from './pages/EmployeeManagement.js';
 import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
+import Start from './pages/Start';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +42,7 @@ function App() {
           <Route path="/employee-management" element={<EmployeeManagement />} />
           <Route path="/my-loans" element={<MyLoans />} />
           <Route path="/sales-analysis" element={<SalesAnalysis />} />
+          <Route path="/start" element={<Start />} />
         </Routes>
       </div>
     </Provider>
