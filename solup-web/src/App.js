@@ -16,6 +16,7 @@ import Start from './pages/Start';
 import ProfitStatusPage from './pages/ProfitStatusPage';
 import MarginSettlement from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
+import AccountQuestion from './pages/AccountQuestion';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,6 +50,7 @@ function App() {
           <Route path="/profit-status" element={<ProfitStatusPage />} />
           <Route path="/margin-settlement" element={<MarginSettlement />} />
           <Route path="/trade-history" element={<TradeHistory />} />
+          <Route path='/account-question' element={<AccountQuestion />} />
         </Routes>
       </div>
     </Provider>
