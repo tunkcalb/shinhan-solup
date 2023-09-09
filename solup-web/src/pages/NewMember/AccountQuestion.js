@@ -14,7 +14,7 @@ function AccountQuestion () {
         <div className="subText">편리한 영업 관리를 위해</div>
         <div className="subText">신한은행 사업자 계좌가 필요해요</div>
         <div className="imgContainer"><img src={`${process.env.PUBLIC_URL}/questionImg.png`} alt="신한프렌즈2"/></div> 
-        <BlueButton title="예(계좌 인증하기)" destination="/signup"/>
+        <BlueButton title="예(계좌 인증하기)" destination="/auth-account"/>
         <WhiteButton title="아니오(계좌 개설하기)" destination=""/>
       </div>
     </div>
