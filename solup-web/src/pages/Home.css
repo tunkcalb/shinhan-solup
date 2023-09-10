@@ -1,0 +1,18 @@
+.homeLogo {
+  padding-top: 1rem;
+  height: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.homeLogo img{
+  width: 35%;
+}
+
+.homeContent{
+  margin: 0 20px 0;
+}
