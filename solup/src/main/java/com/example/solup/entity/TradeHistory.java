@@ -8,7 +8,9 @@ import com.example.solup.entity.expense.Variable;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 // 거래내역
 @Entity
@@ -25,13 +27,25 @@ public class TradeHistory {
     @Column
     private LocalDateTime date;
 
-    // 입금 금액
+    // 거래일자
+    @Column(name = "trade_date")
+    private LocalDate tradeDate;
+
+    // 거래시간
+    @Column(name = "trade_time")
+    private LocalTime tradeTime;
+
+    // 적요
     @Column
-    private Integer deposit;
+    private String briefs;
 
     // 출금 긍맥
     @Column
     private Integer withdraw;
+
+    // 입금 금액
+    @Column
+    private Integer deposit;
 
     // 거래 내용
     @Column
@@ -44,6 +58,10 @@ public class TradeHistory {
     // 입금 지출 구분(입금 : 1, 출금 : 2)
     @Column
     private Integer category;
+
+    // 거래점명
+    @Column
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
