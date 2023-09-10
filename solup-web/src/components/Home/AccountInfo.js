@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AccountInfo.css';
+import MiniBtn from '../MiniBtn';
 
 function AccountInfo() {
   // 계좌 정보가 등록 여부 확인
@@ -31,7 +32,7 @@ function AccountInfo() {
         <div className='noAccount'>
           <div>아직 거래내역이 없네요!</div>
           <div>영업 계좌 정보를 등록해주세요</div>
-          <button onClick={redirectToAccountRegistration}>계좌 등록하기</button>
+          <MiniBtn text="등록하기" onClick={redirectToAccountRegistration} />
         </div>
       )}
     </div>

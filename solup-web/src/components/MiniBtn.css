@@ -1,0 +1,17 @@
+.miniBtn{
+  display: flex;
+  width: 7.25rem;
+  height: 2.125rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #306FE1;
+  border: none;
+  border-radius: 0.625rem;
+
+  font-family: "Be Vietnam Pro";
+  font-weight: bold;
+  font-size:  1rem;
+  color: white;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./ProfitStatus.css"
+import MiniBtn from '../MiniBtn';
 
 function ProfitStatus() {
   // 거래내역 분류 여부를 상태로 관리합니다.
@@ -33,7 +34,7 @@ function ProfitStatus() {
         <div className='noCategory'>
           <div>쉽고 빠른 손익 분석을 위해</div>
           <div>최초 카테고리 분류 1회가 필요해요</div>
-          <button onClick={redirectToClassificationPage}>거래내역 분류하기</button>
+          <MiniBtn text="분류하기" onClick={redirectToClassificationPage} />
         </div>
       )}
     </div>
