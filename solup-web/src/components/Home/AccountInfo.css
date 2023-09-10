@@ -1,0 +1,34 @@
+.infoTitle{
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.25rem;
+
+  margin-bottom: 0.88rem;
+}
+
+.noAccount{
+  height: 8.5625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 1rem;
+  border: 1px solid #EBEBEB;
+  background: white;
+}
+
+.noAccount div{
+text-align: center;
+font-family: Be Vietnam Pro;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -0.02rem;
+}
+
+.noAccount button{
+  margin-top: 0.5rem;
+}

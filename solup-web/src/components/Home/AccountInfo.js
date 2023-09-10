@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AccountInfo.css';
 
 function AccountInfo() {
   // 계좌 정보가 등록 여부 확인
@@ -19,7 +20,7 @@ function AccountInfo() {
 
   return (
     <div>
-      <h2>사업자 계좌 정보</h2>
+      <div className='infoTitle'>사업자 계좌 정보</div>
       {isAccountRegistered ? (
         <div>
           <p>은행명: {accountData.bankName}</p>
@@ -27,9 +28,9 @@ function AccountInfo() {
           <p>계좌 잔액: {accountData.accountBalance}</p>
         </div>
       ) : (
-        <div>
-          <p>아직 거래내역이 없네요!</p>
-          <p>영업 계좌 정보를 등록해주세요</p>
+        <div className='noAccount'>
+          <div>아직 거래내역이 없네요!</div>
+          <div>영업 계좌 정보를 등록해주세요</div>
           <button onClick={redirectToAccountRegistration}>계좌 등록하기</button>
         </div>
       )}
