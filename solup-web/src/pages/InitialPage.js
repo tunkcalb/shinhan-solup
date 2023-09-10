@@ -5,6 +5,9 @@ import logo from '../assets/solup_logo_blue.png'; // Import the image
 function InitialPage() {
   return (
     <div className="initial-page">
+      <div>
+        <img src={logo} alt="SOLUP Logo" />
+      </div>
       <p>SOL로 하는 손 쉬운 영업, 쏠업</p>
       <div>
         <Link to="/login">
@@ -14,7 +17,6 @@ function InitialPage() {
           <button>회원가입</button>
         </Link>
       </div>
-      <img src={logo} alt="SOLUP Logo" />
     </div>
   );
 }
