@@ -185,5 +185,22 @@ public class UserService {
                 .salary(request.getSalary())
                 .build();
     }
+
+    public List<StaffDto.Response> getStaffes(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        List<Staff> staffes = user.getStaffes();
+
+        return staffes.stream()
+                .map(staff -> StaffDto.Response.builder()
+                        .name(staff.getName())
+                        .bank(staff.getBank())
+                        .account(staff.getAccount())
+                        .salary(staff.getSalary())
+                        .build())
+                .collect(Collectors.toList());
+
+    }
 }
 

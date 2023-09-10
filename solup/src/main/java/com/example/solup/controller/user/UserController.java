@@ -9,6 +9,8 @@ import com.example.solup.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 public class UserController {
@@ -48,5 +50,11 @@ public class UserController {
     public Response<StaffDto.Response> registStaff(@PathVariable("userId") Long userId, @RequestBody StaffDto.Request request) {
         StaffDto.Response response = userService.registStaff(userId, request);
         return new Response<>("201", "스태프 등록 성공", response);
+    }
+
+    @GetMapping("user/staff/{userId}")
+    public Response<List<StaffDto.Response>> getStaffes(@PathVariable("userId") Long userId) {
+        List<StaffDto.Response> responses = userService.getStaffes(userId);
+        return new Response<>("200", "스태프 조회 성공", responses);
     }
 }
