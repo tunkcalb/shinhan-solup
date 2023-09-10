@@ -12,7 +12,7 @@
 }
 
 .noAccount{
-  height: 8.5625rem;
+  height: 10.625rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,16 +21,17 @@
   border-radius: 1rem;
   border: 1px solid #EBEBEB;
   background: white;
+  box-shadow: 0px 5px 50px 0px rgba(48, 111, 225, 0.10);
 }
 
 .noAccount div{
-text-align: center;
-font-family: Be Vietnam Pro;
-font-size: 1rem;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: -0.02rem;
+  text-align: center;
+  font-family: Be Vietnam Pro;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02rem;
 }
 
 .noAccount button{

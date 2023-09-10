@@ -1,3 +1,7 @@
+.statusContainer{
+  margin-bottom: 2rem;
+}
+
 .profitTitle{
   font-family: "Be Vietnam Pro";
   font-style: normal;
@@ -8,7 +12,7 @@
 }
 
 .noCategory{
-  height: 8.5625rem;
+  height: 10.625rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +21,7 @@
   border-radius: 1rem;
   border: 1px solid #EBEBEB;
   background: white;
+  box-shadow: 0px 5px 50px 0px rgba(48, 111, 225, 0.10);
 }
 
 .noCategory div{

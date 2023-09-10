@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import "./ServiceMenu.css";
 
 function ServiceMenu() {
 
@@ -8,7 +9,7 @@ function ServiceMenu() {
 
   return (
     <div>
-      <h2>간편 메뉴</h2>
+      <div className='menuTitle'>간편 메뉴</div>
       <button onClick={() => {
         navigate("/sales-analysis")
       }}>매출분석</button>

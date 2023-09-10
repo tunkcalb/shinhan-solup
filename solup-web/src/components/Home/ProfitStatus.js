@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./ProfitStatus.css"
+import "./ProfitStatus.css";
 import MiniBtn from '../MiniBtn';
 
 function ProfitStatus() {
@@ -21,7 +21,7 @@ function ProfitStatus() {
   };
 
   return (
-    <div>
+    <div className='statusContainer'>
       <div className='profitTitle'>우리가게 손익 현황</div>
       {isClassified ? (
         <div>

@@ -20,7 +20,7 @@ function Home() {
         </div>
           <AccountInfo />
           <ProfitStatus />
-          <ServiceMenu />
+          {/* <ServiceMenu /> */}
       </div>
         <NavBar />
     </div>
