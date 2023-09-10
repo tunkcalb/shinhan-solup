@@ -6,13 +6,14 @@
   font-family: "Be Vietnam Pro";
   font-style: normal;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 
-  margin-bottom: 0.88rem;
+  margin-top: 2.87rem;
+  margin-bottom: 0.8rem;
 }
 
 .noCategory{
-  height: 10.625rem;
+  height: 19.4375rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,4 +37,8 @@ letter-spacing: -0.02rem;
 
 .noCategory button{
   margin-top: 0.5rem;
+}
+
+.beforeImg img{
+  width: 60%;
 }

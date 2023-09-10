@@ -32,6 +32,9 @@ function ProfitStatus() {
         </div>
       ) : (
         <div className='noCategory'>
+          <div className='beforeImg'>
+            <img src={`${process.env.PUBLIC_URL}/profitImg.svg`} alt="분류전이미지"/>
+          </div>
           <div>쉽고 빠른 손익 분석을 위해</div>
           <div>최초 카테고리 분류 1회가 필요해요</div>
           <MiniBtn text="분류하기" onClick={redirectToClassificationPage} />

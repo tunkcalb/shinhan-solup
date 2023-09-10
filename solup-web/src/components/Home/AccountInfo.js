@@ -21,9 +21,16 @@ function AccountInfo() {
 
   return (
     <div className='infoContainer'>
-      <div className='infoTitle'>사업자 계좌 정보</div>
+      <div className='infoTitle'>
+        {/* 가게 정보, 사용자 이름 받아와서 적용되어야 함 */}
+        <div className='normalText'>
+          <span>신한커피 </span>
+          <span className='boldText'>김싸피 </span>
+          <span>사장님</span>
+        </div>
+      </div>
       {isAccountRegistered ? (
-        <div>
+        <div className='accountContainer'>
           <p>은행명: {accountData.bankName}</p>
           <p>계좌번호: {accountData.accountNumber}</p>
           <p>계좌 잔액: {accountData.accountBalance}</p>
@@ -31,7 +38,7 @@ function AccountInfo() {
       ) : (
         <div className='noAccount'>
           <div>아직 거래내역이 없네요!</div>
-          <div>영업 계좌 정보를 등록해주세요</div>
+          <div>사업자 계좌를 등록해주세요</div>
           <MiniBtn text="등록하기" onClick={redirectToAccountRegistration} />
         </div>
       )}

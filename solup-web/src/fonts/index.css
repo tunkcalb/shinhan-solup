@@ -5,11 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:#333E63;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+
 }
 
 @font-face {
@@ -36,3 +38,4 @@ code {
   font-weight: lighter ;
   src: url("BeVietnamPro-Light.woff") format("woff");
 }
+

@@ -1,3 +1,7 @@
+.accountContainer{
+
+}
+
 .infoContainer{
   margin-bottom: 2rem;
 }
@@ -6,13 +10,14 @@
   font-family: "Be Vietnam Pro";
   font-style: normal;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 
-  margin-bottom: 0.88rem;
+  margin-top: 2.87rem;
+  margin-bottom: 0.8rem;
 }
 
 .noAccount{
-  height: 10.625rem;
+  height: 8.5625rem;  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,4 +41,21 @@
 
 .noAccount button{
   margin-top: 0.5rem;
+}
+
+.normalText{
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.25rem; /* 111.111% */
+  letter-spacing: -0.015rem;
+  /* margin-bottom: 2.25rem; */
+}
+
+.boldText{
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
