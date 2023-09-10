@@ -1,17 +1,20 @@
 package com.example.solup.service.account;
 
 import com.example.solup.dto.*;
+import com.example.solup.dto.account.AuthenticationDto;
 import com.example.solup.entity.Account;
 import com.example.solup.entity.TradeHistory;
 import com.example.solup.entity.User;
 import com.example.solup.entity.expense.Fixed;
 import com.example.solup.entity.expense.Variable;
+import com.example.solup.exception.type.NotSameDataValueException;
 import com.example.solup.repository.account.AccountRepository;
 import com.example.solup.repository.account.TradeHistoryRepository;
 import com.example.solup.repository.expense.FixedRepository;
 import com.example.solup.repository.expense.VariableRepository;
 import com.example.solup.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +32,9 @@ public class AccountService {
     private final UserRepository userRepository;
     private final FixedRepository fixedRepository;
     private final VariableRepository variableRepository;
+
+    @Value("${account.check}")
+    private String accountContent;
 
     public List<TradeHistoryDto> findAll(long accountId) {
         return tradeHistoryRepository.findByAccountId(accountId)
@@ -106,6 +112,24 @@ public class AccountService {
                 .fixed(fixed)
                 .variable(variable)
                 .netProfit(netProfit)
+                .build();
+    }
+
+    public AuthenticationDto.Response checkAccount(AuthenticationDto.Request request) {
+        Account account = accountRepository.findByNumber(request.getAccountNumber());
+        LocalDateTime date = request.getDate();
+        int deposit = 1;
+
+        TradeHistory tradeHistory = TradeHistory.builder()
+                .account(account)
+                .date(date)
+                .deposit(deposit)
+                .content(accountContent)
+                .build();
+        tradeHistoryRepository.save(tradeHistory);
+
+        return AuthenticationDto.Response.builder()
+                .content(accountContent)
                 .build();
     }
 
