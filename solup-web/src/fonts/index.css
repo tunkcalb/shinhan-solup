@@ -27,6 +27,12 @@ code {
 @font-face {
   font-family: "Be Vietnam Pro";
   font-style: normal;
+  font-weight: 500;
+  src: url("BeVietnamPro-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
   font-weight: lighter ;
   src: url("BeVietnamPro-Light.woff") format("woff");
 }
