@@ -5,8 +5,7 @@ import com.example.solup.entity.expense.Fixed;
 import com.example.solup.entity.expense.Living;
 import com.example.solup.entity.expense.Surplus;
 import com.example.solup.entity.expense.Variable;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +14,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TradeHistory {
     @Id @GeneratedValue
     private Long id;
