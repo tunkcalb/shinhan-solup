@@ -5,6 +5,7 @@ const initialState = {
     isLoggedIn: false,
     isAccountRegistered: false,
     userId: null,
+    userName: null,
   };
   
   // 리듀서
@@ -16,6 +17,8 @@ const initialState = {
         return { ...state, isAccountRegistered: action.payload };
       case 'SET_USER_ID':
         return { ...state, userId: action.payload };
+      case 'SET_USER_NAME':
+        return { ...state, userName: action.payload };
       default:
         return state;
     }

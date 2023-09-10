@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'; // useDispatch 임포트
-import { setIsLoggedIn, setUserId  } from '../redux/actions'; // 액션 임포트
+import { useDispatch } from 'react-redux';
+import { setIsLoggedIn, setUserId, setUserName } from '../redux/actions';
 import Header from '../components/Header';
 import axios from 'axios';
 
@@ -8,27 +8,26 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  
+
   const handleLogin = async (e) => {
     e.preventDefault();
+
     // 로그인 API 호출
     try {
       const response = await axios.post('/user/login', {
         "username": username,
-        "password": password
+        "password": password,
       });
-      console.log(response.data)
+      console.log(response.data);
       const responseData = response.data;
-
       if (responseData.code === '200') { // 로그인 성공
         const userId = responseData.data.id;
-        // Redux를 사용하여 isLoggedIn 상태를 true로 변경
+        const userName = responseData.data.name;
+        console.log(userId, userName)
         dispatch(setIsLoggedIn(true));
-        // Redux를 사용하여 userId 상태를 저장
         dispatch(setUserId(userId));
-
-        // /home 페이지로 이동
-        window.location.href = '/home'; // 현재 페이지를 새로 고침하면서 이동
+        dispatch(setUserName(userName));
+        window.location.href = '/home';
       } else {
         alert('로그인 실패. 사용자 이름과 비밀번호를 확인하세요.');
       }
@@ -42,7 +41,7 @@ function Login() {
     <div className="login-container">
       <Header title="로그인" />
       <div className='container'>
-        <form onSubmit={handleLogin} >
+        <form onSubmit={handleLogin}>
           <div className="inputForm">
             <label htmlFor="username" className="inputTitle">아이디</label>
             <input
