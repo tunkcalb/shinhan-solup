@@ -10,7 +10,7 @@ function AccountInfo() {
   const accountData = {
     bankName: '신한은행',
     accountNumber: '123-456-7890',
-    accountBalance: '1,000,000원',
+    accountBalance: '1,000,000',
   };
 
   // 계좌 등록 페이지로 이동하는 함수
@@ -31,9 +31,19 @@ function AccountInfo() {
       </div>
       {isAccountRegistered ? (
         <div className='accountContainer'>
-          <p>은행명: {accountData.bankName}</p>
-          <p>계좌번호: {accountData.accountNumber}</p>
-          <p>계좌 잔액: {accountData.accountBalance}</p>
+          <img src={`${process.env.PUBLIC_URL}/profitCard.png`} alt="계좌카드" className='cardImg'/>
+          <div className="textOverlay">
+            <div className='bankName'>
+              <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} alt="신한로고" className='shLogo'/>
+              <span> {accountData.bankName}</span>
+              <span> {accountData.accountNumber}</span> 
+            </div>
+            
+            <div className='balance'>
+              <span className='boldBalance'>{accountData.accountBalance}</span>
+              <span className='normalBalance'> 원</span>
+            </div>
+          </div>
         </div>
       ) : (
         <div className='noAccount'>
