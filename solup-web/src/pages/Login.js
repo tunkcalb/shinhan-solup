@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setIsLoggedIn } from '../redux/actions';
 import axios from 'axios';
@@ -8,6 +8,14 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+
+  // 페이지가 로드될 때, 쿠키에서 로그인 상태를 확인
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      dispatch(setIsLoggedIn(true));
+    }
+  }, [dispatch]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,6 +29,8 @@ function Login() {
       const responseData = response.data;
 
       if (responseData.message === '로그인 성공') {
+        // 로그인 성공 시 쿠키에 로그인 상태 저장
+        localStorage.setItem('isLoggedIn', 'true');
         dispatch(setIsLoggedIn(true));
         window.location.href = '/home';
       } else {
