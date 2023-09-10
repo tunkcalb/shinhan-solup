@@ -1,7 +1,6 @@
 import React from 'react';
 import AccountInfo from '../components/Home/AccountInfo.js'
 import ProfitStatus from '../components/Home/ProfitStatus.js'
-import ServiceMenu from '../components/Home/ServiceMenu.js'
 import NavBar from '../components/Footer.js';
 import "./Home.css"
 
@@ -18,9 +17,8 @@ function Home() {
           <span className='boldText'>김싸피 </span>
           <span>사장님</span>
         </div>
-          <AccountInfo />
-          <ProfitStatus />
-          {/* <ServiceMenu /> */}
+        <AccountInfo />
+        <ProfitStatus />
       </div>
         <NavBar />
     </div>
