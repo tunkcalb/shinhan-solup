@@ -15,13 +15,13 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/signup")
-    public Response<UserDto> signup(@RequestBody UserDto userDto) throws Exception {
+    public Response<UserDto> signup(@RequestBody UserDto userDto) {
         UserDto response = userService.save(userDto);
         return new Response<>("201", "회원가입 성공", response);
     }
 
     @PostMapping("/user/login")
-    public Response<UserDto> login(@RequestBody UserDto userDto) throws Exception {
+    public Response<UserDto> login(@RequestBody UserDto userDto) {
         UserDto response = userService.login(userDto);
         return new Response<>("200", "로그인 성공", response);
     }
@@ -37,7 +37,6 @@ public class UserController {
         RevenueAnalysisDto.Response response = userService.getRevenueAnalysis(userId);
         return new Response<>("200", "매출 분석 완료", response);
     }
-
 
     @PostMapping("/user/store/{userId}")
     public Response<StoreDto.Response> registStore(@PathVariable Long userId, @RequestBody StoreDto.Request request) {
