@@ -3,6 +3,7 @@ package com.example.solup.service.user;
 import com.example.solup.dto.StaffDto;
 import com.example.solup.dto.revenue.RevenueAnalysisDto;
 import com.example.solup.dto.store.StoreDto;
+import com.example.solup.dto.user.RegistAccountDto;
 import com.example.solup.dto.user.UserDto;
 import com.example.solup.entity.*;
 import com.example.solup.entity.expense.Variable;
@@ -20,10 +21,7 @@ import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -33,7 +31,9 @@ public class UserService {
     private final StoreRepository storeRepository;
     private final CardRepository cardRepository;
     private final VariableRepository variableRepository;
+    private final AccountRepository accountRepository;
     private final StaffRepository staffRepository;
+  
     private String delivery = "땡겨요";
 
     public UserDto save(UserDto userDto) throws DuplicatedValueException {
@@ -162,6 +162,24 @@ public class UserService {
         return response;
     }
 
+    public RegistAccountDto.Response registAccount(Long userId, RegistAccountDto.Request request) {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        User user = optionalUser.get();
+        if (user == null) {
+            throw new NotSameDataValueException("존재하지 않는 회원입니다.");
+        }
+
+        Account account = accountRepository.findByNumber(request.getAccountNumber());
+        if (account == null) throw new NoSuchElementException("존재하지 않는 계좌입니다.");
+
+        user.setAccount(account);
+
+        userRepository.save(user);
+        return RegistAccountDto.Response.builder()
+                .accountId(account.getId())
+                .build();
+    }
+
     public StaffDto.Response registStaff(Long userId, StaffDto.Request request) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
@@ -202,5 +220,6 @@ public class UserService {
                 .collect(Collectors.toList());
 
     }
+
 }
 
