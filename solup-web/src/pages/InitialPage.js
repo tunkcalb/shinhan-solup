@@ -1,17 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/solup_logo_blue.png'; // Import the image
 
 function InitialPage() {
   return (
     <div className="initial-page">
-      <h2>환영합니다</h2>
-      <p>로그인하거나 회원가입하세요.</p>
-      <Link to="/login">
-        <button>로그인</button>
-      </Link>
-      <Link to="/signup">
-        <button>회원가입</button>
-      </Link>
+      <div>
+        <img src={logo} alt="SOLUP Logo" />
+      </div>
+      <p>SOL로 하는 손 쉬운 영업, 쏠업</p>
+      <div>
+        <Link to="/login">
+          <button>로그인</button>
+        </Link>
+        <Link to="/verification">
+          <button>회원가입</button>
+        </Link>
+      </div>
     </div>
   );
 }

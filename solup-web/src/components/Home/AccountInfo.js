@@ -14,6 +14,7 @@ function AccountInfo() {
   // 계좌 등록 페이지로 이동하는 함수
   const redirectToAccountRegistration = () => {
     // 계좌 등록 페이지로 이동하는 코드
+    setIsAccountRegistered(true);
   };
 
   return (

@@ -1,23 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css'
 
-function Header({ logoImage, title }) {
-  const history = useHistory();
-
-  const goBack = () => {
-    history.goBack();
-  };
-
+function Header ({ title }) {
   return (
-    <div className="header">
-      <button className="back-button" onClick={goBack}>
-        뒤
-      </button>
-      <h1 className="page-title">{title}</h1>
-      <img src={logoImage} alt="LogoImage" />
+    <div className='header'>
+      <div className='headerContainer'>
+        <Link to="/"><img src={`${process.env.PUBLIC_URL}/backBtn.png`} alt="뒤로가기버튼"/></Link> 
+        <span className='headerText'>{title}</span>
+      </div>
     </div>
   );
-}
+};
+
 
 export default Header;
