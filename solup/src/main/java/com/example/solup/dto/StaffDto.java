@@ -21,7 +21,7 @@ public class StaffDto {
         private Integer hourlyRate;
         private Integer workDay;
         private Integer workHour;
-        private LocalDateTime payDay;
+        private Integer payDay;
         private Integer salary;
     }
 

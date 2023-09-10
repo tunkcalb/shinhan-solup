@@ -40,8 +40,9 @@ public class Staff {
     @Column
     private Integer workHour;
 
+    // 급여일
     @Column
-    private LocalDateTime payDay;
+    private Integer payDay;
 
     // 월급
     @Column
