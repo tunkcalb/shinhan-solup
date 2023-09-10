@@ -1,10 +1,17 @@
-// redux/actions.js
 
-// 액션 타입
 export const SET_IS_LOGGED_IN = "SET_IS_LOGGED_IN";
 
-// 액션 생성자
 export const setIsLoggedIn = (value) => ({
   type: SET_IS_LOGGED_IN,
   value,
+});
+
+export const setIsAccountRegistered = (isAccountRegistered) => ({
+  type: 'SET_IS_ACCOUNT_REGISTERED',
+  payload: isAccountRegistered,
+});
+
+export const setUserId = (userId) => ({
+  type: 'SET_USER_ID',
+  payload: userId,
 });
