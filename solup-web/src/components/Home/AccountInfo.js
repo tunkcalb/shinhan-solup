@@ -19,7 +19,7 @@ function AccountInfo() {
   };
 
   return (
-    <div>
+    <div className='infoContainer'>
       <div className='infoTitle'>사업자 계좌 정보</div>
       {isAccountRegistered ? (
         <div>

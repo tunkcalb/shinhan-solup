@@ -1,8 +1,4 @@
-.infoContainer{
-  margin-bottom: 2rem;
-}
-
-.infoTitle{
+.profitTitle{
   font-family: "Be Vietnam Pro";
   font-style: normal;
   font-weight: bold;
@@ -11,7 +7,7 @@
   margin-bottom: 0.88rem;
 }
 
-.noAccount{
+.noCategory{
   height: 8.5625rem;
   display: flex;
   flex-direction: column;
@@ -23,7 +19,7 @@
   background: white;
 }
 
-.noAccount div{
+.noCategory div{
 text-align: center;
 font-family: Be Vietnam Pro;
 font-size: 1rem;
@@ -33,6 +29,6 @@ line-height: normal;
 letter-spacing: -0.02rem;
 }
 
-.noAccount button{
+.noCategory button{
   margin-top: 0.5rem;
 }

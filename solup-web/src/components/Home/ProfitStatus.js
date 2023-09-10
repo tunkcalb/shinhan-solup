@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./ProfitStatus.css"
 
 function ProfitStatus() {
   // 거래내역 분류 여부를 상태로 관리합니다.
@@ -20,7 +21,7 @@ function ProfitStatus() {
 
   return (
     <div>
-      <h2>우리가게 손익 현황</h2>
+      <div className='profitTitle'>우리가게 손익 현황</div>
       {isClassified ? (
         <div>
           <p>이번달 매출: {classifiedData.monthlyRevenue}</p>
@@ -29,9 +30,9 @@ function ProfitStatus() {
           <p>마진: {classifiedData.margin}</p>
         </div>
       ) : (
-        <div>
-          <p>쉽고 빠른 손익 분석을 위해</p>
-          <p>최초 카테고리 분류 1회가 필요해요</p>
+        <div className='noCategory'>
+          <div>쉽고 빠른 손익 분석을 위해</div>
+          <div>최초 카테고리 분류 1회가 필요해요</div>
           <button onClick={redirectToClassificationPage}>거래내역 분류하기</button>
         </div>
       )}
