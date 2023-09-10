@@ -26,8 +26,7 @@ import java.util.Objects;
 public class TradeHistoryInitializer implements CommandLineRunner {
 
     private final TradeHistoryRepository tradeHistoryRepository;
-
-    @Transactional
+    
     @Override
     public void run(String... args) throws Exception {
         String jsonPath = "src/main/resources/static/DummyData.json";
