@@ -1,25 +1,44 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'; // useDispatch 임포트
-import { setIsLoggedIn } from '../redux/actions'; // 액션 임포트
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setIsLoggedIn } from '../redux/actions';
+import axios from 'axios';
 import Header from '../components/Header';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch(); // useDispatch 훅 사용
+  const dispatch = useDispatch();
 
-  const handleLogin = (e) => {
-    e.preventDefault(); // 폼 제출 기본 동작 방지
-
-    // 로그인 로직을 구현하고 상태를 업데이트합니다.
-    // 여기에서는 예제로 사용자 이름과 비밀번호를 확인하는 것으로 가정합니다.
-    if (username === 'admin' && password === 'admin') {
-      // Redux를 사용하여 isLoggedIn 상태를 true로 변경
+  // 페이지가 로드될 때, 쿠키에서 로그인 상태를 확인
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
       dispatch(setIsLoggedIn(true));
-      // /home 페이지로 이동
-      window.location.href = '/home'; // 현재 페이지를 새로고침하면서 이동
-    } else {
-      alert('로그인 실패. 사용자 이름과 비밀번호를 확인하세요.');
+    }
+  }, [dispatch]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('/user/login', {
+        "username": username,
+        "password": password
+      });
+
+      const responseData = response.data;
+
+      if (responseData.message === '로그인 성공') {
+        // 로그인 성공 시 쿠키에 로그인 상태 저장
+        localStorage.setItem('isLoggedIn', 'true');
+        dispatch(setIsLoggedIn(true));
+        window.location.href = '/home';
+      } else {
+        alert('로그인 실패. 사용자 이름과 비밀번호를 확인하세요.');
+      }
+    } catch (error) {
+      console.error('API 요청 실패:', error);
+      alert('로그인 요청 중 오류가 발생했습니다.');
     }
   };
 
@@ -27,7 +46,7 @@ function Login() {
     <div className="login-container">
       <Header title="로그인" />
       <div className='container'>
-        <form onSubmit={handleLogin} >
+        <form onSubmit={handleLogin}>
           <div className="inputForm">
             <label htmlFor="username" className="inputTitle">아이디</label>
             <input
