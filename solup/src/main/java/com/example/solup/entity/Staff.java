@@ -1,10 +1,11 @@
-package com.example.solup.entity.staff;
+package com.example.solup.entity;
 
 import com.example.solup.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,23 +19,34 @@ public class Staff {
 
     @Column
     private String name;
-
+    
+    // 급여 입금 은행
+    @Column
+    private String bank;
+    
+    // 급여 입금 계좌
     @Column
     private String account;
 
     // 시급
     @Column(name = "hourly_rate")
     private Integer hourlyRate;
+    
+    // 한달 총 근무일 수
+    @Column
+    private Integer workDay;
+    
+    // 하루 근무시간
+    @Column
+    private Integer workHour;
+
+    @Column
+    private LocalDateTime payDay;
 
     // 월급
     @Column
     private Integer salary;
-    
-    // 근무 요일 기록
-    @OneToMany(mappedBy = "staff", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private List<WorkDay> workDays = new ArrayList<>();
 
-    
     // User(=사장)과 연결
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

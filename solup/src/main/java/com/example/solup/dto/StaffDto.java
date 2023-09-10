@@ -1,11 +1,11 @@
 package com.example.solup.dto;
 
-import com.example.solup.entity.staff.WorkDay;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -16,12 +16,13 @@ public class StaffDto {
     @AllArgsConstructor
     public static class Request{
         private String name;
+        private String bank;
         private String account;
         private Integer hourlyRate;
+        private Integer workDay;
+        private Integer workHour;
+        private LocalDateTime payDay;
         private Integer salary;
-        private List<String> dayOfWeek;
-        private List<Integer> startTime;
-        private List<Integer> endTime;
     }
 
     @Data
@@ -30,6 +31,8 @@ public class StaffDto {
     @AllArgsConstructor
     public static class Response{
         private String name;
-        private List<WorkDay> workDays;
+        private String bank;
+        private String account;
+        private Integer salary;
     }
 }

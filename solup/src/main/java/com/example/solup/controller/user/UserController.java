@@ -1,6 +1,7 @@
 package com.example.solup.controller.user;
 
 import com.example.solup.dto.Response;
+import com.example.solup.dto.StaffDto;
 import com.example.solup.dto.revenue.RevenueAnalysisDto;
 import com.example.solup.dto.store.StoreDto;
 import com.example.solup.dto.user.UserDto;
@@ -43,4 +44,9 @@ public class UserController {
         StoreDto.Response response = userService.registStore(userId, request);
         return new Response<>("200", "가게 등록 성공", response);
     }
+
+//    @PostMapping("/user/staff/{userId}")
+//    public Response<StaffDto.Response> registStaff(@PathVariable("userId") Long userId, @RequestBody StaffDto.Request request) {
+//        StaffDto.Response response = userService.regi
+//    }
 }
