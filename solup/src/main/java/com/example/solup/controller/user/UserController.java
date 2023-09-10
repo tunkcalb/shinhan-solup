@@ -44,8 +44,9 @@ public class UserController {
         return new Response<>("200", "가게 등록 성공", response);
     }
 
-//    @PostMapping("/user/staff/{userId}")
-//    public Response<StaffDto.Response> registStaff(@PathVariable("userId") Long userId, @RequestBody StaffDto.Request request) {
-//        StaffDto.Response response = userService.regi
-//    }
+    @PostMapping("/user/staff/{userId}")
+    public Response<StaffDto.Response> registStaff(@PathVariable("userId") Long userId, @RequestBody StaffDto.Request request) {
+        StaffDto.Response response = userService.registStaff(userId, request);
+        return new Response<>("201", "스태프 등록 성공", response);
+    }
 }
