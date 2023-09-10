@@ -15,6 +15,7 @@ import Verification from './pages/Verification.js';
 import ProfitStatusPage from './pages/ProfitStatusPage';
 import MarginSettlement from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
+import FinanceProductsPage from './pages/FinanceProductsPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -47,6 +48,7 @@ function App() {
           <Route path="/profit-status" element={<ProfitStatusPage />} />
           <Route path="/margin-settlement" element={<MarginSettlement />} />
           <Route path="/trade-history" element={<TradeHistory />} />
+          <Route path="/finance-products" element={<FinanceProductsPage />} />
         </Routes>
       </div>
     </Provider>
