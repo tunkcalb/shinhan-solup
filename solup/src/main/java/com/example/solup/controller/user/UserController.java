@@ -4,8 +4,9 @@ import com.example.solup.dto.Response;
 import com.example.solup.dto.StaffDto;
 import com.example.solup.dto.revenue.RevenueAnalysisDto;
 import com.example.solup.dto.store.StoreDto;
+import com.example.solup.dto.user.LoginDto;
 import com.example.solup.dto.user.RegistAccountDto;
-import com.example.solup.dto.user.UserDto;
+import com.example.solup.dto.user.SignupDto;
 import com.example.solup.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +19,14 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/signup")
-    public Response<UserDto> signup(@RequestBody UserDto userDto) {
-        UserDto response = userService.save(userDto);
+    public Response<SignupDto.Response> signup(@RequestBody SignupDto.Request request) {
+        SignupDto.Response response = userService.save(request);
         return new Response<>("201", "회원가입 성공", response);
     }
 
     @PostMapping("/user/login")
-    public Response<UserDto> login(@RequestBody UserDto userDto) {
-        UserDto response = userService.login(userDto);
+    public Response<LoginDto.Response> login(@RequestBody LoginDto.Request request) {
+        LoginDto.Response response = userService.login(request);
         return new Response<>("200", "로그인 성공", response);
     }
 

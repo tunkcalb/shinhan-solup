@@ -3,15 +3,15 @@ package com.example.solup.service.user;
 import com.example.solup.dto.StaffDto;
 import com.example.solup.dto.revenue.RevenueAnalysisDto;
 import com.example.solup.dto.store.StoreDto;
+import com.example.solup.dto.user.LoginDto;
 import com.example.solup.dto.user.RegistAccountDto;
-import com.example.solup.dto.user.UserDto;
+import com.example.solup.dto.user.SignupDto;
 import com.example.solup.entity.*;
 import com.example.solup.entity.expense.Variable;
 import com.example.solup.exception.type.DuplicatedValueException;
 import com.example.solup.exception.type.NotSameDataValueException;
 import com.example.solup.repository.StaffRepository;
 import com.example.solup.repository.account.AccountRepository;
-import com.example.solup.repository.account.TradeHistoryRepository;
 import com.example.solup.repository.card.CardRepository;
 import com.example.solup.repository.expense.VariableRepository;
 import com.example.solup.repository.user.StoreRepository;
@@ -36,24 +36,31 @@ public class UserService {
   
     private String delivery = "땡겨요";
 
-    public UserDto save(UserDto userDto) throws DuplicatedValueException {
-        if (userRepository.findByUsername(userDto.getUsername()) == null) {
-            return userRepository.save(userDto.toEnity()).toDto();
+    public SignupDto.Response save(SignupDto.Request request) throws DuplicatedValueException {
+        if (userRepository.findByUsername(request.getUsername()) == null) {
+            User user = userRepository.save(request.toEnity());
+            return SignupDto.Response.builder()
+                    .id(user.getId())
+                    .name(user.getName())
+                    .build();
         }
         throw new DuplicatedValueException("이미 존재하는 아이디입니다");
     }
 
-    public UserDto login(UserDto userDto) throws NotSameDataValueException {
-        User user = userRepository.findByUsername(userDto.getUsername());
+    public LoginDto.Response login(LoginDto.Request request) throws NotSameDataValueException {
+        User user = userRepository.findByUsername(request.getUsername());
         if (user == null) {
             throw new NotSameDataValueException("존재하지 않는 ID입니다");
         }
         String password = user.getPassword();
-        if (!userDto.getPassword().equals(password)) {
+        if (!request.getPassword().equals(password)) {
             throw new NotSameDataValueException("비밀번호가 일치하지 않습니다.");
 
         }
-        return user.toDto();
+        return LoginDto.Response.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .build();
     }
 
     public String findByUsername(String username) {

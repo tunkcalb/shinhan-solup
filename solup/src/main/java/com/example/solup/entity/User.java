@@ -1,6 +1,5 @@
 package com.example.solup.entity;
 
-import com.example.solup.dto.user.UserDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -55,15 +54,6 @@ public class User {
         this.password = password;
         this.name = name;
         this.phoneNumber = phoneNumber;
-    }
-
-    public UserDto toDto(){
-        return UserDto.builder()
-                .id(this.id)
-                .username(this.username)
-                .name(this.name)
-                .phoneNumber(this.phoneNumber)
-                .build();
     }
 }
 
