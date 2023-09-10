@@ -16,19 +16,16 @@ code {
 
 @font-face {
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: bold;
   src: url("BeVietnamPro-Bold.woff") format("woff");
 }
 @font-face {
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: normal;
   src: url("BeVietnamPro-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: 500;
   src: url("BeVietnamPro-Medium.woff") format("woff");
 }

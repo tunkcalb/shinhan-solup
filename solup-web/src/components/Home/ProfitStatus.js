@@ -8,10 +8,10 @@ function ProfitStatus() {
 
   // 실제 거래내역 정보 (분류가 되었다고 가정)
   const classifiedData = {
-    monthlyRevenue: '100,000원',
-    fixedExpenses: '30,000원',
-    variableExpenses: '20,000원',
-    margin: '50,000원',
+    monthlyRevenue: '100,000',
+    fixedExpenses: '30,000',
+    variableExpenses: '20,000',
+    margin: '50,000',
   };
 
   // 거래내역 분류 페이지로 이동하는 함수
@@ -24,11 +24,41 @@ function ProfitStatus() {
     <div className='statusContainer'>
       <div className='profitTitle'>우리가게 손익 현황</div>
       {isClassified ? (
-        <div>
-          <p>이번달 매출: {classifiedData.monthlyRevenue}</p>
-          <p>고정비: {classifiedData.fixedExpenses}</p>
-          <p>변동비: {classifiedData.variableExpenses}</p>
-          <p>마진: {classifiedData.margin}</p>
+        <div className='categoryContainer'>
+          <div className='revCard'>
+            <div>이번달 매출</div>
+            <div>
+              <span className='boldSum'>{classifiedData.monthlyRevenue}</span>
+              <span>원</span>
+            </div>
+          </div>
+
+          <div className='costCard'>
+            <div className='fc'>
+              <div>고정비</div>
+              <div>
+                <span className='boldSum'>{classifiedData.fixedExpenses}</span>
+                <span>원</span>
+              </div>
+            </div>
+            <div className='vc'>
+              <div>변동비</div>
+              <div>
+                <span className='boldSum'>{classifiedData.variableExpenses}</span>
+                <span>원</span>
+              </div>
+            </div>
+          </div>
+
+          <div className='marginCard'>
+            <div>
+              <div>마진</div>
+              <div>
+                <span className='boldSum'>{classifiedData.margin}</span>
+                <span>원</span>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <div className='noCategory'>

@@ -1,10 +1,74 @@
+/* 분류 후 */
+.categoryContainer{
+  height: 19.4375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 1rem;
+  box-shadow: 0px 5px 50px 0px rgba(48, 111, 225, 0.10);
+}
+
+.boldSum{
+  font-family: Be Vietnam Pro;
+  font-size: 1rem;
+  font-weight: bold;
+  font-size: 1.375rem;
+  color: white;
+}
+
+.categoryContainer div, 
+.categoryContainer span{
+  font-family: Be Vietnam Pro;
+  font-weight: 500;
+  color: white;
+}
+
+.revCard{
+  width: 100%;
+  height: 6.25rem;
+  border-radius: 0.625rem;
+  background: linear-gradient(180deg, rgba(173, 229, 178, 0.79) 0%, #7BCD82 27.4%, #7BCD82 80%, rgba(173, 229, 178, 0.79) 100%);
+}
+
+.costCard{
+  height: 6.25rem;
+  width: 100%;
+  display: flex;
+  gap: 0.38rem;
+}
+
+.fc{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 0.625rem;
+  background: linear-gradient(180deg, rgba(238, 146, 146, 0.79) 0%, #EB6A6A 27.4%, #EB6A6A 71.15%, rgba(238, 146, 146, 0.79) 100%);
+}
+
+.vc{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 0.625rem;
+  background: linear-gradient(180deg, rgba(152, 152, 237, 0.79) 0%, #8585F0 27.4%, #8585F0 71.15%, rgba(152, 152, 237, 0.79) 100%);
+}
+
+.marginCard{
+  width: 100%;
+  height: 6.25rem;
+  border-radius: 0.625rem;
+  background: linear-gradient(180deg, rgba(245, 219, 126, 0.79) 0%, #FFC046 27.4%, #FFC046 75.31%, rgba(245, 219, 126, 0.79) 100%);
+}
+
+/* 분류 전 */
 .statusContainer{
   margin-bottom: 2rem;
 }
 
 .profitTitle{
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: bold;
   font-size: 1.125rem;
 
@@ -26,13 +90,12 @@
 }
 
 .noCategory div{
-text-align: center;
-font-family: Be Vietnam Pro;
-font-size: 1rem;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: -0.02rem;
+  text-align: center;
+  font-family: Be Vietnam Pro;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02rem;
 }
 
 .noCategory button{
