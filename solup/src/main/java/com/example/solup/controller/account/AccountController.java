@@ -1,6 +1,7 @@
 package com.example.solup.controller.account;
 
 import com.example.solup.dto.*;
+import com.example.solup.dto.account.AuthenticationDto;
 import com.example.solup.service.account.AccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -53,5 +54,12 @@ public class AccountController {
     public Response<CategorizedDto.Response> getCategorized(@PathVariable("userId") Long userId) {
         CategorizedDto.Response response = accountService.getCategorized(userId);
         return new Response<>("200", "조회 성공", response);
+    }
+
+    @Operation(description = "1원 송금")
+    @PostMapping("account/check/{userId}")
+    public Response<AuthenticationDto.Response> checkAccount(@RequestBody AuthenticationDto.Request request){
+        AuthenticationDto.Response response = accountService.checkAccount(request);
+        return new Response<>("201", "1원 송금 완료", response);
     }
 }
