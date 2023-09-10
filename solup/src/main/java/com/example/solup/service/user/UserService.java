@@ -1,5 +1,6 @@
 package com.example.solup.service.user;
 
+import com.example.solup.dto.StaffDto;
 import com.example.solup.dto.revenue.RevenueAnalysisDto;
 import com.example.solup.dto.store.StoreDto;
 import com.example.solup.dto.user.RegistAccountDto;
@@ -8,6 +9,7 @@ import com.example.solup.entity.*;
 import com.example.solup.entity.expense.Variable;
 import com.example.solup.exception.type.DuplicatedValueException;
 import com.example.solup.exception.type.NotSameDataValueException;
+import com.example.solup.repository.StaffRepository;
 import com.example.solup.repository.account.AccountRepository;
 import com.example.solup.repository.account.TradeHistoryRepository;
 import com.example.solup.repository.card.CardRepository;
@@ -16,6 +18,7 @@ import com.example.solup.repository.user.StoreRepository;
 import com.example.solup.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -29,6 +32,8 @@ public class UserService {
     private final CardRepository cardRepository;
     private final VariableRepository variableRepository;
     private final AccountRepository accountRepository;
+    private final StaffRepository staffRepository;
+  
     private String delivery = "땡겨요";
 
     public UserDto save(UserDto userDto) throws DuplicatedValueException {
@@ -174,5 +179,47 @@ public class UserService {
                 .accountId(account.getId())
                 .build();
     }
+
+    public StaffDto.Response registStaff(Long userId, StaffDto.Request request) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        Staff staff = new Staff();
+        staff.setUser(user);
+        staff.setName(request.getName());
+        staff.setBank(request.getBank());
+        staff.setAccount(request.getAccount());
+        staff.setHourlyRate(request.getHourlyRate());
+        staff.setWorkDay(request.getWorkDay());
+        staff.setWorkHour(request.getWorkHour());
+        staff.setPayDay(request.getPayDay());
+        staff.setSalary(request.getSalary());
+        staffRepository.save(staff);
+
+        return StaffDto.Response.builder()
+                .name(request.getName())
+                .bank(request.getBank())
+                .account(request.getAccount())
+                .salary(request.getSalary())
+                .build();
+    }
+
+    public List<StaffDto.Response> getStaffes(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        List<Staff> staffes = user.getStaffes();
+
+        return staffes.stream()
+                .map(staff -> StaffDto.Response.builder()
+                        .name(staff.getName())
+                        .bank(staff.getBank())
+                        .account(staff.getAccount())
+                        .salary(staff.getSalary())
+                        .build())
+                .collect(Collectors.toList());
+
+    }
+
 }
 

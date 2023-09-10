@@ -1,6 +1,7 @@
 package com.example.solup.controller.user;
 
 import com.example.solup.dto.Response;
+import com.example.solup.dto.StaffDto;
 import com.example.solup.dto.revenue.RevenueAnalysisDto;
 import com.example.solup.dto.store.StoreDto;
 import com.example.solup.dto.user.RegistAccountDto;
@@ -8,6 +9,8 @@ import com.example.solup.dto.user.UserDto;
 import com.example.solup.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -48,5 +51,17 @@ public class UserController {
     public Response<RegistAccountDto.Response> registAccount(@PathVariable Long userId, @RequestBody RegistAccountDto.Request request){
         RegistAccountDto.Response response = userService.registAccount(userId, request);
         return new Response<>("201", "계좌 등록 성공", response);
+    }
+
+    @PostMapping("/user/staff/{userId}")
+    public Response<StaffDto.Response> registStaff(@PathVariable("userId") Long userId, @RequestBody StaffDto.Request request) {
+        StaffDto.Response response = userService.registStaff(userId, request);
+        return new Response<>("201", "스태프 등록 성공", response);
+    }
+
+    @GetMapping("user/staff/{userId}")
+    public Response<List<StaffDto.Response>> getStaffes(@PathVariable("userId") Long userId) {
+        List<StaffDto.Response> responses = userService.getStaffes(userId);
+        return new Response<>("200", "스태프 조회 성공", responses);
     }
 }
