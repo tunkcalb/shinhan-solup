@@ -23,9 +23,9 @@ public class TradeHistory {
     @Id @GeneratedValue
     private Long id;
 
-    // 거래 일시
-    @Column
-    private LocalDateTime date;
+//    // 거래 일시
+//    @Column
+//    private LocalDateTime date;
 
     // 거래일자
     @Column(name = "trade_date")

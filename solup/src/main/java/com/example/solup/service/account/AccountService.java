@@ -15,12 +15,12 @@ import com.example.solup.repository.expense.VariableRepository;
 import com.example.solup.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.YearMonth;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -156,12 +156,13 @@ public class AccountService {
 
     public AuthenticationDto.Response checkAccount(AuthenticationDto.Request request) {
         Account account = accountRepository.findByNumber(request.getAccountNumber());
-        LocalDateTime date = request.getDate();
+//        LocalDateTime date = request.getDate();
         int deposit = 1;
 
         TradeHistory tradeHistory = TradeHistory.builder()
                 .account(account)
-                .date(date)
+                .tradeDate(LocalDate.now())
+                .tradeTime(LocalTime.now())
                 .deposit(deposit)
                 .content(accountContent)
                 .build();
@@ -171,16 +172,4 @@ public class AccountService {
                 .content(accountContent)
                 .build();
     }
-
-//    private LocalDateTime getCurrentMonthStart() {
-//        LocalDateTime currentDate = LocalDateTime.now();
-//        YearMonth yearMonth = YearMonth.of(currentDate.getYear(), currentDate.getMonth());
-//        return yearMonth.atDay(1).atStartOfDay();
-//    }
-//
-//    private LocalDateTime getCurrentMonthEnd() {
-//        LocalDateTime currentDate = LocalDateTime.now();
-//        YearMonth yearMonth = YearMonth.of(currentDate.getYear(), currentDate.getMonth());
-//        return yearMonth.atEndOfMonth().atTime(23, 59, 59);
-//    }
 }

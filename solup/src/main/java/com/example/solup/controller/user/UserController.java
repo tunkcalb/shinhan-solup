@@ -74,4 +74,10 @@ public class UserController {
         List<StaffDto.Response> responses = userService.getStaffes(userId);
         return new Response<>("200", "스태프 조회 성공", responses);
     }
+    
+    @Operation(summary = "직원 월급 이체", description = "직원 월급 이체")
+    @PostMapping("user/staff/{userId}/{staffId}")
+    public Response<String> paySalary(@PathVariable("userId")Long userId, @PathVariable("staffId")Long staffId) {
+        return new Response<>("200", "이체 완료" , userService.paySalary(userId, staffId));
+    }
 }
