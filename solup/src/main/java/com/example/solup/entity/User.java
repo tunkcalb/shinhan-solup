@@ -1,5 +1,6 @@
 package com.example.solup.entity;
 
+import com.example.solup.entity.expense.Surplus;
 import lombok.*;
 
 import javax.persistence.*;
@@ -46,6 +47,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<MonthlyProfit> monthlyProfits = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<Surplus> surpluses = new ArrayList<>();
 
     @Builder
     private User(long id, String username, String password, String name, String phoneNumber) {

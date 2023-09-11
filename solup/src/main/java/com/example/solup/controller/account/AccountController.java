@@ -62,6 +62,12 @@ public class AccountController {
         return new Response<>("200", "조회 성공", response);
     }
 
+    @Operation(description = "마진 정산하기", summary = "마진 정산하기")
+    @PostMapping("account/{userId}/settle")
+    public Response<String> settle(@PathVariable("userId")Long userId, @RequestBody SettlementDto.Request request) {
+        return new Response<>("200", "이체 성공", accountService.settle(userId, request));
+    }
+
     @Operation(description = "1원 송금")
     @PostMapping("account/check/{userId}")
     public Response<AuthenticationDto.Response> checkAccount(@RequestBody AuthenticationDto.Request request){

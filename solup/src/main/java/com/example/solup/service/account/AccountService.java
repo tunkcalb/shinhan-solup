@@ -6,11 +6,15 @@ import com.example.solup.entity.Account;
 import com.example.solup.entity.TradeHistory;
 import com.example.solup.entity.User;
 import com.example.solup.entity.expense.Fixed;
+import com.example.solup.entity.expense.Living;
+import com.example.solup.entity.expense.Surplus;
 import com.example.solup.entity.expense.Variable;
 import com.example.solup.exception.type.NotSameDataValueException;
 import com.example.solup.repository.account.AccountRepository;
 import com.example.solup.repository.account.TradeHistoryRepository;
 import com.example.solup.repository.expense.FixedRepository;
+import com.example.solup.repository.expense.LivingRepository;
+import com.example.solup.repository.expense.SurplusRepository;
 import com.example.solup.repository.expense.VariableRepository;
 import com.example.solup.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +37,8 @@ public class AccountService {
     private final UserRepository userRepository;
     private final FixedRepository fixedRepository;
     private final VariableRepository variableRepository;
+    private final LivingRepository livingRepository;
+    private final SurplusRepository surplusRepository;
 
     @Value("${account.check}")
     private String accountContent;
@@ -171,5 +177,42 @@ public class AccountService {
         return AuthenticationDto.Response.builder()
                 .content(accountContent)
                 .build();
+    }
+
+    public String settle(Long userId, SettlementDto.Request request) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        Integer livingExpense = request.getNetProfit() * request.getPercentage() / 100;
+        Integer surplusExpense = request.getNetProfit() - livingExpense;
+
+        TradeHistory lastTradeHistory = tradeHistoryRepository.findLastTradeHistoryByAccountId(user.getAccount().getId());
+
+        TradeHistory tradeHistory = new TradeHistory();
+        tradeHistory.setTradeDate(LocalDate.now());
+        tradeHistory.setTradeTime(LocalTime.now());
+        tradeHistory.setBriefs("생활비");
+        tradeHistory.setWithdraw(livingExpense);
+        tradeHistory.setContent("생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber());
+        tradeHistory.setBalance(lastTradeHistory.getBalance() - livingExpense);
+        tradeHistory.setCategory(2);
+        tradeHistory.setName(request.getBankName());
+        tradeHistory.setAccount(user.getAccount());
+
+        Living living = new Living();
+        living.setContent("생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber());
+        livingRepository.save(living);
+
+        tradeHistory.setLiving(living);
+
+        tradeHistoryRepository.save(tradeHistory);
+
+        Surplus surplus = new Surplus();
+        surplus.setAmount(surplusExpense);
+        surplus.setDate(LocalDate.now());
+        surplus.setUser(user);
+        surplusRepository.save(surplus);
+
+        return "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber();
     }
 }
