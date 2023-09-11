@@ -14,6 +14,13 @@ public interface TradeHistoryRepository extends JpaRepository<TradeHistory,Long>
 
     List<TradeHistory> findAllByDateBetweenAndAccountId(LocalDateTime startOfMonth, LocalDateTime endOfMonth, Long accountId);
 
+    TradeHistory findByIdAndAccountId(Long tradeHistoryId, Long accountId);
+
+    @Query("SELECT th FROM TradeHistory th " +
+            "WHERE (th.fixed IS NOT NULL OR th.variable IS NOT NULL) " +
+            "AND th.account.id = ?1")
+    List<TradeHistory> findCategorizedByAccountId(Long accountId);
+
     @Query("SELECT COALESCE(SUM(th.deposit), 0) FROM TradeHistory th WHERE FUNCTION('YEAR', th.date) = FUNCTION('YEAR', CURRENT_DATE) AND FUNCTION('MONTH', th.date) = FUNCTION('MONTH', CURRENT_DATE) AND th.category = 1 AND th.account.id = ?1")
     Integer getCurrentMonthIncome(Long accountId);
 

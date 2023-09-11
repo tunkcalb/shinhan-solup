@@ -219,6 +219,7 @@ public class UserService {
 
         return staffes.stream()
                 .map(staff -> StaffDto.Response.builder()
+                        .id(staff.getId())
                         .name(staff.getName())
                         .bank(staff.getBank())
                         .account(staff.getAccount())

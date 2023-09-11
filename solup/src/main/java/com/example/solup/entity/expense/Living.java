@@ -15,7 +15,4 @@ public class Living {
 
     @Column
     private String content;
-
-    @Column
-    private LocalDateTime date;
 }

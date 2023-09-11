@@ -20,7 +20,4 @@ public class Fixed {
 
     @Column
     private String category;
-
-    @Column
-    private LocalDateTime date;
 }

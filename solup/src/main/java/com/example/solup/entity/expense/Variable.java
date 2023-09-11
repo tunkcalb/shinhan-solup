@@ -20,7 +20,4 @@ public class Variable {
 
     @Column
     private String category;
-
-    @Column
-    private LocalDateTime date;
 }

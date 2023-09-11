@@ -15,7 +15,4 @@ public class Surplus {
 
     @Column
     private String content;
-
-    @Column
-    private LocalDateTime date;
 }
