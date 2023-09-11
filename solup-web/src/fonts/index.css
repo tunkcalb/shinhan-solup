@@ -5,28 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:#333E63;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+
 }
 
 @font-face {
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: bold;
   src: url("BeVietnamPro-Bold.woff") format("woff");
 }
 @font-face {
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: normal;
   src: url("BeVietnamPro-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Be Vietnam Pro";
-  font-style: normal;
   font-weight: 500;
   src: url("BeVietnamPro-Medium.woff") format("woff");
 }
@@ -36,3 +35,4 @@ code {
   font-weight: lighter ;
   src: url("BeVietnamPro-Light.woff") format("woff");
 }
+

@@ -1,7 +1,6 @@
 import React from 'react';
 import AccountInfo from '../components/Home/AccountInfo.js'
 import ProfitStatus from '../components/Home/ProfitStatus.js'
-import ServiceMenu from '../components/Home/ServiceMenu.js'
 import NavBar from '../components/Footer.js';
 import "./Home.css"
 import { useSelector } from 'react-redux'
@@ -22,9 +21,8 @@ function Home() {
         <UserInfo />
         <AccountInfo />
         <ProfitStatus />
-        <ServiceMenu />
-        <NavBar />
       </div>
+        <NavBar />
     </div>
   );
 }

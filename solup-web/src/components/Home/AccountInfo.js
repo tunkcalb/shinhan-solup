@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './AccountInfo.css';
+import MiniBtn from '../MiniBtn';
 
 function AccountInfo() {
   // 계좌 정보가 등록 여부 확인
@@ -8,7 +10,7 @@ function AccountInfo() {
   const accountData = {
     bankName: '신한은행',
     accountNumber: '123-456-7890',
-    accountBalance: '1,000,000원',
+    accountBalance: '1,000,000',
   };
 
   // 계좌 등록 페이지로 이동하는 함수
@@ -18,19 +20,36 @@ function AccountInfo() {
   };
 
   return (
-    <div>
-      <h2>사업자 계좌 정보</h2>
+    <div className='infoContainer'>
+      <div className='infoTitle'>
+        {/* 가게 정보, 사용자 이름 받아와서 적용되어야 함 */}
+        <div className='normalText'>
+          <span>신한커피 </span>
+          <span className='boldText'>김싸피 </span>
+          <span>사장님</span>
+        </div>
+      </div>
       {isAccountRegistered ? (
-        <div>
-          <p>은행명: {accountData.bankName}</p>
-          <p>계좌번호: {accountData.accountNumber}</p>
-          <p>계좌 잔액: {accountData.accountBalance}</p>
+        <div className='accountContainer'>
+          <img src={`${process.env.PUBLIC_URL}/profitCard.png`} alt="계좌카드" className='cardImg'/>
+          <div className="textOverlay">
+            <div className='bankName'>
+              <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} alt="신한로고" className='shLogo'/>
+              <span> {accountData.bankName}</span>
+              <span> {accountData.accountNumber}</span> 
+            </div>
+            
+            <div className='balance'>
+              <span className='boldBalance'>{accountData.accountBalance}</span>
+              <span className='normalBalance'> 원</span>
+            </div>
+          </div>
         </div>
       ) : (
-        <div>
-          <p>아직 거래내역이 없네요!</p>
-          <p>영업 계좌 정보를 등록해주세요</p>
-          <button onClick={redirectToAccountRegistration}>계좌 등록하기</button>
+        <div className='noAccount'>
+          <div>아직 거래내역이 없네요!</div>
+          <div>사업자 계좌를 등록해주세요</div>
+          <MiniBtn text="등록하기" onClick={redirectToAccountRegistration} />
         </div>
       )}
     </div>
