@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MainPageAccountDto {
     private String number;
-    private String balance;
+    private Integer balance;
 
     @Builder
-    public MainPageAccountDto(Account account) {
+    public MainPageAccountDto(Account account, Integer balance) {
         this.number = account.getNumber();
-        this.balance = account.getBalance();
+        this.balance = balance;
     }
 }

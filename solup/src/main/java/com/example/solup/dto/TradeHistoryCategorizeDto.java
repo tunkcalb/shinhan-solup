@@ -1,5 +1,7 @@
 package com.example.solup.dto;
 
+import com.example.solup.entity.expense.Fixed;
+import com.example.solup.entity.expense.Variable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +17,7 @@ public class TradeHistoryCategorizeDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Request{
+        private Long tradeHistoryId;
         private String expenseType;
         private String expenseCategory;
     }
@@ -27,9 +30,12 @@ public class TradeHistoryCategorizeDto {
         private Long id;
         private LocalDate tradeDate;
         private LocalTime tradeTime;
+        private String briefs;
         private String content;
+        private String name;
         private Integer deposit;
         private Integer withdraw;
         private Integer category;
+        private String expenseType;
     }
 }

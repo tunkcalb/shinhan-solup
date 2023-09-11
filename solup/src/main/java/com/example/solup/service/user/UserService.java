@@ -7,12 +7,15 @@ import com.example.solup.dto.user.LoginDto;
 import com.example.solup.dto.user.RegistAccountDto;
 import com.example.solup.dto.user.SignupDto;
 import com.example.solup.entity.*;
+import com.example.solup.entity.expense.Fixed;
 import com.example.solup.entity.expense.Variable;
 import com.example.solup.exception.type.DuplicatedValueException;
 import com.example.solup.exception.type.NotSameDataValueException;
 import com.example.solup.repository.StaffRepository;
 import com.example.solup.repository.account.AccountRepository;
+import com.example.solup.repository.account.TradeHistoryRepository;
 import com.example.solup.repository.card.CardRepository;
+import com.example.solup.repository.expense.FixedRepository;
 import com.example.solup.repository.expense.VariableRepository;
 import com.example.solup.repository.user.StoreRepository;
 import com.example.solup.repository.user.UserRepository;
@@ -20,7 +23,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,6 +38,8 @@ public class UserService {
     private final VariableRepository variableRepository;
     private final AccountRepository accountRepository;
     private final StaffRepository staffRepository;
+    private final TradeHistoryRepository tradeHistoryRepository;
+    private final FixedRepository fixedRepository;
   
     private String delivery = "땡겨요";
 
@@ -105,7 +112,7 @@ public class UserService {
         int lastMonthExpenses = 0;
 
         for (TradeHistory tradeHistory : account.getTradeHistories()) {
-            LocalDateTime date = tradeHistory.getDate();
+            LocalDate date = tradeHistory.getTradeDate();
             int month = date.getMonthValue();
             int deposit = tradeHistory.getDeposit();
             String content = tradeHistory.getContent();
@@ -219,6 +226,7 @@ public class UserService {
 
         return staffes.stream()
                 .map(staff -> StaffDto.Response.builder()
+                        .id(staff.getId())
                         .name(staff.getName())
                         .bank(staff.getBank())
                         .account(staff.getAccount())
@@ -228,5 +236,40 @@ public class UserService {
 
     }
 
+    public String paySalary(Long userId, Long staffId) {
+        Staff staff = staffRepository.findById(staffId)
+                .orElseThrow(() -> new NotFoundException("해당 직원을 찾을 수 없습니다."));
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        String account = staff.getAccount();
+
+        TradeHistory lastTradeHistory = tradeHistoryRepository.findLastTradeHistoryByAccountId(user.getAccount().getId());
+
+        Integer currentBalance = lastTradeHistory.getBalance();
+
+        TradeHistory tradeHistory = new TradeHistory();
+        tradeHistory.setTradeDate(LocalDate.now());
+        tradeHistory.setTradeTime(LocalTime.now());
+        tradeHistory.setBriefs("인건비");
+        tradeHistory.setWithdraw(staff.getSalary());
+        tradeHistory.setCategory(2);
+        tradeHistory.setContent(staff.getName() + " " + staff.getAccount());
+        tradeHistory.setBalance(currentBalance-staff.getSalary());
+        tradeHistory.setName("신한은행");
+        tradeHistory.setAccount(user.getAccount());
+
+        Fixed fixed = new Fixed();
+        fixed.setCategory("인건비");
+        fixed.setContent(staff.getName() + " " + staff.getAccount());
+        fixedRepository.save(fixed);
+
+        tradeHistory.setFixed(fixed);
+
+        tradeHistoryRepository.save(tradeHistory);
+
+        return staff.getBank() + " " + staff.getAccount();
+    }
 }
 

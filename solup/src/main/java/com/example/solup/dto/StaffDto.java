@@ -30,6 +30,7 @@ public class StaffDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Response{
+        private Long id;
         private String name;
         private String bank;
         private String account;

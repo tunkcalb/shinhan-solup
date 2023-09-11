@@ -1,6 +1,8 @@
 package com.example.solup.data;
 
+import com.example.solup.entity.Account;
 import com.example.solup.entity.TradeHistory;
+import com.example.solup.repository.account.AccountRepository;
 import com.example.solup.repository.account.TradeHistoryRepository;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -23,6 +25,7 @@ import java.util.Objects;
 public class TradeHistoryInitializer implements CommandLineRunner {
 
     private final TradeHistoryRepository tradeHistoryRepository;
+    private final AccountRepository accountRepository;
 
     @Transactional
     @Override
@@ -2574,6 +2577,12 @@ public class TradeHistoryInitializer implements CommandLineRunner {
         ObjectMapper objectMapper = new ObjectMapper();
         List<Temp> temps = objectMapper.readValue(jsonDatas, new TypeReference<List<Temp>>() {});
 
+        Account account = new Account();
+        account.setNumber("110480000001");
+        account.setOpenDate(LocalDate.parse("20230731", DateTimeFormatter.BASIC_ISO_DATE));
+        account.setCurrencyType("KRW");
+        accountRepository.save(account);
+
         for (Temp temp : temps) {
             TradeHistory tradeHistory = new TradeHistory();
             tradeHistory.setTradeDate(LocalDate.parse(temp.getTradeDate(), DateTimeFormatter.BASIC_ISO_DATE));
@@ -2585,6 +2594,7 @@ public class TradeHistoryInitializer implements CommandLineRunner {
             tradeHistory.setBalance(Integer.parseInt(temp.getBalance()));
             tradeHistory.setCategory(Integer.parseInt(temp.getCategory()));
             tradeHistory.setName(temp.getName());
+            tradeHistory.setAccount(account);
             tradeHistoryRepository.save(tradeHistory);
         }
     }

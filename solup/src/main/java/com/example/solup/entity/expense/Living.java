@@ -2,12 +2,14 @@ package com.example.solup.entity.expense;
 
 import com.example.solup.entity.User;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 // 생활비
 @Getter
+@Setter
 @Entity
 public class Living {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +17,4 @@ public class Living {
 
     @Column
     private String content;
-
-    @Column
-    private LocalDateTime date;
 }
