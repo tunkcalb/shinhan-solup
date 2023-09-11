@@ -69,7 +69,9 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("해당 user를 찾을 수 없습니다."));
 
-        return new MainPageAccountDto(user.getAccount());
+        TradeHistory tradeHistory = tradeHistoryRepository.findLastTradeHistoryByAccountId(user.getAccount().getId());
+
+        return new MainPageAccountDto(user.getAccount(), tradeHistory.getBalance());
     }
 
     public void categorizeTradeHistory(Long userId, TradeHistoryCategorizeDto.Request request) {
