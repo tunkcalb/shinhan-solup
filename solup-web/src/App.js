@@ -10,7 +10,7 @@ import Home from './pages/Home.js';
 import InitialPage from './pages/InitialPage.js';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
-import CustomProducts from './pages/CustomProducts.js';
+import CustomProducts from './pages/CustomProducts/CustomProducts.js';
 import EmployeeManagement from './pages/EmployeeManagement.js';
 import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
@@ -19,12 +19,13 @@ import Start from './pages/NewCustomer/Start';
 import ProfitStatusPage from './pages/ProfitStatusPage';
 import MarginSettlement from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
-import FinanceProductsPage from './pages/FinanceProductsPage';
+import FinanceProductsPage from './pages/CustomProducts/FinanceProductsPage';
 import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
 import AccountRegistration from './pages/AccountRegistration';
+import SupportProgramsPage from './pages/CustomProducts/SupportProgramsPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,6 +66,7 @@ function App() {
             <Route path='/register-store' element={<RegisterStore />} />
             <Route path='/ready-to-solup' element={<ReadyToSolup />} />
             <Route path='/account-register' element={<AccountRegistration />} />
+            <Route path='/support-programs' element={<SupportProgramsPage />} />
           </Routes>
         </div>
       </PersistGate>
