@@ -25,6 +25,7 @@ import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
 import AccountRegistration from './pages/AccountRegistration';
+import RevenueAnalysisView from './components/RevenueAnalysis/RevenueAnalysisView';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,6 +66,7 @@ function App() {
             <Route path='/register-store' element={<RegisterStore />} />
             <Route path='/ready-to-solup' element={<ReadyToSolup />} />
             <Route path='/account-register' element={<AccountRegistration />} />
+            <Route path='/revenue-analysis-view' element={<RevenueAnalysisView />} />
           </Routes>
         </div>
       </PersistGate>
