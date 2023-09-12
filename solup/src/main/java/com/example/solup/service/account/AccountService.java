@@ -79,27 +79,58 @@ public class AccountService {
                 .orElseThrow(() -> new RuntimeException("해당 회원을 찾을 수 없습니다."));
 
         Long accountId = user.getAccount().getId();
-        Long tradeHistoryId = request.getTradeHistoryId();
 
-        TradeHistory tradeHistory = tradeHistoryRepository.findByIdAndAccountId(tradeHistoryId, accountId);
-        
-        // category가 2로 지출일 때 고정비와 변동비 분류 후 저장
-        if (tradeHistory.getCategory() == 2 && Objects.equals(request.getExpenseType(), "Fixed")) {
+        String briefs = request.getBriefs();
+        String content = request.getContent();
+        String expenseType = request.getExpenseType();
+        String expenseCategory = request.getExpenseCategory();
+
+        List<TradeHistory> tradeHistories = tradeHistoryRepository.findByBriefsAndContentAndCategoryAndIsCategorized(briefs, content, 2, false);
+
+        if (Objects.equals(expenseType, "Fixed")) {
             Fixed fixed = new Fixed();
-            fixed.setContent(tradeHistory.getContent());
-            fixed.setCategory(request.getExpenseCategory());
+            fixed.setCategory(expenseCategory);
+            fixed.setContent(content);
             fixedRepository.save(fixed);
-            tradeHistory.setFixed(fixed);
-        } else if (tradeHistory.getCategory() == 2 && Objects.equals(request.getExpenseType(), "Variable")) {
+
+            tradeHistories.forEach(tradeHistory -> {
+                tradeHistory.setFixed(fixed);
+                tradeHistory.setIsCategorized(true);
+            });
+        } else if (Objects.equals(expenseType, "Variable")) {
             Variable variable = new Variable();
-            variable.setCategory(request.getExpenseCategory());
-            variable.setContent(tradeHistory.getContent());
+            variable.setCategory(expenseCategory);
+            variable.setContent(content);
             variableRepository.save(variable);
-            tradeHistory.setVariable(variable);
+
+            tradeHistories.forEach(tradeHistory -> {
+                tradeHistory.setIsCategorized(true);
+                tradeHistory.setVariable(variable);
+            });
+
+            tradeHistoryRepository.saveAll(tradeHistories);
         }
 
-        tradeHistory.setIsCategorized(true);
-        tradeHistoryRepository.save(tradeHistory);
+//        Long tradeHistoryId = request.getTradeHistoryId();
+//        TradeHistory tradeHistory = tradeHistoryRepository.findByIdAndAccountId(tradeHistoryId, accountId);
+//
+//        // category가 2로 지출일 때 고정비와 변동비 분류 후 저장
+//        if (tradeHistory.getCategory() == 2 && Objects.equals(request.getExpenseType(), "Fixed")) {
+//            Fixed fixed = new Fixed();
+//            fixed.setContent(tradeHistory.getContent());
+//            fixed.setCategory(request.getExpenseCategory());
+//            fixedRepository.save(fixed);
+//            tradeHistory.setFixed(fixed);
+//        } else if (tradeHistory.getCategory() == 2 && Objects.equals(request.getExpenseType(), "Variable")) {
+//            Variable variable = new Variable();
+//            variable.setCategory(request.getExpenseCategory());
+//            variable.setContent(tradeHistory.getContent());
+//            variableRepository.save(variable);
+//            tradeHistory.setVariable(variable);
+//        }
+//
+//        tradeHistory.setIsCategorized(true);
+//        tradeHistoryRepository.save(tradeHistory);
     }
 
     public List<TradeHistoryDto.Response> findTradeHistories(Long userId) {
@@ -182,6 +213,25 @@ public class AccountService {
                 .collect(Collectors.toList());
     }
 
+    public List<TradeHistoryDto.Response> getNotCategorizedWithdraws(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        return tradeHistoryRepository.findByAccountIdAndIsCategorizedAndCategory(user.getAccount().getId(), false, 2).stream()
+                .map(tradeHistory -> TradeHistoryDto.Response.builder()
+                        .id(tradeHistory.getId())
+                        .tradeDate(tradeHistory.getTradeDate())
+                        .tradeTime(tradeHistory.getTradeTime())
+                        .briefs(tradeHistory.getBriefs())
+                        .content(tradeHistory.getContent())
+                        .name(tradeHistory.getName())
+                        .deposit(tradeHistory.getDeposit())
+                        .withdraw(tradeHistory.getWithdraw())
+                        .category(tradeHistory.getCategory())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
     public AuthenticationDto.Response checkAccount(AuthenticationDto.Request request) {
         Account account = accountRepository.findByNumber(request.getAccountNumber());
 //        LocalDateTime date = request.getDate();
@@ -238,5 +288,15 @@ public class AccountService {
         return "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber();
     }
 
-//    private void checkSimilarHistories()
+//    private void checkSimilarHistories(String briefs, String content, String expenseType) {
+//        List<TradeHistory> similarHistories = tradeHistoryRepository.findByBriefsAndContentAndIsCategorized(briefs, content, false);
+//
+//        if (similarHistories == null) {
+//            return;
+//        } else {
+//            similarHistories.forEach(tradeHistory -> {
+//                if
+//            });
+//        }
+//    }
 }

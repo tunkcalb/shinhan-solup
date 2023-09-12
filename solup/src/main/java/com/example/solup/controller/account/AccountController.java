@@ -41,7 +41,7 @@ public class AccountController {
         return new Response<>("200", "조회성공", accountService.findTradeHistories(userId));
     }
 
-    @Operation(description = "거래내역을 분류하는 api", summary = "거래내역을 고정비/변동비로 분류")
+    @Operation(description = "거래내역을 분류(동일한 내역은 한번에 같이 분류)", summary = "거래내역을 고정비/변동비로 분류")
     @PostMapping("/account/{userId}/trade-history")
     public ResponseEntity<String> saveTradeHistory(@PathVariable("userId")Long userId,
                                               @RequestBody TradeHistoryCategorizeDto.Request request) {
@@ -60,6 +60,13 @@ public class AccountController {
     public Response<List<TradeHistoryDto.Response>> getNotCategorized(@PathVariable("userId")Long userId) {
         return new Response<>("200", "미분류된 거래내역 조회 성공", accountService.getNotCategorizedHistory(userId));
     }
+
+    @Operation(description = "미분류된 거래내역 중 출금만 조회", summary = "미분류된 거래내역 중 출금만 조회")
+    @GetMapping("/account/{userId}/not-categorized-withdraw")
+    public Response<List<TradeHistoryDto.Response>> getNotCategorizedWithdraws(@PathVariable("userId")Long userId) {
+        return new Response<>("200", "미분류된 출금내역 조회 성공", accountService.getNotCategorizedWithdraws(userId));
+    }
+
 
     @Operation(description = "손익 현황 조회(이번달 매출/고정비/변동비/마진)", summary = "손익 현황(이번달 매출/고정비/변동비/마진)")
     @GetMapping("account/{userId}/monthly-result")
