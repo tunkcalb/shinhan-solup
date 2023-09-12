@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./ProfitStatus.css";
+import"./AccountInfo.css";
 import MiniBtn from '../MiniBtn';
 
 function ProfitStatus() {
@@ -25,33 +26,47 @@ function ProfitStatus() {
       <div className='profitTitle'>우리가게 손익 현황</div>
       {isClassified ? (
         <div className='categoryContainer'>
-          <div className='revCard'>
-            <div>이번달 매출</div>
-            <div>
-              <span className='boldSum'>{classifiedData.monthlyRevenue}</span>
-              <span>원</span>
+          {/* 매출 */}
+          <div className='partContainer'>
+            <img src={`${process.env.PUBLIC_URL}/cardGreen.png`} alt="매출카드" className='revCard'/>
+            <div className='profitTextOverlay'>
+              <div>이번달 매출</div>
+              <div>
+                <span className='boldSum'>{classifiedData.monthlyRevenue}</span>
+                <span>원</span>
+              </div>
             </div>
           </div>
 
+          {/* 비용 */}
           <div className='costCard'>
-            <div className='fc'>
-              <div>고정비</div>
-              <div>
-                <span className='boldSum'>{classifiedData.fixedExpenses}</span>
-                <span>원</span>
+            {/* 고정비 */}
+            <div className='partContainer'>
+              <img src={`${process.env.PUBLIC_URL}/cardRed.png`} alt="고정비카드" className='fc'/>
+              <div className='profitTextOverlay'>
+                <div>고정비</div>
+                <div>
+                  <span className='boldSum'>{classifiedData.fixedExpenses}</span>
+                  <span>원</span>
+                </div>
               </div>
             </div>
-            <div className='vc'>
-              <div>변동비</div>
-              <div>
-                <span className='boldSum'>{classifiedData.variableExpenses}</span>
-                <span>원</span>
+            {/* 변동비 */}
+            <div className='partContainer'>
+              <img src={`${process.env.PUBLIC_URL}/cardPurple.png`} alt="변동비카드" className='vc'/>
+              <div className='profitTextOverlay'>
+                <div>변동비</div>
+                <div>
+                  <span className='boldSum'>{classifiedData.variableExpenses}</span>
+                  <span>원</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className='marginCard'>
-            <div>
+          <div className='partContainer'>
+            <img src={`${process.env.PUBLIC_URL}/cardOrange.png`} alt="마진카드" className='marginCard'/>
+            <div className='profitTextOverlay'>
               <div>마진</div>
               <div>
                 <span className='boldSum'>{classifiedData.margin}</span>
@@ -59,6 +74,7 @@ function ProfitStatus() {
               </div>
             </div>
           </div>
+          
         </div>
       ) : (
         <div className='noCategory'>
