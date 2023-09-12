@@ -245,7 +245,7 @@ public class UserService {
 
         String account = staff.getAccount();
 
-        TradeHistory lastTradeHistory = tradeHistoryRepository.findLastTradeHistoryByAccountId(user.getAccount().getId());
+        TradeHistory lastTradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
 
         Integer currentBalance = lastTradeHistory.getBalance();
 

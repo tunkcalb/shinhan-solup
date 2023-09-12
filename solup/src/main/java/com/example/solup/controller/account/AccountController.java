@@ -52,7 +52,13 @@ public class AccountController {
     @Operation(description = "분류된 거래내역만 조회", summary = "분류된 거래내역만 조회")
     @GetMapping("/account/{userId}/categorized-history")
     public Response<List<TradeHistoryCategorizeDto.Response>> getCategorizedHistory(@PathVariable("userId") Long userId) {
-        return new Response<>("200", "조회 성공", accountService.getCategorizedHistory(userId));
+        return new Response<>("200", "분류된 거래내역 조회 성공", accountService.getCategorizedHistory(userId));
+    }
+
+    @Operation(description = "미분류된 거래내역만 조회", summary = "미분류된 거래내역만 조회")
+    @GetMapping("/account/{userId}/not-categorized")
+    public Response<List<TradeHistoryDto.Response>> getNotCategorized(@PathVariable("userId")Long userId) {
+        return new Response<>("200", "미분류된 거래내역 조회 성공", accountService.getNotCategorizedHistory(userId));
     }
 
     @Operation(description = "손익 현황 조회(이번달 매출/고정비/변동비/마진)", summary = "손익 현황(이번달 매출/고정비/변동비/마진)")

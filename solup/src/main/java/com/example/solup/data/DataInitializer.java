@@ -22,7 +22,7 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
-public class TradeHistoryInitializer implements CommandLineRunner {
+public class DataInitializer implements CommandLineRunner {
 
     private final TradeHistoryRepository tradeHistoryRepository;
     private final AccountRepository accountRepository;
@@ -2578,6 +2578,7 @@ public class TradeHistoryInitializer implements CommandLineRunner {
         List<Temp> temps = objectMapper.readValue(jsonDatas, new TypeReference<List<Temp>>() {});
 
         Account account = new Account();
+        account.setBank("신한은행");
         account.setNumber("110480000001");
         account.setOpenDate(LocalDate.parse("20230731", DateTimeFormatter.BASIC_ISO_DATE));
         account.setCurrencyType("KRW");
@@ -2595,6 +2596,7 @@ public class TradeHistoryInitializer implements CommandLineRunner {
             tradeHistory.setCategory(Integer.parseInt(temp.getCategory()));
             tradeHistory.setName(temp.getName());
             tradeHistory.setAccount(account);
+            tradeHistory.setIsCategorized(false);
             tradeHistoryRepository.save(tradeHistory);
         }
     }

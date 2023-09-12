@@ -67,6 +67,9 @@ public class TradeHistory {
     @JoinColumn(name = "account_id")
     private Account account;
 
+    @Column(name = "is_categorized")
+    private Boolean isCategorized;
+
     // 고정비, 변동비 분류 column 필요
     // 고정비일 경우 fixed와 연결해줌
     @OneToOne(fetch = FetchType.LAZY)
