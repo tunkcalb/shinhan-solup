@@ -232,17 +232,29 @@ public class AccountService {
                 .collect(Collectors.toList());
     }
 
-    public AuthenticationDto.Response checkAccount(AuthenticationDto.Request request) {
+    public AuthenticationDto.Response checkAccount(Long userId, AuthenticationDto.Request request) {
         Account account = accountRepository.findByNumber(request.getAccountNumber());
 //        LocalDateTime date = request.getDate();
         int deposit = 1;
+        int category = 1;
+        String brief = "계좌이체";
+        String name = "SOLUP";
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("해당 user를 찾을 수 없습니다."));
+
+        TradeHistory lastTrade = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
 
         TradeHistory tradeHistory = TradeHistory.builder()
                 .account(account)
+                .balance(lastTrade.getBalance() + deposit)
                 .tradeDate(LocalDate.now())
                 .tradeTime(LocalTime.now())
                 .deposit(deposit)
                 .content(accountContent)
+                .briefs(brief)
+                .name(name)
+                .isCategorized(true)
+                .category(category)
                 .build();
         tradeHistoryRepository.save(tradeHistory);
 
