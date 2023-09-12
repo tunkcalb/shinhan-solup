@@ -69,7 +69,7 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("해당 user를 찾을 수 없습니다."));
 
-        TradeHistory tradeHistory = tradeHistoryRepository.findLastTradeHistoryByAccountId(user.getAccount().getId());
+        TradeHistory tradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
 
         return new MainPageAccountDto(user.getAccount(), tradeHistory.getBalance());
     }
@@ -208,7 +208,7 @@ public class AccountService {
         Integer livingExpense = request.getNetProfit() * request.getPercentage() / 100;
         Integer surplusExpense = request.getNetProfit() - livingExpense;
 
-        TradeHistory lastTradeHistory = tradeHistoryRepository.findLastTradeHistoryByAccountId(user.getAccount().getId());
+        TradeHistory lastTradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
 
         TradeHistory tradeHistory = new TradeHistory();
         tradeHistory.setTradeDate(LocalDate.now());
@@ -238,5 +238,5 @@ public class AccountService {
         return "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber();
     }
 
-    private void checkSimilarHistories()
+//    private void checkSimilarHistories()
 }

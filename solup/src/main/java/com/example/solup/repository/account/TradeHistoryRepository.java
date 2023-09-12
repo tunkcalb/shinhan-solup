@@ -25,5 +25,5 @@ public interface TradeHistoryRepository extends JpaRepository<TradeHistory,Long>
     @Query("SELECT COALESCE(SUM(th.withdraw), 0) FROM TradeHistory th WHERE FUNCTION('YEAR', th.tradeDate) = FUNCTION('YEAR', CURRENT_DATE) AND FUNCTION('MONTH', th.tradeDate) = FUNCTION('MONTH', CURRENT_DATE) AND th.category = 2 AND th.variable IS NOT NULL AND th.account.id = ?1")
     Integer getCurrentMonthVariable(Long accountId);
 
-    TradeHistory findLastTradeHistoryByAccountId(Long accountId);
+    TradeHistory findFirstByAccountIdOrderByIdDesc(Long accountId);
 }
