@@ -14,6 +14,7 @@ public class GlobalExceptionHandler {
                                                                     HttpServletRequest req) {
         final ErrorCode errorCode = e.getErrorCode();
         final ErrorResponse response = ErrorResponse.of(errorCode);
+        e.printStackTrace();
         response.setMessage(e.getMessage());
         return new ResponseEntity<>(response,
                 HttpStatus.valueOf(Integer.parseInt(errorCode.getStatus())));

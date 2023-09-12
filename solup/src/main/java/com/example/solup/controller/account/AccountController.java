@@ -76,8 +76,8 @@ public class AccountController {
 
     @Operation(description = "1원 송금")
     @PostMapping("account/check/{userId}")
-    public Response<AuthenticationDto.Response> checkAccount(@RequestBody AuthenticationDto.Request request){
-        AuthenticationDto.Response response = accountService.checkAccount(request);
+    public Response<AuthenticationDto.Response> checkAccount(@PathVariable("userId")Long userId, @RequestBody AuthenticationDto.Request request){
+        AuthenticationDto.Response response = accountService.checkAccount(userId, request);
         return new Response<>("201", "1원 송금 완료", response);
     }
 }
