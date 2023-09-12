@@ -1,39 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { setUserId, setIsAccountRegistered } from '../redux/actions'; // 액션 생성자 임포트
+import { useNavigate } from 'react-router';
 
 function AccountRegistration() {
+  const userId = useSelector((state) => state.userId); // Redux 스토어에서 userId 가져오기
+  const dispatch = useDispatch(); // dispatch 함수를 가져옵니다.
   const [accountNumber, setAccountNumber] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
-  const [isAccountRegistered, setIsAccountRegistered] = useState(false);
+  const navigate = useNavigate();
 
   const handleRegisterAccount = async (e) => {
     e.preventDefault();
 
     try {
-      // 인증 코드 확인 (인증 코드가 'SOLUP'인지 확인)
       if (verificationCode !== 'SOLUP') {
         alert('올바른 인증 코드를 입력하세요.');
         return;
       }
-
-      // API 호출: 계좌 등록
-      await axios.post('/user/account/{userId}', {
+      await axios.post(`/user/account/${userId}`, {
         accountNumber: accountNumber,
       });
+      console.log(verificationCode)
 
-      // 계좌 등록 완료
-      setIsAccountRegistered(true);
+      dispatch(setIsAccountRegistered(true));
       alert('계좌 등록이 완료되었습니다.');
+      navigate('/home');
     } catch (error) {
       console.error('API 요청 실패:', error);
       alert('계좌 등록 중 오류가 발생했습니다.');
     }
   };
 
-  const handleTransferOneWon = async () => {
+  const handleTransferOneWon = async (e) => {
+    e.preventDefault();
     try {
       // API 호출: 1원 송금
-      await axios.post('/account/check/{userId}', {
+      await axios.post(`/account/check/${userId}`, {
         accountNumber: accountNumber,
       });
 

@@ -8,10 +8,12 @@ import UserInfo from '../components/UserInfo.js';
 function Home() {
   const userId = useSelector((state) => state.userId);
   const userName = useSelector((state) => state.userName);
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isAccountRegistered = useSelector((state) => state.isAccountRegistered);
   console.log(userId)
   console.log(userName)
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   console.log(isLoggedIn)
+  console.log(isAccountRegistered)
   return (
     <div className="homeContainer">
       <div className='homeLogo'>
