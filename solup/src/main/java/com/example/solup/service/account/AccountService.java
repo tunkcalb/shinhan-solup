@@ -231,7 +231,7 @@ public class AccountService {
                         .build())
                 .collect(Collectors.toList());
     }
-    
+
     public AuthenticationDto.Response checkAccount(Long userId, AuthenticationDto.Request request) {
         Account account = accountRepository.findByNumber(request.getAccountNumber());
 //        LocalDateTime date = request.getDate();
@@ -299,16 +299,4 @@ public class AccountService {
 
         return "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber();
     }
-
-//    private void checkSimilarHistories(String briefs, String content, String expenseType) {
-//        List<TradeHistory> similarHistories = tradeHistoryRepository.findByBriefsAndContentAndIsCategorized(briefs, content, false);
-//
-//        if (similarHistories == null) {
-//            return;
-//        } else {
-//            similarHistories.forEach(tradeHistory -> {
-//                if
-//            });
-//        }
-//    }
 }
