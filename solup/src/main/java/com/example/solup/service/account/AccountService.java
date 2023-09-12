@@ -231,7 +231,7 @@ public class AccountService {
                         .build())
                 .collect(Collectors.toList());
     }
-
+    
     public AuthenticationDto.Response checkAccount(Long userId, AuthenticationDto.Request request) {
         Account account = accountRepository.findByNumber(request.getAccountNumber());
 //        LocalDateTime date = request.getDate();
