@@ -31,7 +31,7 @@ function AccountInfo() {
       </div>
       {isAccountRegistered ? (
         <div className='accountContainer'>
-          <img src={`${process.env.PUBLIC_URL}/profitCard.png`} alt="계좌카드" className='cardImg'/>
+          <img src={`${process.env.PUBLIC_URL}/cardProfit.png`} alt="계좌카드" className='cardImg'/>
           <div className="textOverlay">
             <div className='bankName'>
               <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} alt="신한로고" className='shLogo'/>
