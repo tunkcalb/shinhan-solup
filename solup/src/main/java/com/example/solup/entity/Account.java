@@ -18,6 +18,10 @@ public class Account {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // 은행
+    @Column
+    private String bank;
+
     // 계좌 번호
     @Column
     private String number;

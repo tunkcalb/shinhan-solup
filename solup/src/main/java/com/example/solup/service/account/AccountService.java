@@ -98,6 +98,7 @@ public class AccountService {
             tradeHistory.setVariable(variable);
         }
 
+        tradeHistory.setIsCategorized(true);
         tradeHistoryRepository.save(tradeHistory);
     }
 
@@ -146,7 +147,7 @@ public class AccountService {
 
         Long accountId = user.getAccount().getId();
 
-        return tradeHistoryRepository.findCategorizedByAccountId(accountId).stream()
+        return tradeHistoryRepository.findByAccountIdAndIsCategorized(accountId, true).stream()
                 .map(tradeHistory -> TradeHistoryCategorizeDto.Response.builder()
                         .id(tradeHistory.getId())
                         .tradeDate(tradeHistory.getTradeDate())
@@ -158,6 +159,25 @@ public class AccountService {
                         .withdraw(tradeHistory.getWithdraw())
                         .category(tradeHistory.getCategory())
                         .expenseType(tradeHistory.getFixed() != null ? "고정비" : "변동비")
+                        .build())
+                .collect(Collectors.toList());
+    }
+
+    public List<TradeHistoryDto.Response> getNotCategorizedHistory(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        return tradeHistoryRepository.findByAccountIdAndIsCategorized(user.getAccount().getId(), false).stream()
+                .map(tradeHistory -> TradeHistoryDto.Response.builder()
+                        .id(tradeHistory.getId())
+                        .tradeDate(tradeHistory.getTradeDate())
+                        .tradeTime(tradeHistory.getTradeTime())
+                        .briefs(tradeHistory.getBriefs())
+                        .content(tradeHistory.getContent())
+                        .name(tradeHistory.getName())
+                        .deposit(tradeHistory.getDeposit())
+                        .withdraw(tradeHistory.getWithdraw())
+                        .category(tradeHistory.getCategory())
                         .build())
                 .collect(Collectors.toList());
     }
@@ -217,4 +237,6 @@ public class AccountService {
 
         return "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber();
     }
+
+    private void checkSimilarHistories()
 }

@@ -13,10 +13,7 @@ public interface TradeHistoryRepository extends JpaRepository<TradeHistory,Long>
 
     TradeHistory findByIdAndAccountId(Long tradeHistoryId, Long accountId);
 
-    @Query("SELECT th FROM TradeHistory th " +
-            "WHERE (th.fixed IS NOT NULL OR th.variable IS NOT NULL) " +
-            "AND th.account.id = ?1")
-    List<TradeHistory> findCategorizedByAccountId(Long accountId);
+    List<TradeHistory> findByAccountIdAndIsCategorized(Long accountId, Boolean isCategorized);
 
     @Query("SELECT COALESCE(SUM(th.deposit), 0) FROM TradeHistory th WHERE FUNCTION('YEAR', th.tradeDate) = FUNCTION('YEAR', CURRENT_DATE) AND FUNCTION('MONTH', th.tradeDate) = FUNCTION('MONTH', CURRENT_DATE) AND th.category = 1 AND th.account.id = ?1")
 //    @Query("SELECT COALESCE(SUM(th.deposit), 0) FROM TradeHistory th WHERE YEAR(th.tradeDate) = YEAR(current_date) AND MONTH(th.tradeDate) = MONTH(current_date) AND th.category = 1 AND th.account.id = ?1")
