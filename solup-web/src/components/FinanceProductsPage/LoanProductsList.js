@@ -12,7 +12,7 @@ class LoanProductList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://54.206.147.12/product/loan')
+      .get('/product/loan')
       .then((response) => {
         const allLoanProducts = response.data.data.result.baseList;
         const shinanLoanProducts = allLoanProducts.filter(

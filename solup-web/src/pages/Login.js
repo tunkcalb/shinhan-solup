@@ -1,38 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setIsLoggedIn } from '../redux/actions';
-import axios from 'axios';
+import { setIsLoggedIn, setUserId, setUserName } from '../redux/actions';
 import Header from '../components/Header';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
-  // 페이지가 로드될 때, 쿠키에서 로그인 상태를 확인
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn === 'true') {
-      dispatch(setIsLoggedIn(true));
-    }
-  }, [dispatch]);
-
+  const navigate = useNavigate();
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    // 로그인 API 호출
     try {
       const response = await axios.post('/user/login', {
         "username": username,
-        "password": password
+        "password": password,
       });
-
+      console.log(response.data);
       const responseData = response.data;
-
-      if (responseData.message === '로그인 성공') {
-        // 로그인 성공 시 쿠키에 로그인 상태 저장
-        localStorage.setItem('isLoggedIn', 'true');
+      if (responseData.code === '200') { // 로그인 성공
+        const userId = responseData.data.id;
+        const userName = responseData.data.name;
+        console.log(userId, userName)
         dispatch(setIsLoggedIn(true));
-        window.location.href = '/home';
+        dispatch(setUserId(userId));
+        dispatch(setUserName(userName));
+        
+        navigate('/home');
       } else {
         alert('로그인 실패. 사용자 이름과 비밀번호를 확인하세요.');
       }
@@ -40,7 +38,7 @@ function Login() {
       console.error('API 요청 실패:', error);
       alert('로그인 요청 중 오류가 발생했습니다.');
     }
-  };
+  }
 
   return (
     <div className="login-container">

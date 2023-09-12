@@ -1,35 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AccountInfo.css';
 import MiniBtn from '../MiniBtn';
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import axios from 'axios'; // axios를 사용하여 API 호출
 
 function AccountInfo() {
-  // 계좌 정보가 등록 여부 확인
-  const [isAccountRegistered, setIsAccountRegistered] = useState(false);
+  const navigate = useNavigate();
+  const isAccountRegistered = useSelector((state) => state.isAccountRegistered);
+  const [accountData, setAccountData] = useState(null);
+  const userId = useSelector((state) => state.userId);
 
-  // 계좌 정보 (등록된 경우에만 표시)
-  const accountData = {
-    bankName: '신한은행',
-    accountNumber: '123-456-7890',
-    accountBalance: '1,000,000',
-  };
+  useEffect(() => {
+    if (isAccountRegistered) {
+      axios.get(`/account/${userId}`)
+        .then((response) => {
+          // API 응답에서 필요한 정보 추출
+          const data = response.data;
+          const accountInfo = {
+            bankName: '신한은행',
+            accountNumber: data.number,
+            accountBalance: data.balance,
+          };
+
+          // 계좌 정보 상태 업데이트
+          setAccountData(accountInfo);
+        })
+        .catch((error) => {
+          console.error('API 요청 실패:', error);
+        }); 
+    }
+  }, [isAccountRegistered]);
 
   // 계좌 등록 페이지로 이동하는 함수
   const redirectToAccountRegistration = () => {
-    // 계좌 등록 페이지로 이동하는 코드
-    setIsAccountRegistered(true);
+    navigate('/account-register');
   };
 
   return (
     <div className='infoContainer'>
       <div className='infoTitle'>
         {/* 가게 정보, 사용자 이름 받아와서 적용되어야 함 */}
-        <div className='normalText'>
-          <span>신한커피 </span>
-          <span className='boldText'>김싸피 </span>
-          <span>사장님</span>
-        </div>
       </div>
-      {isAccountRegistered ? (
+      {isAccountRegistered && accountData ? (
         <div className='accountContainer'>
           <img src={`${process.env.PUBLIC_URL}/cardProfit.png`} alt="계좌카드" className='cardImg'/>
           <div className="textOverlay">

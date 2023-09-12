@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom'; // Navigate 임포트
+import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react'; // PersistGate 추가
+import { store, persistor } from './redux/store'; // Redux 스토어 및 persistor 가져오기
+import { useSelector } from 'react-redux'; // useSelector 추가
+import { Navigate, useNavigate } from 'react-router-dom'; // useNavigate 추가
 
 import Home from './pages/Home.js';
 import InitialPage from './pages/InitialPage.js';
@@ -21,6 +24,7 @@ import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
+import AccountRegistration from './pages/AccountRegistration';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,32 +39,35 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Routes>
-          {isLoggedIn ? (
-            <Route path="/" element={<Home onLogout={logoutHandler} />} />
-          ) : (
-            <Route path="/" element={<InitialPage />} />
-          )}
-          <Route path="/home" element={<Home onLogout={logoutHandler} />} />
-          <Route path="/login" element={<Login loginHandler={loginHandler} />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/custom-products" element={<CustomProducts />} />
-          <Route path="/employee-management" element={<EmployeeManagement />} />
-          <Route path="/my-loans" element={<MyLoans />} />
-          <Route path="/sales-analysis" element={<SalesAnalysis />} />
-          <Route path="/start" element={<Start />} />
-          <Route path="/profit-status" element={<ProfitStatusPage />} />
-          <Route path="/margin-settlement" element={<MarginSettlement />} />
-          <Route path="/trade-history" element={<TradeHistory />} />
-          <Route path="/finance-products" element={<FinanceProductsPage />} />
-          <Route path='/account-question' element={<AccountQuestion />} />
-          <Route path='/auth-account' element={<AuthAccount />} />
-          <Route path='/register-store' element={<RegisterStore />} />
-          <Route path='/ready-to-solup' element={<ReadyToSolup />} />
-        </Routes>
-      </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="App">
+          <Routes>
+            {isLoggedIn ? (
+              <Route path="/" element={<Home onLogout={logoutHandler} />} />
+            ) : (
+              <Route path="/" element={<InitialPage />} />
+            )}
+            <Route path="/home" element={<Home onLogout={logoutHandler} />} />
+            <Route path="/login" element={<Login loginHandler={loginHandler} />} />
+            <Route path="/verification" element={<Verification />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/custom-products" element={<CustomProducts />} />
+            <Route path="/employee-management" element={<EmployeeManagement />} />
+            <Route path="/my-loans" element={<MyLoans />} />
+            <Route path="/sales-analysis" element={<SalesAnalysis />} />
+            <Route path="/start" element={<Start />} />
+            <Route path="/profit-status" element={<ProfitStatusPage />} />
+            <Route path="/margin-settlement" element={<MarginSettlement />} />
+            <Route path="/trade-history" element={<TradeHistory />} />
+            <Route path="/finance-products" element={<FinanceProductsPage />} />
+            <Route path='/account-question' element={<AccountQuestion />} />
+            <Route path='/auth-account' element={<AuthAccount />} />
+            <Route path='/register-store' element={<RegisterStore />} />
+            <Route path='/ready-to-solup' element={<ReadyToSolup />} />
+            <Route path='/account-register' element={<AccountRegistration />} />
+          </Routes>
+        </div>
+      </PersistGate>
     </Provider>
   );
 }
