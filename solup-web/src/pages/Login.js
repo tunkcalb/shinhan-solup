@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import { setIsLoggedIn, setUserId, setUserName } from '../redux/actions';
 import Header from '../components/Header';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -27,7 +29,8 @@ function Login() {
         dispatch(setIsLoggedIn(true));
         dispatch(setUserId(userId));
         dispatch(setUserName(userName));
-        window.location.href = '/home';
+        
+        navigate('/home');
       } else {
         alert('로그인 실패. 사용자 이름과 비밀번호를 확인하세요.');
       }
