@@ -21,6 +21,7 @@ import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
+import Guide from './components/Home/guide';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -59,6 +60,7 @@ function App() {
           <Route path='/auth-account' element={<AuthAccount />} />
           <Route path='/register-store' element={<RegisterStore />} />
           <Route path='/ready-to-solup' element={<ReadyToSolup />} />
+          <Route path='/guide' element={<Guide />} />
         </Routes>
       </div>
     </Provider>
