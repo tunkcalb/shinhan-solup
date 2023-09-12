@@ -18,6 +18,8 @@ public class TradeHistoryCategorizeDto {
     @AllArgsConstructor
     public static class Request{
         private Long tradeHistoryId;
+        private String briefs;
+        private String content;
         private String expenseType;
         private String expenseCategory;
     }
