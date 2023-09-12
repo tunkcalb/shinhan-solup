@@ -34,6 +34,7 @@ public class GlobalExceptionHandler {
         final ErrorResponse response = ErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR);
         e.printStackTrace();
         response.setMessage(e.getMessage());
+        notificationManager.sendNotification(e, req.getRequestURI(), getParams(req));
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
