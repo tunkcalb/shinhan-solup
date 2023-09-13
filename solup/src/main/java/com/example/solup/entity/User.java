@@ -32,15 +32,12 @@ public class User {
     @Column
     private String targetRevenue;
 
+    private String storeName;
+
     // 계좌 연결
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
-
-    // 가게 연결
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id")
-    private Store store;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Staff> staffes = new ArrayList<>();
@@ -52,12 +49,13 @@ public class User {
     private List<Surplus> surpluses = new ArrayList<>();
 
     @Builder
-    private User(long id, String username, String password, String name, String phoneNumber) {
+    private User(long id, String username, String password, String name, String phoneNumber, String storeName) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.storeName = storeName;
     }
 }
 

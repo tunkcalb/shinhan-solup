@@ -18,6 +18,7 @@ public class SignupDto {
         private String password;
         private String name;
         private String phoneNumber;
+        private String storeName;
 
         public User toEnity(){
             return User.builder()
@@ -25,6 +26,7 @@ public class SignupDto {
                     .password(this.password)
                     .name(this.name)
                     .phoneNumber(this.phoneNumber)
+                    .storeName(this.storeName)
                     .build();
         }
     }

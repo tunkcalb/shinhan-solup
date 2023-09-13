@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
     private final StoreRepository storeRepository;
     private final CardRepository cardRepository;
@@ -40,7 +41,7 @@ public class UserService {
     private final StaffRepository staffRepository;
     private final TradeHistoryRepository tradeHistoryRepository;
     private final FixedRepository fixedRepository;
-  
+
     private String delivery = "땡겨요";
 
     public SignupDto.Response save(SignupDto.Request request) throws DuplicatedValueException {
@@ -71,20 +72,10 @@ public class UserService {
     }
 
     public String findByUsername(String username) {
-        if (userRepository.findByUsername(username) != null) return "이미 존재하는 ID입니다";
-        return "사용 가능한 ID입니다";
-    }
-
-    public StoreDto.Response registStore(Long userId, StoreDto.Request request) {
-        Optional<User> optionalUser = userRepository.findById(userId);
-        User user = optionalUser.get();
-        if (user == null) {
-            throw new NotSameDataValueException("존재하지 않는 회원입니다.");
+        if (userRepository.findByUsername(username) != null) {
+            return "이미 존재하는 ID입니다";
         }
-        Store store = storeRepository.save(request.toEntity());
-        user.setStore(store);
-        userRepository.save(user);
-        return store.toDto();
+        return "사용 가능한 ID입니다";
     }
 
     public RevenueAnalysisDto.Response getRevenueAnalysis(long userId) {
@@ -123,13 +114,18 @@ public class UserService {
 
             // 이전달 변동비
             if (month == currentMonth - 1 || month == currentMonth + 11) {
-                if (tradeHistory.getVariable() != null) lastMonthExpenses += deposit;
+                if (tradeHistory.getVariable() != null) {
+                    lastMonthExpenses += deposit;
+                }
             }
 
-            if (month != currentMonth) continue;
+            if (month != currentMonth) {
+                continue;
+            }
 
             if (tradeHistory.getVariable() != null) {
-                Variable variable = variableRepository.findById(tradeHistory.getVariable().getId()).get();
+                Variable variable = variableRepository.findById(tradeHistory.getVariable().getId())
+                        .get();
                 String category = variable.getCategory();
                 int analysisSum = analysis.getOrDefault(category, 0);
                 analysis.put(category, analysisSum + deposit);
@@ -184,7 +180,9 @@ public class UserService {
         }
 
         Account account = accountRepository.findByNumber(request.getAccountNumber());
-        if (account == null) throw new NoSuchElementException("존재하지 않는 계좌입니다.");
+        if (account == null) {
+            throw new NoSuchElementException("존재하지 않는 계좌입니다.");
+        }
 
         user.setAccount(account);
 
@@ -245,7 +243,8 @@ public class UserService {
 
         String account = staff.getAccount();
 
-        TradeHistory lastTradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
+        TradeHistory lastTradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(
+                user.getAccount().getId());
 
         Integer currentBalance = lastTradeHistory.getBalance();
 
@@ -256,7 +255,7 @@ public class UserService {
         tradeHistory.setWithdraw(staff.getSalary());
         tradeHistory.setCategory(2);
         tradeHistory.setContent(staff.getName() + " " + staff.getAccount());
-        tradeHistory.setBalance(currentBalance-staff.getSalary());
+        tradeHistory.setBalance(currentBalance - staff.getSalary());
         tradeHistory.setName("신한은행");
         tradeHistory.setAccount(user.getAccount());
 

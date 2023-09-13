@@ -47,13 +47,6 @@ public class UserController {
         return new Response<>("200", "매출 분석 완료", response);
     }
     
-    @Operation(summary = "가게 등록", description = "가게 등록")
-    @PostMapping("/user/store/{userId}")
-    public Response<StoreDto.Response> registStore(@PathVariable Long userId, @RequestBody StoreDto.Request request) {
-        StoreDto.Response response = userService.registStore(userId, request);
-        return new Response<>("201", "가게 등록 성공", response);
-    }
-    
     @Operation(summary = "계좌 등록", description = "계좌 등록")
     @PostMapping("/user/account/{userId}")
     public Response<RegistAccountDto.Response> registAccount(@PathVariable Long userId, @RequestBody RegistAccountDto.Request request){
