@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { setIsLoggedIn } from "../redux/actions";
 import Header from "../components/Header";
+import "./styles/Signup.css"
+import "./styles/Verification.css"
 
 function Signup() {
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ function Signup() {
   const defaultName = queryParams.get('name') || "";
   const defaultPhoneNumber = queryParams.get('phoneNumber') || "";
 
+  // 상호명 업데이트 必
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -53,32 +56,67 @@ function Signup() {
     <div>
       <Header title="회원가입" />
       <div className="container">
-        <div className="inputForm">
-          <label htmlFor="username" className="inputTitle">아이디</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            className="inputContent"
-          />
-          <button onClick={handleNextClick} className="whiteBtn">아이디 중복확인</button>
+        <div className="contents">
+          <div className="inputForm">
+            <label htmlFor="username" className="inputTitle">아이디</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+            <button onClick={handleNextClick} className="whiteBtn">아이디 중복확인</button>
+          </div>
+          
+          <div className="inputForm">
+            <label htmlFor="password" className="inputTitle">비밀번호</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+          </div>
+
+          <div className="inputForm">
+            <label htmlFor="password" className="inputTitle">비밀번호 확인</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+          </div>
+
+          {/* 상호명 인풋 수정 必 */}
+          <div className="inputForm">
+            <label htmlFor="storename" className="inputTitle">상호명</label>
+            <input
+              type="text"
+              id="storename"
+              name="storename"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+          </div>
+          
+          {/* 여기 업체명 적는 inputForm */}
+
+          <div className="signupBtnContainer">
+            <div className="btnContainer">
+              <button onClick={handleNextClick} className="blueBtn">회원가입 완료</button>
+            </div>
+          </div>
+
         </div>
-        
-        <div className="inputForm">
-          <label htmlFor="password" className="inputTitle">비밀번호</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            className="inputContent"
-          />
-        </div>
-        
-        <button onClick={handleNextClick} className="blueBtn">회원가입 완료</button>
+
       </div>
     </div>
   );
