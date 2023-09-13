@@ -24,6 +24,10 @@
   font-weight: 500;
   font-size: 1rem;
 
+  line-height: 0.8rem;
+  /* letter-spacing: -0.015rem; */
+  letter-spacing: -0.015rem;
+
   margin-top: 0.62rem;
 }
 .imgContainer{
@@ -41,4 +45,15 @@
 .startBtn{
   /* margin-top: 6.06rem; */
   margin-top: 4rem;
+}
+
+
+
+/* account-question page */
+.sh2{
+  width: 90%;
+}
+
+.questionBtn{
+  margin-top: 1.5rem;
 }
