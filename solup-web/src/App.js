@@ -11,7 +11,7 @@ import InitialPage from './pages/InitialPage.js';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import CustomProducts from './pages/CustomProducts.js';
-import EmployeeManagement from './pages/EmployeeManagement.js';
+import EmployeeManagement from './pages/EmployeeManagement/EmployeeManagement';
 import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
@@ -26,6 +26,8 @@ import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
 import Guide from './components/Home/Guide';
 import AccountRegistration from './pages/AccountRegistration';
+import EmployeeEnrollment from './pages/EmployeeManagement/EmployeeEnrollment';
+import EmployeeInfo from './pages/EmployeeManagement/EmployeeInfo';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -54,6 +56,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/custom-products" element={<CustomProducts />} />
             <Route path="/employee-management" element={<EmployeeManagement />} />
+            <Route path="/employee-enrollment" element={<EmployeeEnrollment />} />
+            <Route path="/employee/:employeeId" element={<EmployeeInfo />} />
             <Route path="/my-loans" element={<MyLoans />} />
             <Route path="/sales-analysis" element={<SalesAnalysis />} />
             <Route path="/start" element={<Start />} />
