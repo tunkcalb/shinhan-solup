@@ -5,11 +5,13 @@ import com.example.solup.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
 public class SignupDto {
     @Data
+    @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Request{
