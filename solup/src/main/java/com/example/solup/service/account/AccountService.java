@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class AccountService {
+
     private final TradeHistoryRepository tradeHistoryRepository;
     private final AccountRepository accountRepository;
     private final UserRepository userRepository;
@@ -69,9 +70,11 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("해당 user를 찾을 수 없습니다."));
 
-        TradeHistory tradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
+        TradeHistory tradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(
+                user.getAccount().getId());
 
-        return new MainPageAccountDto(user.getAccount(), tradeHistory.getBalance());
+        return new MainPageAccountDto(user.getAccount(), tradeHistory.getBalance(),
+                user.getAccount().getBank(), user.getStoreName());
     }
 
     public void categorizeTradeHistory(Long userId, TradeHistoryCategorizeDto.Request request) {
@@ -85,7 +88,8 @@ public class AccountService {
         String expenseType = request.getExpenseType();
         String expenseCategory = request.getExpenseCategory();
 
-        List<TradeHistory> tradeHistories = tradeHistoryRepository.findByBriefsAndContentAndCategoryAndIsCategorized(briefs, content, 2, false);
+        List<TradeHistory> tradeHistories = tradeHistoryRepository.findByBriefsAndContentAndCategoryAndIsCategorized(
+                briefs, content, 2, false);
 
         if (Objects.equals(expenseType, "Fixed")) {
             Fixed fixed = new Fixed();
@@ -198,7 +202,8 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
 
-        return tradeHistoryRepository.findByAccountIdAndIsCategorized(user.getAccount().getId(), false).stream()
+        return tradeHistoryRepository.findByAccountIdAndIsCategorized(user.getAccount().getId(),
+                        false).stream()
                 .map(tradeHistory -> TradeHistoryDto.Response.builder()
                         .id(tradeHistory.getId())
                         .tradeDate(tradeHistory.getTradeDate())
@@ -217,7 +222,8 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
 
-        return tradeHistoryRepository.findByAccountIdAndIsCategorizedAndCategory(user.getAccount().getId(), false, 2).stream()
+        return tradeHistoryRepository.findByAccountIdAndIsCategorizedAndCategory(
+                        user.getAccount().getId(), false, 2).stream()
                 .map(tradeHistory -> TradeHistoryDto.Response.builder()
                         .id(tradeHistory.getId())
                         .tradeDate(tradeHistory.getTradeDate())
@@ -242,7 +248,8 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("해당 user를 찾을 수 없습니다."));
 
-        TradeHistory lastTrade = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
+        TradeHistory lastTrade = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(
+                user.getAccount().getId());
 
         TradeHistory tradeHistory = TradeHistory.builder()
                 .account(account)
@@ -270,21 +277,24 @@ public class AccountService {
         Integer livingExpense = request.getNetProfit() * request.getPercentage() / 100;
         Integer surplusExpense = request.getNetProfit() - livingExpense;
 
-        TradeHistory lastTradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(user.getAccount().getId());
+        TradeHistory lastTradeHistory = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(
+                user.getAccount().getId());
 
         TradeHistory tradeHistory = new TradeHistory();
         tradeHistory.setTradeDate(LocalDate.now());
         tradeHistory.setTradeTime(LocalTime.now());
         tradeHistory.setBriefs("생활비");
         tradeHistory.setWithdraw(livingExpense);
-        tradeHistory.setContent("생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber());
+        tradeHistory.setContent(
+                "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber());
         tradeHistory.setBalance(lastTradeHistory.getBalance() - livingExpense);
         tradeHistory.setCategory(2);
         tradeHistory.setName(request.getBankName());
         tradeHistory.setAccount(user.getAccount());
 
         Living living = new Living();
-        living.setContent("생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber());
+        living.setContent(
+                "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber());
         livingRepository.save(living);
 
         tradeHistory.setLiving(living);
