@@ -71,7 +71,7 @@ function Verification() {
               onChange={handleInputChange}
               className="inputContent"
             />
-            <button onClick={handleSendVerificationCode}>인증번호 발송</button>
+            <button onClick={handleSendVerificationCode} className="whiteBtn">인증번호 발송</button>
           </div>
 
           <div className="inputForm">
