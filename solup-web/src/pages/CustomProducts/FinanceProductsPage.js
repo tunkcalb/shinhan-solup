@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SavingsProductList from '../components/FinanceProductsPage/SavingProductsList';
-import LoanProductList from '../components/FinanceProductsPage/LoanProductsList';
+import SavingsProductList from '../../components/FinanceProductsPage/SavingProductsList';
+import LoanProductList from '../../components/FinanceProductsPage/LoanProductsList';
 
 class FinanceProductsPage extends Component {
   constructor(props) {

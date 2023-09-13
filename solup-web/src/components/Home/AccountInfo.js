@@ -22,7 +22,7 @@ function AccountInfo() {
             accountNumber: data.number,
             accountBalance: data.balance,
           };
-
+          console.log(accountInfo)
           // 계좌 정보 상태 업데이트
           setAccountData(accountInfo);
         })
