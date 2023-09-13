@@ -105,7 +105,8 @@ public class UserService {
         for (TradeHistory tradeHistory : account.getTradeHistories()) {
             LocalDate date = tradeHistory.getTradeDate();
             int month = date.getMonthValue();
-            int deposit = tradeHistory.getDeposit();
+            Integer deposit = tradeHistory.getDeposit();
+            if (deposit == null) continue;
             String content = tradeHistory.getContent();
 
             // 해당 월의 출금을 누적.

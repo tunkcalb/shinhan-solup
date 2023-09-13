@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
 public class User {
 
     @Id
@@ -32,6 +31,7 @@ public class User {
     @Column
     private String targetRevenue;
 
+    @Column
     private String storeName;
 
     // 계좌 연결
@@ -49,13 +49,18 @@ public class User {
     private List<Surplus> surpluses = new ArrayList<>();
 
     @Builder
-    private User(long id, String username, String password, String name, String phoneNumber, String storeName) {
+    private User(long id, String username, String password, String name, String phoneNumber,
+            String storeName) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.storeName = storeName;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
 
