@@ -24,8 +24,11 @@ import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
+import Guide from './components/Home/Guide';
 import AccountRegistration from './pages/AccountRegistration';
 import SupportProgramsPage from './pages/CustomProducts/SupportProgramsPage';
+import EmployeeEnrollment from './pages/EmployeeManagement/EmployeeEnrollment';
+import EmployeeInfo from './pages/EmployeeManagement/EmployeeInfo';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -54,6 +57,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/custom-products" element={<CustomProducts />} />
             <Route path="/employee-management" element={<EmployeeManagement />} />
+            <Route path="/employee-enrollment" element={<EmployeeEnrollment />} />
+            <Route path="/employee/:employeeId" element={<EmployeeInfo />} />
             <Route path="/my-loans" element={<MyLoans />} />
             <Route path="/sales-analysis" element={<SalesAnalysis />} />
             <Route path="/start" element={<Start />} />
@@ -67,6 +72,7 @@ function App() {
             <Route path='/ready-to-solup' element={<ReadyToSolup />} />
             <Route path='/account-register' element={<AccountRegistration />} />
             <Route path='/support-programs' element={<SupportProgramsPage />} />
+            <Route path='/guide' element={<Guide />} />
           </Routes>
         </div>
       </PersistGate>

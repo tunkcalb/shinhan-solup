@@ -1,6 +1,6 @@
 import React from "react";
 import "./Start.css"
-import "../Verification.css"
+import "../styles/Verification.css"
 import BlueButton from "../../components/BlueButton";
 
 function ReadyToSolup () {

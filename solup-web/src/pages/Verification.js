@@ -46,45 +46,48 @@ function Verification() {
     <div>
       <Header title="회원가입" />
       <div className="container">
-        <div className="subTitle">본인인증을 진행해주세요</div>
-        <div className="inputForm">
-          <label htmlFor="name" className="inputTitle">이름</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            className="inputContent"
-          />
-        </div>
+        <div className="contents">
 
-        <div className="inputForm">
-          <label htmlFor="phoneNumber" className="inputTitle">전화번호</label>
-          <input
-            type="text"
-            id="phoneNumber"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleInputChange}
-            className="inputContent"
-          />
-          <button onClick={handleSendVerificationCode}>인증번호 발송</button>
-        </div>
+          <div className="subTitle">본인인증을 진행해주세요</div>
+          <div className="inputForm">
+            <label htmlFor="name" className="inputTitle">이름</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+          </div>
 
-        <div className="inputForm">
-          <label htmlFor="verificationCode" className="inputTitle">인증번호</label>
-          <input
-            type="text"
-            id="verificationCode"
-            name="verificationCode"
-            value={formData.verificationCode}
-            onChange={handleInputChange}
-            className="inputContent"
-          />
+          <div className="inputForm">
+            <label htmlFor="phoneNumber" className="inputTitle">전화번호</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+            <button onClick={handleSendVerificationCode} className="whiteBtn">인증번호 발송</button>
+          </div>
+
+          <div className="inputForm">
+            <label htmlFor="verificationCode" className="inputTitle">인증번호</label>
+            <input
+              type="text"
+              id="verificationCode"
+              name="verificationCode"
+              value={formData.verificationCode}
+              onChange={handleInputChange}
+              className="inputContent"
+            />
+          </div>
+          
+          <BlueButton title="다음" destination={`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`} />
         </div>
-        
-        <BlueButton title="다음" destination={`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`} />
       </div>
     </div>
   );
