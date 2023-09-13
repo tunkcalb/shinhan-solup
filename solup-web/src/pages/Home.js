@@ -2,7 +2,7 @@ import React from 'react';
 import AccountInfo from '../components/Home/AccountInfo.js'
 import ProfitStatus from '../components/Home/ProfitStatus.js'
 import NavBar from '../components/Footer.js';
-import "./Home.css"
+import "./styles/Home.css"
 import { useSelector } from 'react-redux'
 import UserInfo from '../components/UserInfo.js';
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
   console.log(isLoggedIn)
   console.log(isAccountRegistered)
   return (
-    <div className="homeContainer">
+    <div>
       <div className='homeLogo'>
         <img src={`${process.env.PUBLIC_URL}/solup-logo-blue.png`} alt="쏠업로고"/>
       </div>
@@ -24,7 +24,7 @@ function Home() {
         <AccountInfo />
         <ProfitStatus />
       </div>
-        <NavBar />
+      <NavBar />
     </div>
   );
 }

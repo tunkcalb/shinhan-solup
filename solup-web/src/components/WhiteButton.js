@@ -10,7 +10,9 @@ function WhiteButton ({title, destination}) {
     }
   };
   return (
-    <button onClick={handleNextClick} className="whiteBtn">{title}</button>
+    <div className="btnContainer">
+        <button onClick={handleNextClick} className="whiteBtn">{title}</button>
+    </div>
   );
 };
 

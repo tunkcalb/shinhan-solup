@@ -1,0 +1,14 @@
+.loginContainer{
+  min-height: calc(100vh - 6.75rem);
+  padding: 0 1.25rem; 
+}
+
+.loginContents{
+  padding-top: 7.88rem;
+  /* width: 100%; */
+}
+
+
+.loginBtnContainer{
+  margin-top: 17.37rem;
+}

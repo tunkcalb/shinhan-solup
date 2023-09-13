@@ -1,5 +1,9 @@
 .homeLogo {
   /* padding-top: 1rem; */
+  /* 나중에 수정 0912 */
+  position: relative;
+  z-index: 1;
+
   height: 7.1875rem;
   display: flex;
   justify-content: center;
