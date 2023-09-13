@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 
 function Classification () {
     return (

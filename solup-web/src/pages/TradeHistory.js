@@ -1,11 +1,12 @@
-import React from 'react';
+
+
+import TradeHistoryView from "../components/TradeHistory/TradeHistoryView"
+import Classification from "../components/TradeHistory/Classification"
 
 function TradeHistory() {
   return (
     <div>
-      <p>은행명, 계좌번호, 잔액</p>
-      <p>거래내역</p>
-      <p>분류하기 버튼</p>
+      <TradeHistoryView/>
     </div>
   );
 }
