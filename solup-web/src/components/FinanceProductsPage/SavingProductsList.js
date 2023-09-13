@@ -12,7 +12,7 @@ class SavingsProductList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://54.206.147.12/product/saving')
+      .get('/product/saving')
       .then((response) => {
         const savingsProducts = response.data.data.result.baseList;
 
