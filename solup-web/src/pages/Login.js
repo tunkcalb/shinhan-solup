@@ -68,7 +68,9 @@ function Login() {
                 className="inputContent"
               />
             </div>
-            <button type="submit" className='blueBtn'>로그인</button>
+            <div className='btnContainer'>
+              <button type="submit" className='blueBtn'>로그인</button>
+            </div>
           </form>
 
         </div>
