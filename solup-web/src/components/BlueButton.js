@@ -10,7 +10,9 @@ function BlueButton ({title, destination}) {
     }
   };
   return (
-    <button onClick={handleNextClick} className="blueBtn">{title}</button>
+    <div className="btnContainer">
+      <button onClick={handleNextClick} className="blueBtn">{title}</button>
+    </div>
   );
 };
 
