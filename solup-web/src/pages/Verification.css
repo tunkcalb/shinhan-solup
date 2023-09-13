@@ -8,9 +8,12 @@
 
 .container {
   min-height: calc(100vh - 6.5rem);
-  /* background-color: silver;  테스트 용입니다 */
-  padding: 3rem 1.25rem 5.56rem;
-  /* padding: 3rem 1.25rem 0rem; */
+  padding: 0rem 1.25rem 0rem;
+}
+
+.contents{
+  padding: 3rem 0rem 5.56rem;
+  height: 100%;
 }
 
 /* inputForm css */

@@ -1,0 +1,16 @@
+.guideContainer{
+  background-color: red;
+  min-height: calc(100vh - 7.1875rem);
+  display: flex;
+  align-items: center;
+}
+.guideContent{
+  background-color: blue;
+  width: 100%;
+}
+
+.guideItem{
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}

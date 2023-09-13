@@ -46,31 +46,34 @@ function Login() {
     <div className="login-container">
       <Header title="로그인" />
       <div className='container'>
-        <form onSubmit={handleLogin}>
-          <div className="inputForm">
-            <label htmlFor="username" className="inputTitle">아이디</label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              className="inputContent"
-            />
-          </div>
-          <div className="inputForm">
-            <label htmlFor="password" className="inputTitle">비밀번호</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="inputContent"
-            />
-          </div>
-          <button type="submit" className='blueBtn'>로그인</button>
-        </form>
+        <div className='contents'>
+          <form onSubmit={handleLogin}>
+            <div className="inputForm">
+              <label htmlFor="username" className="inputTitle">아이디</label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className="inputContent"
+              />
+            </div>
+            <div className="inputForm">
+              <label htmlFor="password" className="inputTitle">비밀번호</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="inputContent"
+              />
+            </div>
+            <button type="submit" className='blueBtn'>로그인</button>
+          </form>
+
+        </div>
       </div>
     </div>
   );

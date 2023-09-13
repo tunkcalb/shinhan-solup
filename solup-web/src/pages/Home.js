@@ -6,7 +6,7 @@ import "./Home.css"
 
 function Home() {
   return (
-    <div className="homeContainer">
+    <div>
       <div className='homeLogo'>
         <img src={`${process.env.PUBLIC_URL}/solup-logo-blue.png`} alt="쏠업로고"/>
       </div>
@@ -14,7 +14,7 @@ function Home() {
         <AccountInfo />
         <ProfitStatus />
       </div>
-        <NavBar />
+      <NavBar />
     </div>
   );
 }

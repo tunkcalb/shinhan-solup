@@ -21,7 +21,7 @@ import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
-import Guide from './components/Home/guide';
+import Guide from './components/Home/Guide';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
