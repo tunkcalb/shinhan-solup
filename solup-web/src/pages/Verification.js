@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
+import "./styles/Verification.css"
 
 function Verification() {
   const navigate = useNavigate();
@@ -86,7 +87,9 @@ function Verification() {
             />
           </div>
           
-          <BlueButton title="다음" destination={`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`} />
+          <div className="verificationBtnContainer">
+            <BlueButton title="다음" destination={`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`} />
+          </div>
         </div>
       </div>
     </div>
