@@ -29,6 +29,7 @@ import AccountRegistration from './pages/AccountRegistration';
 import SupportProgramsPage from './pages/CustomProducts/SupportProgramsPage';
 import EmployeeEnrollment from './pages/EmployeeManagement/EmployeeEnrollment';
 import EmployeeInfo from './pages/EmployeeManagement/EmployeeInfo';
+import LoanManagement from './pages/LoanManagement';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -73,6 +74,7 @@ function App() {
             <Route path='/account-register' element={<AccountRegistration />} />
             <Route path='/support-programs' element={<SupportProgramsPage />} />
             <Route path='/guide' element={<Guide />} />
+            <Route path='/loan-management' element={<LoanManagement />} />
           </Routes>
         </div>
       </PersistGate>
