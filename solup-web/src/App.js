@@ -24,6 +24,7 @@ import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
+import Guide from './components/Home/Guide';
 import AccountRegistration from './pages/AccountRegistration';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
             <Route path='/register-store' element={<RegisterStore />} />
             <Route path='/ready-to-solup' element={<ReadyToSolup />} />
             <Route path='/account-register' element={<AccountRegistration />} />
+            <Route path='/guide' element={<Guide />} />
           </Routes>
         </div>
       </PersistGate>

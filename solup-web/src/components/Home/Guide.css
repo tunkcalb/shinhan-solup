@@ -1,0 +1,39 @@
+.guideContainer{
+  /* min-height: calc(100vh - 7.1875rem); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.guideContent{
+  width: 100%;
+  padding-bottom: 1.56rem;
+  margin-top: 2.81rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guideContainer img{
+  width: 100%;
+  padding-bottom: 1.4rem;
+}
+
+.guideText{
+  color: #333E63;
+  font-family: Be Vietnam Pro;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: bold;
+}
+.guideItem{
+  margin: 0 1.87rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnMargin{
+  margin: 3.88rem 1.25rem 0;
+}
