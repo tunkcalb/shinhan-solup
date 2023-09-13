@@ -2,7 +2,7 @@ import React from 'react';
 import AccountInfo from '../components/Home/AccountInfo.js'
 import ProfitStatus from '../components/Home/ProfitStatus.js'
 import NavBar from '../components/Footer.js';
-import "./Home.css"
+import "./styles/Home.css"
 import { useSelector } from 'react-redux'
 import UserInfo from '../components/UserInfo.js';
 function Home() {

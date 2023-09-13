@@ -1,21 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import "./styles/InitialPage.css"
 import logo from '../assets/solup_logo_blue.png'; // Import the image
+import BlueButton from '../components/BlueButton';
+import WhiteButton from '../components/WhiteButton';
 
 function InitialPage() {
   return (
-    <div className="initial-page">
+    <div className="initialPage">
       <div>
-        <img src={logo} alt="SOLUP Logo" />
-      </div>
-      <p>SOL로 하는 손 쉬운 영업, 쏠업</p>
-      <div>
-        <Link to="/login">
-          <button>로그인</button>
-        </Link>
-        <Link to="/verification">
-          <button>회원가입</button>
-        </Link>
+        <div className='mainLogo'>
+          <img src={logo} alt="SOLUP Logo" />
+        </div>
+        <div className='initText'>
+          <span>SOL</span>
+          <span className='initLight'>로 하는 손 쉬운 영업,</span>
+          <span> 쏠업</span>
+        </div>
+        <div className='buttons'>
+          <BlueButton title="로그인" destination="/login" />
+          <WhiteButton title="회원가입" destination="/verification" />
+        </div>
       </div>
     </div>
   );
