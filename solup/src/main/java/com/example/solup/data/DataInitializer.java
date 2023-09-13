@@ -992,8 +992,8 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeDate\": \"20230814\",\n" +
                 "    \"tradeTime\": \"153822\",\n" +
                 "    \"briefs\": \"가스비\",\n" +
-                "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"90000\",\n" +
+                "    \"withdraw\": \"90000\",\n" +
+                "    \"deposit\": \"\",\n" +
                 "    \"content\": \"부산도시가스\",\n" +
                 "    \"balance\": \"6459000\",\n" +
                 "    \"category\": \"2\",\n" +
