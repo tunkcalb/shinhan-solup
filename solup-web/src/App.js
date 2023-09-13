@@ -11,7 +11,7 @@ import InitialPage from './pages/InitialPage.js';
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
 import CustomProducts from './pages/CustomProducts/CustomProducts.js';
-import EmployeeManagement from './pages/EmployeeManagement.js';
+import EmployeeManagement from './pages/EmployeeManagement/EmployeeManagement';
 import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
