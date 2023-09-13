@@ -1,4 +1,3 @@
-import React from 'react';
 import "./styles/InitialPage.css"
 import logo from '../assets/solup_logo_blue.png'; // Import the image
 import BlueButton from '../components/BlueButton';

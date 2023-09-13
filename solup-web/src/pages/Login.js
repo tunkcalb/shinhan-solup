@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setIsLoggedIn, setUserId, setUserName } from '../redux/actions';
+import { useNavigate } from 'react-router';
 import Header from '../components/Header';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import "./styles/Login.css"
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -41,40 +42,44 @@ function Login() {
   }
 
   return (
-    <div className="login-container">
+    <div>
       <Header title="로그인" />
-      <div className='container'>
-        <div className='contents'>
-          <form onSubmit={handleLogin}>
-            <div className="inputForm">
-              <label htmlFor="username" className="inputTitle">아이디</label>
-              <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="inputContent"
-              />
-            </div>
-            <div className="inputForm">
-              <label htmlFor="password" className="inputTitle">비밀번호</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="inputContent"
-              />
-            </div>
-            <div className='btnContainer'>
-              <button type="submit" className='blueBtn'>로그인</button>
-            </div>
-          </form>
-
+      <div className='loginContainer'>
+        <div className='loginContents'>
+          <div>
+            <form onSubmit={handleLogin}>
+              <div className="inputForm">
+                <label htmlFor="username" className="inputTitle">아이디</label>
+                <input
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="inputContent"
+                />
+              </div>
+              <div className="inputForm">
+                <label htmlFor="password" className="inputTitle">비밀번호</label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="inputContent"
+                />
+              </div>
+              <div className='loginBtnContainer'>
+                <button type="submit" className='blueBtn'>로그인</button>
+              </div>
+            </form>
+          </div>
         </div>
+
+
       </div>
+
     </div>
   );
 }

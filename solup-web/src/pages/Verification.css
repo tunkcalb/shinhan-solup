@@ -7,8 +7,9 @@
 }
 
 .container {
-  min-height: calc(100vh - 6.5rem);
+  min-height: calc(100vh - 6.75rem);
   padding: 0rem 1.25rem 0rem;
+
 }
 
 .contents{

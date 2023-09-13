@@ -1,3 +1,7 @@
+.btnWrapper{
+  margin-top: 20px;
+}
+
 .btnContainer{
   display: flex;
   justify-content: center;
