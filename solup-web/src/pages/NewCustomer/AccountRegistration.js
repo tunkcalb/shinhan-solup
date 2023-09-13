@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import { setUserId, setIsAccountRegistered } from '../redux/actions'; // 액션 생성자 임포트
+import { setUserId, setIsAccountRegistered } from '../../redux/actions'; // 액션 생성자 임포트
 import { useNavigate } from 'react-router';
 
 function AccountRegistration() {
