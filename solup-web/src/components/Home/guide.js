@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import "../../pages/Home.css";
+import "../../pages/styles/Home.css";
 import "./Guide.css";
 import BlueButton from "../BlueButton";
 
