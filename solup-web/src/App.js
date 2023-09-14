@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react'; // PersistGate 추가
-import { store, persistor } from './redux/store'; // Redux 스토어 및 persistor 가져오기
-import { useSelector } from 'react-redux'; // useSelector 추가
-import { Navigate, useNavigate } from 'react-router-dom'; // useNavigate 추가
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store';
+import { useSelector } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import Home from './pages/Home.js';
 import InitialPage from './pages/InitialPage.js';
@@ -16,18 +16,20 @@ import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
 import Start from './pages/NewCustomer/Start';
-// import ProfitStatusPage from './pages/ProfitStatusPage';
+import ProfitStatusPage from './pages/ProfitStatusPage';
 import TradeHistory from './pages/TradeHistory';
 import FinanceProductsPage from './pages/CustomProducts/FinanceProductsPage';
 import AccountQuestion from './pages/NewCustomer/AccountQuestion';
 import AuthAccount from './pages/NewCustomer/AuthAccount';
 import RegisterStore from './pages/NewCustomer/RegisterStore';
 import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
-import Guide from './components/Home/Guide';
 import AccountRegistration from './pages/NewCustomer/AccountRegistration';
+import Guide from './components/Home/Guide';
 import SupportProgramsPage from './pages/CustomProducts/SupportProgramsPage';
 import EmployeeEnrollment from './pages/EmployeeManagement/EmployeeEnrollment';
 import EmployeeInfo from './pages/EmployeeManagement/EmployeeInfo';
+import LoanManagement from './pages/LoanManagement';
+import RevenueAnalysisView from './components/RevenueAnalysis/RevenueAnalysisView';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,7 +63,7 @@ function App() {
             <Route path="/my-loans" element={<MyLoans />} />
             <Route path="/sales-analysis" element={<SalesAnalysis />} />
             <Route path="/start" element={<Start />} />
-            {/* <Route path="/profit-status" element={<ProfitStatusPage />} /> */}
+            <Route path="/profit-status" element={<ProfitStatusPage />} />
             <Route path="/trade-history" element={<TradeHistory />} />
             <Route path="/finance-products" element={<FinanceProductsPage />} />
             <Route path='/account-question' element={<AccountQuestion />} />
@@ -69,8 +71,10 @@ function App() {
             <Route path='/register-store' element={<RegisterStore />} />
             <Route path='/ready-to-solup' element={<ReadyToSolup />} />
             <Route path='/account-register' element={<AccountRegistration />} />
+            <Route path='/revenue-analysis-view' element={<RevenueAnalysisView />} />
             <Route path='/support-programs' element={<SupportProgramsPage />} />
             <Route path='/guide' element={<Guide />} />
+            <Route path='/loan-management' element={<LoanManagement />} />
           </Routes>
         </div>
       </PersistGate>
