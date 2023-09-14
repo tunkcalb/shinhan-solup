@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { setUserId, setIsAccountRegistered } from '../../redux/actions'; // 액션 생성자 임포트
-import { useNavigate } from 'react-router';
+
+import "../styles/Start.css";
+import "../styles/Verification.css";
+import BlueButton from '../../components/BlueButton';
 
 function AccountRegistration() {
   const userId = useSelector((state) => state.userId); // Redux 스토어에서 userId 가져오기
@@ -50,34 +54,48 @@ function AccountRegistration() {
   };
 
   return (
-    <div className="account-registration-container">
-      <h2>계좌 등록</h2>
-      <form onSubmit={handleRegisterAccount}>
-        <div className="inputForm">
-          <label htmlFor="accountNumber">계좌번호</label>
-          <input
-            type="text"
-            id="accountNumber"
-            value={accountNumber}
-            onChange={(e) => setAccountNumber(e.target.value)}
-            required
-          />
+    <div className="startContainer">
+      <div className="startContent">
+        <div className='registerText'>
+          <div className="mainText">계좌 인증하기</div>
+          <div className="subText">신한은행 계좌로 1원을 입금하여</div>
+          <div className="subText">숫자 4자리로 계좌를 인증해주세요</div>
+
         </div>
-        <div>
-            <button onClick={handleTransferOneWon}>1원 송금하기</button>
-        </div>
-        <div className="inputForm">
-          <label htmlFor="verificationCode">인증코드</label>
-          <input
-            type="text"
-            id="verificationCode"
-            value={verificationCode}
-            onChange={(e) => setVerificationCode(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">계좌 등록</button>
-      </form>
+        {/* 구분 */}
+        <form onSubmit={handleRegisterAccount}>
+          <div className="inputForm">
+            <label htmlFor="accountNumber" className="inputTitle">계좌번호</label>
+            <input
+              type="text"
+              id="accountNumber"
+              value={accountNumber}
+              onChange={(e) => setAccountNumber(e.target.value)}
+              required
+              className="inputContent"
+            />
+            <button onClick={handleTransferOneWon} className='whiteBtn'>1원 송금하기</button>
+          </div>
+
+
+          <div className="inputForm">
+            <label htmlFor="verificationCode" className="inputTitle">인증코드</label>
+            <input
+              type="text"
+              id="verificationCode"
+              value={verificationCode}
+              onChange={(e) => setVerificationCode(e.target.value)}
+              required
+              className="inputContent"
+            />
+          </div>
+
+          <div className='registerBtn'>
+            {/* 인증 버튼 클릭 시 인증 완료 페이지로*/}
+            <button type="submit" className='blueBtn'>인증하기</button>
+          </div>
+        </form>
+      </div>
 
     </div>
   );
