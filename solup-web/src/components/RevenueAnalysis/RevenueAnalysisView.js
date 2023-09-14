@@ -31,19 +31,23 @@ function RevenueAnalysisView() {
               )
             )}
           </ul>
-          <p>카테고리별 매출 분석</p>
+
+          <p>카드 매출 분석</p>
           <ul>
-            {Object.entries(RevenueAnalysisData.analysis).map(
+            {Object.entries(RevenueAnalysisData.cardRevenue).map(
               ([key, value]) => (
                 <li key={key}>
                   {key}: {value}
                 </li>
               )
             )}
+            <li>배달 매출 : {RevenueAnalysisData.deliverySum}</li>
+            <li>현금 매출 : {RevenueAnalysisData.cash}</li>
           </ul>
-          <p>카드 매출 분석</p>
+
+          <p>카테고리별 매출 분석</p>
           <ul>
-            {Object.entries(RevenueAnalysisData.cardRevenue).map(
+            {Object.entries(RevenueAnalysisData.analysis).map(
               ([key, value]) => (
                 <li key={key}>
                   {key}: {value}
