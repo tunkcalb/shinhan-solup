@@ -7,7 +7,7 @@ import MiniBtn from '../MiniBtn';
 function ProfitStatus() {
   const navigate = useNavigate();
   const redirectToSettlementPage = () => {
-    navigate('/profit-status');
+    navigate('/margin-settlement');
   };
 
   // 거래내역 분류 여부를 상태로 관리합니다.

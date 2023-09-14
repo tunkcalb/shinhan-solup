@@ -107,7 +107,7 @@ function ProfitStatusPage() {
           />
         </div>
       
-        <div className="btnContainer">
+        <div className="marginBtnContainer">
           <button onClick={handleTransferButtonClick} className="blueBtn">이체하기</button>
         </div>
         {/* <div>

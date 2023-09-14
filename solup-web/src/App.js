@@ -63,6 +63,7 @@ function App() {
             <Route path="/my-loans" element={<MyLoans />} />
             <Route path="/sales-analysis" element={<SalesAnalysis />} />
             <Route path="/start" element={<Start />} />
+            <Route path="/margin-settlement" element={<ProfitStatusPage />} />
             <Route path="/trade-history" element={<TradeHistory />} />
             <Route path="/finance-products" element={<FinanceProductsPage />} />
             <Route path='/account-question' element={<AccountQuestion />} />
