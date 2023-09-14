@@ -87,4 +87,10 @@ public class AccountController {
         AuthenticationDto.Response response = accountService.checkAccount(userId, request);
         return new Response<>("201", "1원 송금 완료", response);
     }
+
+    @Operation(description = "대출 계좌 조회", summary = "대출 계좌 조회")
+    @GetMapping("account/{userId}/loan")
+    public Response<LoanAccountDto.Response> getLoanAccount(@PathVariable("userId")Long userId) {
+        return new Response<>("200", "대출 계좌 조회 성공", accountService.getLoanAccount(userId));
+    }
 }

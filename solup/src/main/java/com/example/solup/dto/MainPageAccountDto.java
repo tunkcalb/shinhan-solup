@@ -1,6 +1,6 @@
 package com.example.solup.dto;
 
-import com.example.solup.entity.Account;
+import com.example.solup.entity.account.Account;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
