@@ -23,7 +23,6 @@ function Verification() {
 
   const handleSendVerificationCode = async () => {
     try {
-      // SMS 인증 요청 보내기
       const response = await axios.post('/user/sms', {
         recipientPhoneNumber: formData.phoneNumber,
       });
@@ -39,7 +38,6 @@ function Verification() {
   };
 
   const handleNextButtonClick = () => {
-    // "다음" 버튼 클릭 시 Signup 페이지로 이동하며 이름과 전화번호를 전달
     navigate(`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`);
   };
 
