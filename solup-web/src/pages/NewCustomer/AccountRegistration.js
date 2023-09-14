@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { setUserId, setIsAccountRegistered } from '../../redux/actions'; // 액션 생성자 임포트
+import { setUserId, setIsAccountRegistered } from '../../redux/actions';
 
 import "../styles/Start.css";
 import "../styles/Verification.css";
 import BlueButton from '../../components/BlueButton';
 
 function AccountRegistration() {
-  const userId = useSelector((state) => state.userId); // Redux 스토어에서 userId 가져오기
-  const dispatch = useDispatch(); // dispatch 함수를 가져옵니다.
+  const userId = useSelector((state) => state.userId);
+  const dispatch = useDispatch();
   const [accountNumber, setAccountNumber] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const navigate = useNavigate();
@@ -40,12 +40,10 @@ function AccountRegistration() {
   const handleTransferOneWon = async (e) => {
     e.preventDefault();
     try {
-      // API 호출: 1원 송금
+      console.log(accountNumber)
       await axios.post(`/account/check/${userId}`, {
         accountNumber: accountNumber,
       });
-
-      // 1원 송금 완료
       alert('1원 송금이 완료되었습니다.');
     } catch (error) {
       console.error('API 요청 실패:', error);

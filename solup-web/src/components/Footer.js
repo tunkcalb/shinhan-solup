@@ -6,7 +6,7 @@ function NavBar () {
   return (
     <div>
       <ul className="navBarList">
-        <Link to="/" className="navItem">
+        <Link to="/loan-management" className="navItem">
           <img src={`${process.env.PUBLIC_URL}/nav1.png`} alt="대출"/>
           <div>대출</div>
         </Link>
