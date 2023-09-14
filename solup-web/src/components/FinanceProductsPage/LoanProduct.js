@@ -1,10 +1,10 @@
 import React from 'react';
 
 function LoanProduct({ product }) {
-  const handleApplyLoan = () => {
-    const solAppPackage = 'com.shinhan.sbanking';
-    const playStoreUrl = `https://play.google.com/store/apps/details?id=${solAppPackage}`;
-    window.open(playStoreUrl, '_blank');
+  const handleOpenApp = () => {
+    const appScheme = 'com.shinhan.sbanking';
+    const appLink = `intent://${appScheme}/#Intent;scheme=${appScheme};action=android.intent.action.VIEW;package=${appScheme};end`;
+    window.location.href = appLink;
   };
 
   return (
@@ -14,7 +14,7 @@ function LoanProduct({ product }) {
       <p>가입 방법: {product.join_way}</p>
       <p>대출 상품 유형: {product.crdt_prdt_type_nm}</p>
       <hr />
-      <a href="https://play.google.com/store/apps/details?id=com.shinhan.sbanking">대출 신청하기</a>
+      <button onClick={handleOpenApp}>앱 열기</button>
     </div>
   );
 }
