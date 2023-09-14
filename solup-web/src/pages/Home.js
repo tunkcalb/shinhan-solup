@@ -10,10 +10,10 @@ function Home() {
   const userName = useSelector((state) => state.userName);
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const isAccountRegistered = useSelector((state) => state.isAccountRegistered);
-  console.log(userId)
-  console.log(userName)
-  console.log(isLoggedIn)
-  console.log(isAccountRegistered)
+  console.log("userId: " + userId)
+  console.log("name: " + userName)
+  console.log("Login: " + isLoggedIn)
+  console.log("account register: " + isAccountRegistered)
   return (
     <div>
       <div className='homeLogo'>

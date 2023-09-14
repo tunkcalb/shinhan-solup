@@ -30,7 +30,7 @@ function AccountRegistration() {
 
       dispatch(setIsAccountRegistered(true));
       alert('계좌 등록이 완료되었습니다.');
-      navigate('/home');
+      navigate('/ready-to-solup');
     } catch (error) {
       console.error('API 요청 실패:', error);
       alert('계좌 등록 중 오류가 발생했습니다.');
@@ -89,7 +89,7 @@ function AccountRegistration() {
           </div>
 
           <div className='registerBtn'>
-            <BlueButton title="인증하기" destination="/ready-to-solup" />
+            <BlueButton onClick={handleRegisterAccount} title="인증하기"/>
           </div>
         </form>
       </div>
