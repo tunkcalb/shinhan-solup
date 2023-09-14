@@ -5,6 +5,7 @@ import "./styles/MarginSettlement.css"
 import InputPart from '../components/InputPart';
 import SelectPart from '../components/SelectPart';
 import Modal from '../components/Modal';
+import BlueButton from '../components/BlueButton';
 
 function ProfitStatusPage() {
   const navigate = useNavigate();
@@ -73,14 +74,6 @@ function ProfitStatusPage() {
 
   return (
     <>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {/* 모달 내용 */}
-        <div>
-          <p>모달 내용을 여기에 추가하세요.</p>
-          <button onClick={handleCloseModal}>닫기</button>
-        </div>
-      </Modal>
-
       <div className='blueContainer'>
         <Link to="/">
           <img src={`${process.env.PUBLIC_URL}/whiteBackBtn.png`} 
@@ -133,10 +126,25 @@ function ProfitStatusPage() {
             onChange={handleAccountNumberChange}
           />
         </div>
-      
+
+        {/* 이체하기 */}
         <div className="marginBtnContainer">
           <button onClick={handleTransferButtonClick} className="blueBtn">이체하기</button>
         </div>
+
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          {/* 모달 내용 */}
+          <div className='modalPart'>
+            <div className='modalText'>
+              <div>이체 금액 {transferAmount}원</div>
+              <div>{selectedBank} 계좌로 이체 완료!</div>
+            </div>
+            <div className='modalImg'>
+              <img src={`${process.env.PUBLIC_URL}/shfriends4.png`} alt="완료이미지" />
+            </div>
+            <BlueButton title="확인하기" destination="/home"/>
+          </div>
+        </Modal>
 
 
         {/* <div>
