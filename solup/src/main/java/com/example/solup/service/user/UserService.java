@@ -110,7 +110,7 @@ public class UserService {
             String content = tradeHistory.getContent();
             String briefs = tradeHistory.getBriefs();
             Integer withdraw = tradeHistory.getWithdraw();
-            if (deposit == null){
+            if (deposit == null) {
                 // 해당 월의 출금을 누적.
                 int currentDepositSum = monthlyRevenue.getOrDefault(month, 0);
                 monthlyRevenue.put(month, currentDepositSum + deposit);
@@ -127,7 +127,8 @@ public class UserService {
                 }
 
                 if (tradeHistory.getVariable() != null) {
-                    Variable variable = variableRepository.findById(tradeHistory.getVariable().getId())
+                    Variable variable = variableRepository.findById(
+                                    tradeHistory.getVariable().getId())
                             .get();
                     String category = variable.getCategory();
                     int analysisSum = analysis.getOrDefault(category, 0);
@@ -141,7 +142,7 @@ public class UserService {
                     deliverySum += deposit;
                     flag = true;
                 }
-                if(!flag){
+                if (!flag) {
                     for (String cardName : cardNames) {
                         if (briefs.contains("카드") && content.contains(cardName)) {
                             int cardSum = cardRevenue.getOrDefault(cardName, 0);
@@ -159,22 +160,13 @@ public class UserService {
                 estimatedRevenue = monthlyRevenue.getOrDefault(currentMonth, 0);
                 estimatedRevenue *= 30;
                 estimatedRevenue /= currentday;
-            }
-            else{
+            } else {
                 // 비용 분석
-                if(withdraw != null) {
-                    for(String div : division){
-                        if(content.contains(div)) {
-                            int divSum = analysis.getOrDefault(div, 0);
-                            analysis.put(div, divSum + withdraw);
-                        }
-                    }
+                if (withdraw != null) {
+                    int divSum = analysis.getOrDefault(briefs, 0);
+                    analysis.put(briefs, divSum + withdraw);
                 }
             }
-
-
-
-
 
 
         }
