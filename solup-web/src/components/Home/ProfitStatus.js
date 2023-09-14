@@ -63,7 +63,7 @@ function ProfitStatus() {
               </div>
             </div>
           </div>
-          {/* 마진 */}
+
           <div className='partContainer'>
             <img src={`${process.env.PUBLIC_URL}/cardOrange.png`} alt="마진카드" className='marginCard'/>
             <div className='profitTextOverlay'>
@@ -73,10 +73,7 @@ function ProfitStatus() {
                 <span>원</span>
               </div>
             </div>
-
-
             <button className='marginBtnOverlay'>정산</button>
-
           </div>
           
         </div>

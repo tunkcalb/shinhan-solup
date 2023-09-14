@@ -1,10 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import AccountInfo from '../components/Home/AccountInfo.js'
 import ProfitStatus from '../components/Home/ProfitStatus.js'
 import NavBar from '../components/Footer.js';
-import "./styles/Home.css"
-import { useSelector } from 'react-redux'
 import UserInfo from '../components/UserInfo.js';
+import "./styles/Home.css"
+
+
 function Home() {
   const userId = useSelector((state) => state.userId);
   const userName = useSelector((state) => state.userName);

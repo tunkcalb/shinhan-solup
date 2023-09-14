@@ -16,7 +16,7 @@ import MyLoans from './pages/MyLoans.js';
 import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
 import Start from './pages/NewCustomer/Start';
-import ProfitStatusPage from './pages/ProfitStatusPage';
+import ProfitStatusPage from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
 import FinanceProductsPage from './pages/CustomProducts/FinanceProductsPage';
 import AccountQuestion from './pages/NewCustomer/AccountQuestion';
