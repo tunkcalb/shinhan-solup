@@ -6,30 +6,30 @@ import { store, persistor } from "./redux/store";
 import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 
-import Home from "./pages/Home.js";
-import InitialPage from "./pages/InitialPage.js";
-import Login from "./pages/Login.js";
-import Signup from "./pages/Signup.js";
-import CustomProducts from "./pages/CustomProducts/CustomProducts.js";
-import EmployeeManagement from "./pages/EmployeeManagement/EmployeeManagement";
-import MyLoans from "./pages/MyLoans.js";
-import SalesAnalysis from "./pages/SalesAnalysis.js";
-import Verification from "./pages/Verification.js";
-import Start from "./pages/NewCustomer/Start";
-import ProfitStatusPage from "./pages/MarginSettlement";
-import TradeHistory from "./pages/TradeHistory";
-import FinanceProductsPage from "./pages/CustomProducts/FinanceProductsPage";
-import AccountQuestion from "./pages/NewCustomer/AccountQuestion";
-import AuthAccount from "./pages/NewCustomer/AuthAccount";
-import RegisterStore from "./pages/NewCustomer/RegisterStore";
-import ReadyToSolup from "./pages/NewCustomer/ReadyToSolup";
-import AccountRegistration from "./pages/NewCustomer/AccountRegistration";
-import Guide from "./components/Home/Guide";
-import SupportProgramsPage from "./pages/CustomProducts/SupportProgramsPage";
-import EmployeeEnrollment from "./pages/EmployeeManagement/EmployeeEnrollment";
-import EmployeeInfo from "./pages/EmployeeManagement/EmployeeInfo";
-import LoanManagement from "./pages/LoanManagement";
-import RevenueAnalysisView from "./components/RevenueAnalysis/RevenueAnalysisView";
+import Home from './pages/Home.js';
+import InitialPage from './pages/InitialPage.js';
+import Login from './pages/Login.js';
+import Signup from './pages/Signup.js';
+import CustomProducts from './pages/CustomProducts/CustomProducts.js';
+import EmployeeManagement from './pages/EmployeeManagement/EmployeeManagement';
+import MyLoans from './pages/MyLoans.js';
+import SalesAnalysis from './pages/SalesAnalysis.js';
+import Verification from './pages/Verification.js';
+import Start from './pages/NewCustomer/Start';
+import ProfitStatusPage from './pages/MarginSettlement';
+import TradeHistory from './pages/TradeHistory';
+import FinanceProductsPage from './pages/CustomProducts/FinanceProductsPage';
+import AccountQuestion from './pages/NewCustomer/AccountQuestion';
+import AuthAccount from './pages/NewCustomer/AuthAccount';
+import RegisterStore from './pages/NewCustomer/RegisterStore';
+import ReadyToSolup from './pages/NewCustomer/ReadyToSolup';
+import AccountRegistration from './pages/NewCustomer/AccountRegistration';
+import Guide from './components/Home/Guide';
+import SupportProgramsPage from './pages/CustomProducts/SupportProgramsPage';
+import EmployeeEnrollment from './pages/EmployeeManagement/EmployeeEnrollment';
+import EmployeeInfo from './pages/EmployeeManagement/EmployeeInfo';
+import LoanManagement from './pages/LoanManagement';
+import RevenueAnalysisView from './components/RevenueAnalysis/RevenueAnalysisView';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -72,7 +72,6 @@ function App() {
             <Route path="/my-loans" element={<MyLoans />} />
             <Route path="/sales-analysis" element={<SalesAnalysis />} />
             <Route path="/start" element={<Start />} />
-            <Route path="/profit-status" element={<ProfitStatusPage />} />
             <Route path="/trade-history" element={<TradeHistory />} />
             <Route path="/finance-products" element={<FinanceProductsPage />} />
             <Route path="/account-question" element={<AccountQuestion />} />
