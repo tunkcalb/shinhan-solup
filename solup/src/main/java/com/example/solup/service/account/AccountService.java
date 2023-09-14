@@ -249,7 +249,7 @@ public class AccountService {
                 .orElseThrow(() -> new RuntimeException("해당 user를 찾을 수 없습니다."));
 
         TradeHistory lastTrade = tradeHistoryRepository.findFirstByAccountIdOrderByIdDesc(
-                user.getAccount().getId());
+                account.getId());
 
         TradeHistory tradeHistory = TradeHistory.builder()
                 .account(account)
