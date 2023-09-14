@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import "./UserInfo.css";
 
 function UserInfo() {
   const userName = useSelector((state) => state.userName);
 
   return (
     <div>
-      <h2>안녕하세요, {userName} 사장님</h2>
+      <div className="userTitle">안녕하세요, {userName} 사장님</div>
     </div>
   );
 }
