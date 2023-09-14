@@ -107,69 +107,66 @@ public class UserService {
             LocalDate date = tradeHistory.getTradeDate();
             int month = date.getMonthValue();
             Integer deposit = tradeHistory.getDeposit();
-            if (deposit == null) continue;
             String content = tradeHistory.getContent();
             String briefs = tradeHistory.getBriefs();
             Integer withdraw = tradeHistory.getWithdraw();
+            if (deposit == null) {
+                // 해당 월의 출금을 누적.
+                int currentDepositSum = monthlyRevenue.getOrDefault(month, 0);
+                monthlyRevenue.put(month, currentDepositSum + deposit);
 
-            // 해당 월의 출금을 누적.
-            int currentDepositSum = monthlyRevenue.getOrDefault(month, 0);
-            monthlyRevenue.put(month, currentDepositSum + deposit);
-
-            // 이전달 변동비
-            if (month == currentMonth - 1 || month == currentMonth + 11) {
-                if (tradeHistory.getVariable() != null) {
-                    lastMonthExpenses += deposit;
-                }
-            }
-
-            if (month != currentMonth) {
-                continue;
-            }
-
-            if (tradeHistory.getVariable() != null) {
-                Variable variable = variableRepository.findById(tradeHistory.getVariable().getId())
-                        .get();
-                String category = variable.getCategory();
-                int analysisSum = analysis.getOrDefault(category, 0);
-                analysis.put(category, analysisSum + deposit);
-            }
-            // 이번달 매출 분석
-
-            // 분류별 매출
-            boolean flag = false;
-            if (tradeHistory.getContent().contains(delivery)) {
-                deliverySum += deposit;
-                flag = true;
-            }
-            if(!flag){
-                for (String cardName : cardNames) {
-                    if (briefs.contains("카드") && content.contains(cardName)) {
-                        int cardSum = cardRevenue.getOrDefault(cardName, 0);
-                        cardRevenue.put(cardName, cardSum + deposit);
-                        flag = true;
-                        break;
+                // 이전달 변동비
+                if (month == currentMonth - 1 || month == currentMonth + 11) {
+                    if (tradeHistory.getVariable() != null) {
+                        lastMonthExpenses += deposit;
                     }
                 }
-            }
 
-            if (!flag && briefs.contains("현금")) {
-                cash += deposit;
-                flag = true;
-            }
+                if (month != currentMonth) {
+                    continue;
+                }
 
-            // 비용 분석
-            if(!flag && withdraw != null) {
-                for(String div : division){
-                    int divSum = analysis.getOrDefault(div, 0);
-                    analysis.put(div, divSum + withdraw);
+                if (tradeHistory.getVariable() != null) {
+                    Variable variable = variableRepository.findById(
+                                    tradeHistory.getVariable().getId())
+                            .get();
+                    String category = variable.getCategory();
+                    int analysisSum = analysis.getOrDefault(category, 0);
+                    analysis.put(category, analysisSum + deposit);
+                }
+                // 이번달 매출 분석
+
+                // 분류별 매출
+                boolean flag = false;
+                if (tradeHistory.getContent().contains(delivery)) {
+                    deliverySum += deposit;
+                    flag = true;
+                }
+                if (!flag) {
+                    for (String cardName : cardNames) {
+                        if (briefs.contains("카드") && content.contains(cardName)) {
+                            int cardSum = cardRevenue.getOrDefault(cardName, 0);
+                            cardRevenue.put(cardName, cardSum + deposit);
+                            flag = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!flag && briefs.contains("현금")) {
+                    cash += deposit;
+                }
+                // 예상 매출 계산
+                estimatedRevenue = monthlyRevenue.getOrDefault(currentMonth, 0);
+                estimatedRevenue *= 30;
+                estimatedRevenue /= currentday;
+            } else {
+                // 비용 분석
+                if (withdraw != null) {
+                    int divSum = analysis.getOrDefault(briefs, 0);
+                    analysis.put(briefs, divSum + withdraw);
                 }
             }
-
-            // 예상 매출 계산
-            estimatedRevenue = monthlyRevenue.getOrDefault(currentMonth, 0);
-            estimatedRevenue *= 30;
-            estimatedRevenue /= currentday;
 
 
         }
