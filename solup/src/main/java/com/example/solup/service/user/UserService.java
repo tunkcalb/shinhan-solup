@@ -43,6 +43,7 @@ public class UserService {
     private final FixedRepository fixedRepository;
 
     private String delivery = "땡겨요";
+    private String[] division = {"관리비", "재료비", "포장재비", "소모품비"};
 
     public SignupDto.Response save(SignupDto.Request request) throws DuplicatedValueException {
         if (userRepository.findByUsername(request.getUsername()) == null) {
@@ -108,6 +109,7 @@ public class UserService {
             Integer deposit = tradeHistory.getDeposit();
             if (deposit == null) continue;
             String content = tradeHistory.getContent();
+            String briefs = tradeHistory.getBriefs();
 
             // 해당 월의 출금을 누적.
             int currentDepositSum = monthlyRevenue.getOrDefault(month, 0);
@@ -134,22 +136,35 @@ public class UserService {
             // 이번달 매출 분석
 
             // 분류별 매출
-            boolean found = false;
+            boolean flag = false;
             if (tradeHistory.getContent().contains(delivery)) {
                 deliverySum += deposit;
-                found = true;
+                flag = true;
             }
-            for (String cardName : cardNames) {
-                if (content.contains(cardName)) {
-                    int cardSum = cardRevenue.getOrDefault(cardName, 0);
-                    cardRevenue.put(cardName, cardSum + deposit);
-                    found = true;
-                    break;
+            if(!flag){
+                for (String cardName : cardNames) {
+                    if (briefs.contains("카드") && content.contains(cardName)) {
+                        int cardSum = cardRevenue.getOrDefault(cardName, 0);
+                        cardRevenue.put(cardName, cardSum + deposit);
+                        flag = true;
+                        break;
+                    }
                 }
             }
-            if (!found) {
+
+            if (!flag && briefs.contains("현금")) {
                 cash += deposit;
+                flag = true;
             }
+
+            // 비용 분석
+            if(!flag) {
+                for(String div : division){
+                    int divSum = analysis.getOrDefault(div, 0);
+                    analysis.put(div, divSum + deposit);
+                }
+            }
+
             // 예상 매출 계산
             estimatedRevenue = monthlyRevenue.getOrDefault(currentMonth, 0);
             estimatedRevenue *= 30;
