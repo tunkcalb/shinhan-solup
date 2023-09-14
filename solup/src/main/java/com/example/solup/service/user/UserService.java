@@ -110,6 +110,7 @@ public class UserService {
             if (deposit == null) continue;
             String content = tradeHistory.getContent();
             String briefs = tradeHistory.getBriefs();
+            Integer withdraw = tradeHistory.getWithdraw();
 
             // 해당 월의 출금을 누적.
             int currentDepositSum = monthlyRevenue.getOrDefault(month, 0);
@@ -158,10 +159,10 @@ public class UserService {
             }
 
             // 비용 분석
-            if(!flag) {
+            if(!flag && withdraw != null) {
                 for(String div : division){
                     int divSum = analysis.getOrDefault(div, 0);
-                    analysis.put(div, divSum + deposit);
+                    analysis.put(div, divSum + withdraw);
                 }
             }
 
