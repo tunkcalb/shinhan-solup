@@ -3,40 +3,38 @@ import { useSelector } from "react-redux";
 
 function TradeHistoryView () {
     const [beforeCategorized, setBeforeCategorized] = useState([]);
-    const [account, setAccount] = useState();
+    const [account, setAccount] = useState({});
+    // const userId = useSelector(state => state.userId);
+    const userId = 2;
 
     useEffect(() => {
-        const fetchData = async () => {
-            const [accountData, categorizedData] = await Promise.all([
-                getAccountData(), getBeforeCategorized()
-            ]);
-            setAccount(accountData);
-            setBeforeCategorized(categorizedData);
-        }
-        console.log(account);
+        updateAccount();
+        updateBeforeCategorized();
     }, []);
 
-    const getBeforeCategorized = async () => {
+    const updateBeforeCategorized = async () => {
         try {
-            const response = await fetch("/account/2/not-categorized-withdraw");
+            const response = await fetch(`/account/${userId}/not-categorized-withdraw`);
             const data = await response.json();
             const sortedData = groupAndSortData(data.data);
-            return sortedData;
+            setBeforeCategorized(sortedData);
+            console.log(beforeCategorized);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const updateAccount = async () => {
+        try {
+            const response = await fetch(`/account/${userId}`);
+            const data = await response.json();
+            setAccount(data);
+            console.log(account);
         } catch (error) {
             console.log(error);
         }
     };
     
-    const getAccountData = async () => {
-        try {
-            const response = await fetch("/account/2");
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     // data를 그룹화 하는 메서드
     const groupAndSortData = (data) => {
         const groupedData = {};
@@ -55,15 +53,9 @@ function TradeHistoryView () {
         sortedKeys.forEach((dateKey) => {
           // tradeTime을 기준으로 정렬
             const sortedHistories = groupedData[dateKey].sort((a, b) => {
-                const timeA =
-                    a.tradeTime.hour * 3600 +
-                    a.tradeTime.minute * 60 +
-                    a.tradeTime.second;
-                const timeB =
-                    b.tradeTime.hour * 3600 +
-                    b.tradeTime.minute * 60 +
-                    b.tradeTime.second;
-                return timeA - timeB;
+                const timeA = convertTimeToSeconds(a.tradeTime);
+                const timeB = convertTimeToSeconds(b.tradeTime);
+                return timeB - timeA;
             });
     
           // tradeDate와 묶인 블록을 생성
@@ -73,23 +65,28 @@ function TradeHistoryView () {
             };
             result.push(dateBlock);
         });
-    
         return result;
+    };
+
+    // tradeTime을 초로 변환하는 함수
+    const convertTimeToSeconds = (timeStr) => {
+        const [hour, minute, second] = timeStr.split(":").map(Number);
+        return hour * 3600 + minute * 60 + second;
     };
 
     return (
         <div>
-            {/* <div>
+            <div>
                 <div>{account.bank} {account.number}</div>
-                <h3>{account.balance}</h3>
-            </div> */}
+                <h3>잔고 : {account.balance}</h3>
+            </div>
 
             {beforeCategorized.map((dateBlock) => (
                 <div key={dateBlock.tradeDate}>
                     <h2>{dateBlock.tradeDate}</h2>
                     {dateBlock.histories.map((history) => (
                         <div key={history.id}>
-                            {history.tradeTime.hour}:{history.tradeTime.minute}:{history.tradeTime.second} - {history.content}-{history.withdraw}
+                            {history.tradeTime} {history.content}({history.briefs}) -{history.withdraw}
                         </div>
                     ))}
                 </div>
