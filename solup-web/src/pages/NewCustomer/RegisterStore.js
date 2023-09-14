@@ -1,5 +1,5 @@
 import React from "react";
-import "./Start.css"
+import "../styles/Start.css"
 import "../styles/Verification.css"
 import BlueButton from "../../components/BlueButton";
 
