@@ -14,7 +14,7 @@ function LoanProduct({ product }) {
       <p>가입 방법: {product.join_way}</p>
       <p>대출 상품 유형: {product.crdt_prdt_type_nm}</p>
       <hr />
-      <button onClick={handleApplyLoan}>대출 신청하기</button>
+      <a href="https://play.google.com/store/apps/details?id=com.shinhan.sbanking">대출 신청하기</a>
     </div>
   );
 }
