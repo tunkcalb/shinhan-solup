@@ -13,6 +13,8 @@ function RevenueAnalysisView() {
     const data = axios.get(`/user/revenue/analysis/${userId}`).then((res) => {
       setRevenueAnalysisData(res.data.data);
     });
+
+    console.log(RevenueAnalysisData);
   }, []);
   return (
     <div>
@@ -25,6 +27,16 @@ function RevenueAnalysisView() {
               ([key, value]) => (
                 <li key={key}>
                   {key} : {value}
+                </li>
+              )
+            )}
+          </ul>
+          <p>카테고리별 매출 분석</p>
+          <ul>
+            {Object.entries(RevenueAnalysisData.analysis).map(
+              ([key, value]) => (
+                <li key={key}>
+                  {key}: {value}
                 </li>
               )
             )}
