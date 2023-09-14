@@ -15,11 +15,12 @@ function Signup() {
   const defaultName = queryParams.get('name') || "";
   const defaultPhoneNumber = queryParams.get('phoneNumber') || "";
 
-  // 상호명 업데이트 必
   const [formData, setFormData] = useState({
+    name: defaultName,
     username: "",
     password: "",
-    name: defaultName,
+    confirmPassword: "",
+    storename: "",
     phoneNumber: defaultPhoneNumber,
   });
 
@@ -32,26 +33,30 @@ function Signup() {
   };
 
   const handleNextClick = async () => {
-    try {
-      // 회원가입 요청 보내기
-      const response = await axios.post('/user/signup', JSON.stringify(formData), {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (response.data.code === '201') { // 회원가입 성공 여부를 적절히 확인해주세요.
-        // 회원가입 성공 시 Redux를 사용하여 isLoggedIn 값을 true로 변경
-        dispatch(setIsLoggedIn(true));
-        alert('회원가입이 완료되었습니다.');
-        navigate('/');
-      } else {
-        alert('회원가입에 실패했습니다.');
+    if (formData.password !== formData.confirmPassword) {
+      alert('비밀번호를 확인해주세요.');
+    } else if (!formData.storename) {
+      alert('상호명을 입력해주세요.');
+    } else {
+      try {
+        const response = await axios.post('/user/signup', JSON.stringify(formData), {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (response.data.code === '201') {
+          dispatch(setIsLoggedIn(true));
+          alert('회원가입이 완료되었습니다.');
+          navigate('/');
+        } else {
+          alert('회원가입에 실패했습니다.');
+        }
+      } catch (error) {
+        console.error('회원가입 오류:', error);
       }
-    } catch (error) {
-      console.error('회원가입 오류:', error);
     }
   };
-  
+
   return (
     <div>
       <Header title="회원가입" />
@@ -83,40 +88,35 @@ function Signup() {
           </div>
 
           <div className="inputForm">
-            <label htmlFor="password" className="inputTitle">비밀번호 확인</label>
+            <label htmlFor="confirmPassword" className="inputTitle">비밀번호 확인</label>
             <input
               type="password"
-              id="password"
-              name="password"
-              value={formData.password}
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
               onChange={handleInputChange}
               className="inputContent"
             />
           </div>
 
-          {/* 상호명 인풋 수정 必 */}
           <div className="inputForm">
             <label htmlFor="storename" className="inputTitle">상호명</label>
             <input
               type="text"
               id="storename"
               name="storename"
-              value={formData.password}
+              value={formData.storename}
               onChange={handleInputChange}
               className="inputContent"
             />
           </div>
           
-          {/* 여기 업체명 적는 inputForm */}
-
           <div className="signupBtnContainer">
             <div className="btnContainer">
               <button onClick={handleNextClick} className="blueBtn">회원가입 완료</button>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   );
