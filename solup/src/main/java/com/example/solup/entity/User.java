@@ -1,5 +1,7 @@
 package com.example.solup.entity;
 
+import com.example.solup.entity.account.Account;
+import com.example.solup.entity.account.LoanAccount;
 import com.example.solup.entity.expense.Surplus;
 import lombok.*;
 
@@ -39,6 +41,10 @@ public class User {
     @JoinColumn(name = "account_id")
     private Account account;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "loan_account_id")
+    private LoanAccount loanAccount;
+
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Staff> staffes = new ArrayList<>();
 
@@ -61,6 +67,10 @@ public class User {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public void setLoanAccount(LoanAccount loanAccount) {
+        this.loanAccount = loanAccount;
     }
 }
 

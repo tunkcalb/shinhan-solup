@@ -1,16 +1,20 @@
 package com.example.solup.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-public class TradeHistoryDto {
-    @Builder
+public class LoanHistoryDto {
+
+    @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    @Data
+    @Builder
     public static class Response{
         private Long id;
         private LocalDate tradeDate;
@@ -20,7 +24,8 @@ public class TradeHistoryDto {
         private Integer category;
         private Integer withdraw;
         private Integer deposit;
-        private Integer balance;
+        private Integer loanBalance;
         private String name;
-}
+        private Integer tradeNumber;
+    }
 }

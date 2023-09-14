@@ -1,11 +1,9 @@
-package com.example.solup.repository.account;
+package com.example.solup.repository.history;
 
-import com.example.solup.entity.TradeHistory;
+import com.example.solup.entity.history.TradeHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface TradeHistoryRepository extends JpaRepository<TradeHistory,Long> {

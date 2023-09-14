@@ -1,6 +1,7 @@
-package com.example.solup.entity;
+package com.example.solup.entity.history;
 
-import com.example.solup.dto.TradeHistoryDto;
+import com.example.solup.entity.account.Account;
+import com.example.solup.entity.account.LoanAccount;
 import com.example.solup.entity.expense.Fixed;
 import com.example.solup.entity.expense.Living;
 import com.example.solup.entity.expense.Surplus;
@@ -9,7 +10,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 // 거래내역
@@ -22,10 +22,6 @@ import java.time.LocalTime;
 public class TradeHistory {
     @Id @GeneratedValue
     private Long id;
-
-//    // 거래 일시
-//    @Column
-//    private LocalDateTime date;
 
     // 거래일자
     @Column(name = "trade_date")
@@ -63,6 +59,9 @@ public class TradeHistory {
     @Column
     private String name;
 
+    @Column(name = "trade_number")
+    private Integer tradeNumber;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
@@ -89,17 +88,4 @@ public class TradeHistory {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "surplus_id")
     private Surplus surplus;
-
-//    public TradeHistoryDto toDto(){
-//        return TradeHistoryDto.builder()
-//                .id(this.id)
-//                .date(this.date)
-//                .deposit(this.deposit)
-//                .withdraw(this.withdraw)
-//                .content(this.content)
-//                .balance(this.balance)
-//                .category(this.category)
-//                .accountId(this.account.getId())
-//                .build();
-//    }
 }

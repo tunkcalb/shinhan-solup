@@ -2,16 +2,18 @@ package com.example.solup.service.account;
 
 import com.example.solup.dto.*;
 import com.example.solup.dto.account.AuthenticationDto;
-import com.example.solup.entity.Account;
-import com.example.solup.entity.TradeHistory;
+import com.example.solup.entity.account.Account;
+import com.example.solup.entity.account.LoanAccount;
+import com.example.solup.entity.history.TradeHistory;
 import com.example.solup.entity.User;
 import com.example.solup.entity.expense.Fixed;
 import com.example.solup.entity.expense.Living;
 import com.example.solup.entity.expense.Surplus;
 import com.example.solup.entity.expense.Variable;
-import com.example.solup.exception.type.NotSameDataValueException;
 import com.example.solup.repository.account.AccountRepository;
-import com.example.solup.repository.account.TradeHistoryRepository;
+import com.example.solup.repository.account.LoanAccountRepository;
+import com.example.solup.repository.history.LoanHistoryRepository;
+import com.example.solup.repository.history.TradeHistoryRepository;
 import com.example.solup.repository.expense.FixedRepository;
 import com.example.solup.repository.expense.LivingRepository;
 import com.example.solup.repository.expense.SurplusRepository;
@@ -23,7 +25,6 @@ import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
@@ -40,6 +41,8 @@ public class AccountService {
     private final VariableRepository variableRepository;
     private final LivingRepository livingRepository;
     private final SurplusRepository surplusRepository;
+    private final LoanAccountRepository loanAccountRepository;
+    private final LoanHistoryRepository loanHistoryRepository;
 
     @Value("${account.check}")
     private String accountContent;
@@ -114,27 +117,6 @@ public class AccountService {
 
             tradeHistoryRepository.saveAll(tradeHistories);
         }
-
-//        Long tradeHistoryId = request.getTradeHistoryId();
-//        TradeHistory tradeHistory = tradeHistoryRepository.findByIdAndAccountId(tradeHistoryId, accountId);
-//
-//        // category가 2로 지출일 때 고정비와 변동비 분류 후 저장
-//        if (tradeHistory.getCategory() == 2 && Objects.equals(request.getExpenseType(), "Fixed")) {
-//            Fixed fixed = new Fixed();
-//            fixed.setContent(tradeHistory.getContent());
-//            fixed.setCategory(request.getExpenseCategory());
-//            fixedRepository.save(fixed);
-//            tradeHistory.setFixed(fixed);
-//        } else if (tradeHistory.getCategory() == 2 && Objects.equals(request.getExpenseType(), "Variable")) {
-//            Variable variable = new Variable();
-//            variable.setCategory(request.getExpenseCategory());
-//            variable.setContent(tradeHistory.getContent());
-//            variableRepository.save(variable);
-//            tradeHistory.setVariable(variable);
-//        }
-//
-//        tradeHistory.setIsCategorized(true);
-//        tradeHistoryRepository.save(tradeHistory);
     }
 
     public List<TradeHistoryDto.Response> findTradeHistories(Long userId) {
@@ -194,6 +176,7 @@ public class AccountService {
                         .withdraw(tradeHistory.getWithdraw())
                         .category(tradeHistory.getCategory())
                         .expenseType(tradeHistory.getFixed() != null ? "고정비" : "변동비")
+                        .expenseCategory(tradeHistory.getFixed() != null ? tradeHistory.getFixed().getCategory() : tradeHistory.getVariable().getCategory())
                         .build())
                 .collect(Collectors.toList());
     }
@@ -308,5 +291,44 @@ public class AccountService {
         surplusRepository.save(surplus);
 
         return "생활비 이체" + " " + request.getBankName() + " " + request.getAccountNumber();
+    }
+
+    public LoanAccountDto.Response getLoanAccount(Long userId) {
+//        User user = userRepository.findById(userId)
+//                        .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+//        LoanAccount loanAccount = user.getLoanAccount();
+
+        LoanAccount loanAccount = loanAccountRepository.findById(1L)
+                .orElseThrow(() -> new NotFoundException("해당 계좌를 찾을 수 없습니다."));
+
+        return LoanAccountDto.Response.builder()
+                .id(loanAccount.getId())
+                .number(loanAccount.getNumber())
+                .bankName(loanAccount.getBankName())
+                .accountName(loanAccount.getAccountName())
+                .withdrawalAmount(loanAccount.getWithdrawalAmount())
+                .openDate(loanAccount.getOpenDate())
+                .expirationDate(loanAccount.getExpirationDate())
+                .loanableAmount(loanAccount.getLoanableAmount())
+                .interestRate(loanAccount.getInterestRate())
+                .lastDate(loanAccount.getLastDate())
+                .management(loanAccount.getManagement())
+                .repeatNumber(loanAccount.getRepeatNumber())
+                .loanHistories(loanAccount.getLoanHistories().stream()
+                        .map(loanHistory -> LoanHistoryDto.Response.builder()
+                                .id(loanHistory.getId())
+                                .tradeDate(loanHistory.getTradeDate())
+                                .tradeTime(loanHistory.getTradeTime())
+                                .briefs(loanHistory.getBriefs())
+                                .content(loanHistory.getContent())
+                                .category(loanHistory.getCategory())
+                                .withdraw(loanHistory.getWithdraw())
+                                .deposit(loanHistory.getDeposit())
+                                .loanBalance(loanHistory.getLoanBalance())
+                                .name(loanHistory.getName())
+                                .tradeNumber(loanHistory.getTradeNumber())
+                                .build())
+                        .collect(Collectors.toList()))
+                .build();
     }
 }

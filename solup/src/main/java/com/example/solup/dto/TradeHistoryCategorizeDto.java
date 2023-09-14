@@ -39,5 +39,6 @@ public class TradeHistoryCategorizeDto {
         private Integer withdraw;
         private Integer category;
         private String expenseType;
+        private String expenseCategory;
     }
 }

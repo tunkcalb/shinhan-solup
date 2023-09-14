@@ -1,7 +1,7 @@
-package com.example.solup.entity;
+package com.example.solup.entity.account;
 
 import com.example.solup.dto.AccountDto;
-import lombok.Builder;
+import com.example.solup.entity.history.TradeHistory;
 import lombok.Getter;
 import lombok.Setter;
 
