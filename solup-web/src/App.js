@@ -17,7 +17,6 @@ import SalesAnalysis from './pages/SalesAnalysis.js';
 import Verification from './pages/Verification.js';
 import Start from './pages/NewCustomer/Start';
 import ProfitStatusPage from './pages/ProfitStatusPage';
-import MarginSettlement from './pages/MarginSettlement';
 import TradeHistory from './pages/TradeHistory';
 import FinanceProductsPage from './pages/CustomProducts/FinanceProductsPage';
 import AccountQuestion from './pages/NewCustomer/AccountQuestion';
@@ -63,7 +62,6 @@ function App() {
             <Route path="/sales-analysis" element={<SalesAnalysis />} />
             <Route path="/start" element={<Start />} />
             <Route path="/profit-status" element={<ProfitStatusPage />} />
-            <Route path="/margin-settlement" element={<MarginSettlement />} />
             <Route path="/trade-history" element={<TradeHistory />} />
             <Route path="/finance-products" element={<FinanceProductsPage />} />
             <Route path='/account-question' element={<AccountQuestion />} />
