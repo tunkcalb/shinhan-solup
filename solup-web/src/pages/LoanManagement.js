@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LoanStatus from "../components/LoanManagement/LoanStatus";
 import AutoDebit from "../components/LoanManagement/AutoDebit";
 import LoanProducts from "../components/LoanManagement/LoanProducts";
-import LoanProductList from "../components/FinanceProductsPage/LoanProductsList";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 function LoanManagement() {
-  const loanStatusData = {
-    remainingPrincipal: "30,000,000",
-    remainingInterest: "5,000,000",
-    nextPaymentDate: "2023-09-01",
-    interestRate: "5.83",
-    numberOfPayments: "6",
-  };
+  const [loanStatusData, setLoanStatusData] = useState(null);
+  const userId = useSelector((state) => state.userId);
+
+  useEffect(() => {
+    axios
+      .get(`/account/${userId}/loan`)
+      .then((response) => {
+        const data = response.data;
+        setLoanStatusData(data);
+      })
+      .catch((error) => {
+        console.error("API 요청 실패:", error);
+      });
+  }, [userId]);
 
   const autoDebitData = {
-    accountNumber: "11048299999",
+    accountNumber: loanStatusData?.data.number || "", // 대출 정보에서 가져온 계좌 번호
     paymentAmount: "1,000,000",
   };
 
@@ -42,7 +50,7 @@ function LoanManagement() {
 
   return (
     <div>
-      <LoanStatus {...loanStatusData} />
+      <LoanStatus data={loanStatusData} />
       <AutoDebit {...autoDebitData} />
       <LoanProducts loanProducts={loanProductsData} onApplyLoan={handleApplyLoan} />
     </div>

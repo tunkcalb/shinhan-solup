@@ -3,7 +3,7 @@ import './AccountInfo.css';
 import MiniBtn from '../MiniBtn';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+import axios from 'axios'; // axios를 사용하여 API 호출
 
 function AccountInfo() {
   const navigate = useNavigate();
@@ -13,15 +13,18 @@ function AccountInfo() {
 
   useEffect(() => {
     if (isAccountRegistered) {
+      console.log(userId)
       axios.get(`/account/${userId}`)
         .then((response) => {
+          // API 응답에서 필요한 정보 추출
           const data = response.data;
           const accountInfo = {
-            bankName: '신한은행',
+            bankName: data.bank,
             accountNumber: data.number,
             accountBalance: data.balance,
           };
           console.log(accountInfo)
+          // 계좌 정보 상태 업데이트
           setAccountData(accountInfo);
         })
         .catch((error) => {
@@ -30,6 +33,7 @@ function AccountInfo() {
     }
   }, [isAccountRegistered]);
 
+  // 계좌 등록 페이지로 이동하는 함수
   const redirectToAccountRegistration = () => {
     navigate('/account-register');
   };
