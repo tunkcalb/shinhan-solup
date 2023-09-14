@@ -1,0 +1,50 @@
+/* 배너 */
+
+.blueContainer{
+  background-color: #306FE1;
+  position: relative;
+  padding:3.37rem 1.25rem 2.56rem ;
+}
+
+.backBtn{
+  position: absolute;
+  z-index: 1;
+}
+
+.marginTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Be Vietnam Pro";
+  font-weight: bold;
+  font-size: 1.375rem;
+  color: white;  
+}
+
+.marginContent{
+  margin-top: 2.31rem;
+
+  font-family: "Be Vietnam Pro";
+  font-weight: 700;
+  font-size: 1.25rem;  
+  color: white;
+}
+
+.marginBold{
+  font-size: 2rem !important ;
+}
+
+.miniFont{
+  margin-top: 1.06rem;
+
+  font-size: 0.875rem !important;
+  font-weight: 400;
+}
+
+/* 본문 */
+.settlementContainer{
+  padding: 3.13rem 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+}
