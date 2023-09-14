@@ -1,5 +1,4 @@
 /* 배너 */
-
 .blueContainer{
   background-color: #306FE1;
   position: relative;
@@ -31,12 +30,16 @@
   color: white;
 }
 
+.marginContent span{
+  font-size: 1.25rem;
+}
 .marginBold{
   font-size: 2rem !important ;
+  margin-right: 0.625rem;
 }
 
 .miniFont{
-  margin-top: 1.06rem;
+  margin-top: 0.25rem;
 
   font-size: 0.875rem !important;
   font-weight: 400;
@@ -47,4 +50,11 @@
   padding: 3.13rem 1.25rem 0;
   display: flex;
   flex-direction: column;
+}
+
+.btnContainer{
+  margin-top: 1.25rem;
+}
+.partWrapper{
+  margin-bottom: 3rem;
 }

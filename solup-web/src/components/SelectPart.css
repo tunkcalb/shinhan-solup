@@ -1,0 +1,18 @@
+.selectContent{
+  height: 2.4375rem;
+  width: 100%;
+  border-bottom: 1px solid #9D9D9D;
+
+  display: flex;
+  align-items: center;
+}
+
+select{
+  border: none;
+  width: 100%;
+
+  border: none;
+  font-family: "Be Vietnam Pro";
+  font-size: 1rem; 
+  color:#9D9D9D
+}
