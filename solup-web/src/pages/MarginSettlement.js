@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import "./styles/MarginSettlement.css"
 import InputPart from '../components/InputPart';
 import SelectPart from '../components/SelectPart';
+import Modal from '../components/Modal';
 import BlueButton from '../components/BlueButton';
 
 function ProfitStatusPage() {
   const navigate = useNavigate();
+
   // 이체금액 변수를 상태로 관리
   const [transferAmount, setTransferAmount] = useState(0);
 
@@ -46,14 +48,32 @@ function ProfitStatusPage() {
     setSelectedBank(newBank);
   };
 
+
+
+
+  // 이체 버튼 클릭 시 이벤트 핸들러
+  // const handleTransferButtonClick = () => {
+  //   alert(`이체 금액 ${transferAmount}원이 ${selectedBank} 계좌로 이체되었습니다.`);
+  //   navigate('/home');
+  // }; //수틀리면 되돌리기 
+
+  // 모달 열기/닫기 상태를 관리
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // 이체 버튼 클릭 시 이벤트 핸들러
   const handleTransferButtonClick = () => {
-    alert(`이체 금액 ${transferAmount}원이 ${selectedBank} 계좌로 이체되었습니다.`);
-    navigate('/home');
+    setIsModalOpen(true);
   };
 
+  // 모달 닫기 이벤트 핸들러
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+
+
   return (
-    <div>
+    <>
       <div className='blueContainer'>
         <Link to="/">
           <img src={`${process.env.PUBLIC_URL}/whiteBackBtn.png`} 
@@ -85,7 +105,7 @@ function ProfitStatusPage() {
             onChange={handlePercentageChange}
             placeholder="70"
           />
-          <div>이체금액: {transferAmount}원</div>
+          <div className='summary'>이체금액: {transferAmount}원</div>
         </div>
 
         {/* 은행명 */}
@@ -103,19 +123,37 @@ function ProfitStatusPage() {
             title="계좌번호"
             type="number"
             value={accountNumber}
-            onChange={handleTransferButtonClick}
+            onChange={handleAccountNumberChange}
           />
         </div>
-      
+
+        {/* 이체하기 */}
         <div className="marginBtnContainer">
           <button onClick={handleTransferButtonClick} className="blueBtn">이체하기</button>
         </div>
+
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          {/* 모달 내용 */}
+          <div className='modalPart'>
+            <div className='modalText'>
+              <div>이체 금액 {transferAmount}원</div>
+              <div>{selectedBank} 계좌로 이체 완료!</div>
+            </div>
+            <div className='modalImg'>
+              <img src={`${process.env.PUBLIC_URL}/shfriends4.png`} alt="완료이미지" />
+            </div>
+            <BlueButton title="확인하기" destination="/home"/>
+          </div>
+        </Modal>
+
+
         {/* <div>
           
             <button onClick={handleTransferButtonClick}>이체하기</button>
         </div> */}
       </div>
-    </div>
+
+    </>
   );
 }
 
