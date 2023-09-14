@@ -13,7 +13,7 @@
 }
 
 .contents{
-  padding: 3rem 0rem 5.56rem;
+  padding: 3rem 0rem 0rem;
   height: 100%;
 }
 
@@ -39,4 +39,8 @@
   border: none; 
   border-radius: 0.75rem;
   background: #EBEBEB;
+}
+
+.verificationBtnContainer{
+  margin-top: 7.31rem
 }
