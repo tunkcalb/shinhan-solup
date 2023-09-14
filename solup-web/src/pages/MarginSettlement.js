@@ -103,7 +103,6 @@ function ProfitStatusPage() {
             type="number"
             value={percentage}
             onChange={handlePercentageChange}
-            placeholder="70"
           />
           <div className='summary'>이체금액: {transferAmount}원</div>
         </div>
