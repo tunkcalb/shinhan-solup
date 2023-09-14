@@ -28,6 +28,7 @@ import Guide from './components/Home/Guide';
 import SupportProgramsPage from './pages/CustomProducts/SupportProgramsPage';
 import EmployeeEnrollment from './pages/EmployeeManagement/EmployeeEnrollment';
 import EmployeeInfo from './pages/EmployeeManagement/EmployeeInfo';
+import LoanManagement from './pages/LoanManagement';
 import RevenueAnalysisView from './components/RevenueAnalysis/RevenueAnalysisView';
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
             <Route path='/revenue-analysis-view' element={<RevenueAnalysisView />} />
             <Route path='/support-programs' element={<SupportProgramsPage />} />
             <Route path='/guide' element={<Guide />} />
+            <Route path='/loan-management' element={<LoanManagement />} />
           </Routes>
         </div>
       </PersistGate>

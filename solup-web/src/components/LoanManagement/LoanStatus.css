@@ -1,0 +1,14 @@
+/* 프로그레스 바 스타일 */
+.progress {
+    height: 20px;
+    margin-top: 10px;
+  }
+  
+  .progress-bar {
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+  }
+  
