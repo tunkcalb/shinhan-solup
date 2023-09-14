@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import "./styles/MarginSettlement.css"
 import InputPart from '../components/InputPart';
 import SelectPart from '../components/SelectPart';
-import BlueButton from '../components/BlueButton';
+import Modal from '../components/Modal';
 
 function ProfitStatusPage() {
   const navigate = useNavigate();
+
   // 이체금액 변수를 상태로 관리
   const [transferAmount, setTransferAmount] = useState(0);
 
@@ -46,14 +47,40 @@ function ProfitStatusPage() {
     setSelectedBank(newBank);
   };
 
+
+
+
+  // 이체 버튼 클릭 시 이벤트 핸들러
+  // const handleTransferButtonClick = () => {
+  //   alert(`이체 금액 ${transferAmount}원이 ${selectedBank} 계좌로 이체되었습니다.`);
+  //   navigate('/home');
+  // }; //수틀리면 되돌리기 
+
+  // 모달 열기/닫기 상태를 관리
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // 이체 버튼 클릭 시 이벤트 핸들러
   const handleTransferButtonClick = () => {
-    alert(`이체 금액 ${transferAmount}원이 ${selectedBank} 계좌로 이체되었습니다.`);
-    navigate('/home');
+    setIsModalOpen(true);
   };
 
+  // 모달 닫기 이벤트 핸들러
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+
+
   return (
-    <div>
+    <>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {/* 모달 내용 */}
+        <div>
+          <p>모달 내용을 여기에 추가하세요.</p>
+          <button onClick={handleCloseModal}>닫기</button>
+        </div>
+      </Modal>
+
       <div className='blueContainer'>
         <Link to="/">
           <img src={`${process.env.PUBLIC_URL}/whiteBackBtn.png`} 
@@ -85,7 +112,7 @@ function ProfitStatusPage() {
             onChange={handlePercentageChange}
             placeholder="70"
           />
-          <div>이체금액: {transferAmount}원</div>
+          <div className='summary'>이체금액: {transferAmount}원</div>
         </div>
 
         {/* 은행명 */}
@@ -103,19 +130,22 @@ function ProfitStatusPage() {
             title="계좌번호"
             type="number"
             value={accountNumber}
-            onChange={handleTransferButtonClick}
+            onChange={handleAccountNumberChange}
           />
         </div>
       
         <div className="marginBtnContainer">
           <button onClick={handleTransferButtonClick} className="blueBtn">이체하기</button>
         </div>
+
+
         {/* <div>
           
             <button onClick={handleTransferButtonClick}>이체하기</button>
         </div> */}
       </div>
-    </div>
+
+    </>
   );
 }
 
