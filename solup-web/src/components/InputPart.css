@@ -1,0 +1,30 @@
+.partMargin{
+  margin-bottom: 3rem;
+}
+
+.partTitle{
+  font-family: "Be Vietnam Pro";
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.partBox{
+  height: 2.4375rem;
+  width: 100%;
+  border-bottom: 1px solid #9D9D9D;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.partBox input, span{
+  border: none;
+  font-family: "Be Vietnam Pro";
+  font-size: 1rem; 
+}
+
+input{
+  color:#9D9D9D !important;
+  font-weight: 400;
+}

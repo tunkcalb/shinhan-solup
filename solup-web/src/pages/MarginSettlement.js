@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+import "./styles/MarginSettlement.css"
+import InputPart from '../components/InputPart';
+import SelectPart from '../components/SelectPart';
+import BlueButton from '../components/BlueButton';
 
 function ProfitStatusPage() {
   const navigate = useNavigate();
@@ -49,23 +54,66 @@ function ProfitStatusPage() {
 
   return (
     <div>
-      <p>이번달 마진은 {margin} 원이에요</p>
+      <div className='blueContainer'>
+        <Link to="/">
+          <img src={`${process.env.PUBLIC_URL}/whiteBackBtn.png`} 
+          alt="뒤로가기버튼"
+          className='backBtn'/>
+        </Link> 
+        <span className='marginTitle'>마진 정산하기</span>
+        <div className='marginContent'>
+          <div>이번달 마진은</div>
+          <div>
+            <span className='marginBold'>{margin}</span>
+            <span>원이에요</span>
+          </div>
+          <div className='miniFont'>
+            <div>쏠업에서 생활비 계좌로 바로 이체하세요</div>
+            <div>마진에 따라 이체 금액도 추천해드릴게요!</div>
+          </div>
+        </div>
+      </div>
 
-      <p>쏠업에서 생활비 계좌로 바로 이체하세요</p>
-      <p>마진에 따라 이체 금액도 추천해드릴게요!</p>
-      <input type="number" value={percentage} onChange={handlePercentageChange} />
-      <span>%</span>
-      <p>이체금액: {transferAmount}원</p>
-      <p>입금할 계좌 정보를 입력해주세요</p>
-      <p>계좌번호</p>
-      <input type="text" value={accountNumber} onChange={handleAccountNumberChange} />
-      <select value={selectedBank} onChange={handleBankSelect}>
-        <option value="신한은행">신한은행</option>
-        <option value="쏠업은행">쏠업은행</option>
-        <option value="땡겨은행">땡겨은행</option>
-      </select>
-      <div>
-          <button onClick={handleTransferButtonClick}>이체하기</button>
+      <div className='settlementContainer'>
+        {/* 마진 금액 */}
+        <div className='partWrapper'>
+          <InputPart
+            title="마진의 몇 %를 이체할까요?"
+            unit="%"
+            type="number"
+            value={percentage}
+            onChange={handlePercentageChange}
+            placeholder="70"
+          />
+          <div>이체금액: {transferAmount}원</div>
+        </div>
+
+        {/* 은행명 */}
+        <div className='partWrapper'>
+          <SelectPart
+            title="입금할 은행명"
+            options={["신한은행", "쏠업은행", "땡겨은행"]}
+            value={selectedBank}
+            onChange={handleBankSelect}
+          />
+        </div>
+        {/* 계좌번호 */}
+        <div className='partWrapper'>
+          <InputPart
+            title="계좌번호"
+            type="number"
+            value={accountNumber}
+            onChange={handleTransferButtonClick}
+          />
+        </div>
+      
+        <div className="btnContainer">
+          <button onClick={handleTransferButtonClick} className="blueBtn">이체하기</button>
+        </div>
+        {/* <div>
+          
+            <button onClick={handleTransferButtonClick}>이체하기</button>
+        </div> */}
       </div>
     </div>
   );
