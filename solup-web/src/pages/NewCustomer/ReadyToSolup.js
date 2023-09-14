@@ -11,7 +11,7 @@ function ReadyToSolup () {
         <div className="mainText">준비가 완료되었습니다!</div>
         <div className="subText">지금 바로 쏠업과 함께</div>
         <div className="subText">똑똑한 매장관리를 시작해보세요!</div>
-        <div className="imgContainer"><img src={`${process.env.PUBLIC_URL}/readyToSolupImg.png`} alt="신한프렌즈3"/></div> 
+        <div className="readyImg"><img src={`${process.env.PUBLIC_URL}/readyToSolupImg.png`} alt="신한프렌즈3" className="sh3"/></div> 
         <BlueButton title="좋아요" destination="/home"/>
       </div>
     </div>    

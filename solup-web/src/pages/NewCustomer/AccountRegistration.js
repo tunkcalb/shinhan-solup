@@ -91,8 +91,7 @@ function AccountRegistration() {
           </div>
 
           <div className='registerBtn'>
-            {/* 인증 버튼 클릭 시 인증 완료 페이지로*/}
-            <button type="submit" className='blueBtn'>인증하기</button>
+            <BlueButton title="인증하기" destination="/ready-to-solup" />
           </div>
         </form>
       </div>

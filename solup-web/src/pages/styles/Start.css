@@ -67,3 +67,13 @@
 .registerBtn{
   margin-top: 12.52rem;
 }
+
+/* ready-to-solup */
+.readyImg{
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+}
+.sh3{
+  width: 80%;
+}
