@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import EmployeeList from "../../components/EmployeeManagement/EmployeeList";
+import Header from "../../components/Header";
+import NavBar from "../../components/Footer";
+import "../styles/Employee.css";
 
 function EmployeeManagement() {
   const userId = useSelector((state) => state.userId);
@@ -27,18 +30,29 @@ function EmployeeManagement() {
   }, [userId]);
 
   return (
-    <div>
-      <h2>직원 관리 페이지.</h2>
+    <div className="employees">
+      <Header title="직원관리" />
       {loading ? (
         <p>데이터를 불러오는 중...</p>
       ) : employees.length === 0 ? (
-        <button onClick={() => navigate('/employee-enrollment')}>직원 등록</button>
+        <div className="employeeContainer">
+          <div className="userTitle">직원 관리</div>
+          <div className="employeeContent">
+            <p>등록한 직원이 없어요😯</p>
+            <p>직원 등록 후 이용해주세요</p>
+            <button 
+              onClick={() => navigate('/employee-enrollment')}
+              className="employeeBtn">직원 등록</button>
+          </div>
+        </div>
       ) : (
         <div>
           <EmployeeList />
-          <button onClick={() => navigate('/employee-enrollment')}>직원 추가하기</button>
+          {/*여기 없어도 되는 건가? */}
+          {/* <button onClick={() => navigate('/employee-enrollment')}>직원 추가하기</button> */}
         </div>
       )}
+      <NavBar />
     </div>
   );
 }

@@ -1,0 +1,62 @@
+/* 직원관리 */
+.employeeContainer{
+  padding: 1.5rem 1.25rem 0;
+}
+
+.employeeContent{
+  width: 100%;
+  height: 8.9375rem;
+
+  border-radius: 0.625rem;
+  border: 3px dashed #4343D7;
+  background: #EDF2FF;
+  box-shadow: 0px 20px 60px rgba(0, 70, 255, 0.11);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.employeeContainer p{
+  margin: 0;
+  font-family: Be Vietnam Pro;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.employeeBtn{
+  display: flex;
+  width: 7.25rem;
+  height: 2.125rem;
+  padding: 0.5rem;
+  margin-top: 0.44rem;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.625rem;
+  background: #0046FF;
+  border:none;
+
+  font-family: "Be Vietnam Pro";
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+/* 직원 등록 */
+.enrollContainer{
+  padding: 0 1.25rem 0;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enrollForm{
+  width: 100%;
+}
+
+.enrollBtnContainer{
+  margin: 3rem 0 10rem;
+}

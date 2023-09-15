@@ -49,8 +49,6 @@ function ProfitStatusPage() {
   };
 
 
-
-
   // 이체 버튼 클릭 시 이벤트 핸들러
   // const handleTransferButtonClick = () => {
   //   alert(`이체 금액 ${transferAmount}원이 ${selectedBank} 계좌로 이체되었습니다.`);
