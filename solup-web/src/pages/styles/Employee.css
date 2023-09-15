@@ -43,3 +43,20 @@
   font-size: 1rem;
   color: white;
 }
+
+/* 직원 등록 */
+.enrollContainer{
+  padding: 0 1.25rem 0;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enrollForm{
+  width: 100%;
+}
+
+.enrollBtnContainer{
+  margin: 3rem 0 10rem;
+}
