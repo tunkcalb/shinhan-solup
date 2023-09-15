@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import "./ProfitStatus.css";
 import"./AccountInfo.css";
 import MiniBtn from '../MiniBtn';
 
 function ProfitStatus() {
+  const navigate = useNavigate();
+  const redirectToSettlementPage = () => {
+    navigate('/margin-settlement');
+  };
+
   // 거래내역 분류 여부를 상태로 관리합니다.
   const [isClassified, setIsClassified] = useState(false);
 
@@ -64,6 +70,7 @@ function ProfitStatus() {
             </div>
           </div>
 
+          {/* 마진 */}
           <div className='partContainer'>
             <img src={`${process.env.PUBLIC_URL}/cardOrange.png`} alt="마진카드" className='marginCard'/>
             <div className='profitTextOverlay'>
@@ -73,6 +80,7 @@ function ProfitStatus() {
                 <span>원</span>
               </div>
             </div>
+            <button onClick={redirectToSettlementPage} className='marginBtnOverlay'>정산</button>
           </div>
           
         </div>

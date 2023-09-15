@@ -13,16 +13,17 @@ function AccountInfo() {
 
   useEffect(() => {
     if (isAccountRegistered) {
+      console.log(userId)
       axios.get(`/account/${userId}`)
         .then((response) => {
           // API 응답에서 필요한 정보 추출
           const data = response.data;
           const accountInfo = {
-            bankName: '신한은행',
+            bankName: data.bank,
             accountNumber: data.number,
             accountBalance: data.balance,
           };
-
+          console.log(accountInfo)
           // 계좌 정보 상태 업데이트
           setAccountData(accountInfo);
         })
@@ -39,9 +40,6 @@ function AccountInfo() {
 
   return (
     <div className='infoContainer'>
-      <div className='infoTitle'>
-        {/* 가게 정보, 사용자 이름 받아와서 적용되어야 함 */}
-      </div>
       {isAccountRegistered && accountData ? (
         <div className='accountContainer'>
           <img src={`${process.env.PUBLIC_URL}/cardProfit.png`} alt="계좌카드" className='cardImg'/>

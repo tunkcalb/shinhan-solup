@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
+import "./styles/Verification.css"
 
 function Verification() {
   const navigate = useNavigate();
@@ -22,7 +23,6 @@ function Verification() {
 
   const handleSendVerificationCode = async () => {
     try {
-      // SMS 인증 요청 보내기
       const response = await axios.post('/user/sms', {
         recipientPhoneNumber: formData.phoneNumber,
       });
@@ -38,7 +38,6 @@ function Verification() {
   };
 
   const handleNextButtonClick = () => {
-    // "다음" 버튼 클릭 시 Signup 페이지로 이동하며 이름과 전화번호를 전달
     navigate(`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`);
   };
 
@@ -86,7 +85,9 @@ function Verification() {
             />
           </div>
           
-          <BlueButton title="다음" destination={`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`} />
+          <div className="verificationBtnContainer">
+            <BlueButton title="다음" destination={`/signup?name=${formData.name}&phoneNumber=${formData.phoneNumber}`} />
+          </div>
         </div>
       </div>
     </div>

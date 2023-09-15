@@ -25,12 +25,15 @@ class LoanProductList extends Component {
       });
   }
 
+
   render() {
     return (
       <div>
         <h1>신한은행 대출상품 목록</h1>
         {this.state.loanProducts.map((product, index) => (
-          <LoanProduct key={index} product={product} />
+          <div key={index}>
+            <LoanProduct product={product} />
+          </div>
         ))}
       </div>
     );
