@@ -48,7 +48,7 @@ function ClassificationModal ({history, onClassify, onClose, userId}) {
             </label>
 
             {expenseType === "고정비" ? (
-                <lable>
+                <label>
                     카테고리 : 
                     <select
                         value={expenseCategory}
@@ -59,7 +59,7 @@ function ClassificationModal ({history, onClassify, onClose, userId}) {
                         <option value="보험료">보험료</option>
                         <option value="대출이자">대출이자</option>
                     </select>
-                </lable>
+                </label>
             ) : (
                 <label>
                     비용 카테고리:

@@ -1,13 +1,11 @@
 import { useEffect , useState } from "react";
 import { useSelector } from "react-redux";
-import ClassificationModal from "./ClassificationModal";
+import modalStyle from "./TradeHistoryView.module.css";
 
 function TradeHistoryView () {
     const [beforeCategorized, setBeforeCategorized] = useState([]);
     const [account, setAccount] = useState({});
-    const [selectedHistoryIndex, setSelectedHistoryIndex] = useState(null);
-    const [currentHistoryIndex, setCurrentHistoryIndex] = useState(0); // 현재 선택된 거래내역 인덱스
-    const [classifiedCount, setClassifiedCount] = useState(0); // 분류된 거래내역 개수
+    const [selectedHistory, setSelectedHistory] = useState(null);
     
     // const userId = useSelector(state => state.userId);
     const userId = 1;
@@ -79,103 +77,47 @@ function TradeHistoryView () {
         return hour * 3600 + minute * 60 + second;
     };
 
-    const loadNextHistory = async () => {
-        try {
-            const response = await fetch(`/account/${userId}/not-categorized-withdraw`);
-            const data = await response.json()
-            const sortedData = groupAndSortData(data.data);
-
-            const nextIndex = selectedHistoryIndex + 1;
-            if (nextIndex < sortedData.length) {
-                setSelectedHistoryIndex(nextIndex);
-            } else {
-                setSelectedHistoryIndex(null);
-            }
-            setBeforeCategorized(sortedData);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const classifyTradeHistory = async (data) => {
-        try {
-            const response = await fetch(`/account/{userId}/trade-history`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
-            if (response.ok) return true;
-            else return false;
-        } catch (error) {
-            console.log(error);
-            return false;
-        }
+    const handleOpenModal = (history) => {
+        setSelectedHistory(history);
     };
-
-    const handleOpenModal = (historyIndex) => {
-        setCurrentHistoryIndex(historyIndex);
-    }
 
     const handleCloseModal = () => {
-        setCurrentHistoryIndex(0); // 모달 닫기 후 초기화
-    };
-
-    const handleClassify = async (classifiedHistory) => {
-        const isSuccess = await classifyTradeHistory(classifiedHistory);
-
-        if (isSuccess) setClassifiedCount(classifiedCount + 1);
-        else console.log("API 호출 실패");
-    };
-
-    const handleNextClick = () => {
-        if (currentHistoryIndex < beforeCategorized.length - 1) handleOpenModal(currentHistoryIndex + 1);
-        else setClassifiedCount(beforeCategorized.length);
+        setSelectedHistory(null);
     };
 
     return (
         <div>
-            {currentHistoryIndex !== null && currentHistoryIndex < beforeCategorized.length && (
-                <ClassificationModal
-                    history={beforeCategorized[currentHistoryIndex]}
-                    onClose={handleCloseModal}    
-                    onClassify={handleClassify}
-                    userId={userId}
-                />
-            )}
-
             <div>
-                {classifiedCount > 0 && classifiedCount < beforeCategorized.length && (
-                    <p>{classifiedCount}개의 동일한 거래내역을 동시에 분류해요</p>
-                )}
-                {classifiedCount === beforeCategorized.length && (
-                    <p>분류가 완료됐어요</p>
-                )}
-                
-                {beforeCategorized.map((dateBlock, index) => (
-                    <div key={dateBlock.tradeDate}>
-                        <h2>{dateBlock.tradeDate}</h2>
-                        {dateBlock.histories.map((history, historyIndex) => (
-                            <div
-                                key={history.id}
-                                onClick={() => handleOpenModal(index)}
-                                style={{ cursor : "pointer" }}
-                            >
-                                {history.tradeTime} {history.content}({history.briefs}) -{history.withdraw}
-                            </div>
-                        ))}
-                    </div>
-                ))}
-
-                {currentHistoryIndex < beforeCategorized.length && (
-                    <button onClick={handleNextClick}>다음으로 이동</button>
-                )}
-
-                {classifiedCount === beforeCategorized.length && (
-                    <button onClick={() => setCurrentHistoryIndex(null)}>닫기</button>
-                )}
+                <p>{account.bank} {account.number}</p>
+                <p>{account.balance}</p>
             </div>
+
+            {beforeCategorized.map((dateBlock, index) => (
+                <div key={dateBlock.tradeDate}>
+                    <h2>{dateBlock.tradeDate}</h2>
+                    {dateBlock.histories.map((history, historyIndex) => (
+                        <div
+                            key={history.id}
+                            style={{ cursor : "pointer" }}
+                            onClick={() => handleOpenModal(history)} //클릭하면 모달 open
+                        >
+                            {history.tradeTime} {history.content}({history.briefs}) -{history.withdraw}
+                        </div>
+                    ))}
+
+                    {/* 모달 창 */}
+                    {selectedHistory && (
+                        <div className={`${modalStyle.modal}`}>
+                            <h3>거래내역 분류 모달</h3>
+                            <p>{selectedHistory.id} : {selectedHistory.briefs}</p>
+                        
+                        {/* 분류 버튼 */}
+                        <button onClick={handleCloseModal}>닫기</button>
+                        </div>
+                    )}
+
+                </div>
+            ))}
         </div>
     )
 }
