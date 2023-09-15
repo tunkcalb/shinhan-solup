@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
+import "./LoanProduct.css";
 
 function LoanProduct({ product }) {
   const handleOpenApp = () => {
-    const appScheme = 'com.shinhan.sbanking';
+    const appScheme = "com.shinhan.sbanking";
     const appLink = `intent://${appScheme}/#Intent;scheme=${appScheme};action=android.intent.action.VIEW;package=${appScheme};end`;
     window.location.href = appLink;
   };
 
   return (
-    <div>
+    <div className="loanProduct">
       <h2>{product.fin_prdt_nm}</h2>
       <p>은행 이름: {product.kor_co_nm}</p>
       <p>가입 방법: {product.join_way}</p>

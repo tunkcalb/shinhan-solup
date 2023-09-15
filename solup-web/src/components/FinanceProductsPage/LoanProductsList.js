@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import LoanProduct from './LoanProduct';
+import React, { Component } from "react";
+import axios from "axios";
+import LoanProduct from "./LoanProduct";
 
 class LoanProductList extends Component {
   constructor(props) {
@@ -12,26 +12,28 @@ class LoanProductList extends Component {
 
   componentDidMount() {
     axios
-      .get('/product/loan')
+      .get("/product/loan")
       .then((response) => {
         const allLoanProducts = response.data.data.result.baseList;
-        const shinanLoanProducts = allLoanProducts.filter(
-          (product) => product.kor_co_nm.includes('신한')
+        const shinanLoanProducts = allLoanProducts.filter((product) =>
+          product.kor_co_nm.includes("신한")
         );
         this.setState({ loanProducts: shinanLoanProducts });
       })
       .catch((error) => {
-        console.error('API 요청 중 오류 발생:', error);
+        console.error("API 요청 중 오류 발생:", error);
       });
   }
 
-
   render() {
     return (
-      <div>
+      <div style={{ margin: "0px auto", textAlign: "center" }}>
         <h1>신한은행 대출상품 목록</h1>
         {this.state.loanProducts.map((product, index) => (
-          <div key={index}>
+          <div
+            key={index}
+            style={{ display: "inline-block", textAlign: "left" }}
+          >
             <LoanProduct product={product} />
           </div>
         ))}

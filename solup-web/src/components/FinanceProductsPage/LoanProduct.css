@@ -1,0 +1,19 @@
+.loanProduct {
+  width: 335px;
+  height: 245px;
+  display: flex; /* 추가: 내용을 가운데 정렬하기 위해 */
+  flex-direction: column; /* 추가: 내용을 세로 방향으로 정렬하기 위해 */
+  align-items: left;
+  /* flex-shrink: 0; */
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 20px 60px 0px rgba(0, 70, 255, 0.11);
+  /* text-align: left; */
+  white-space: wrap; /* 추가: 텍스트가 자동으로 줄 바꿈하지 않도록 함 */
+  overflow: hidden;
+  padding: 15px;
+}
+
+p {
+  margin: 5px;
+}
