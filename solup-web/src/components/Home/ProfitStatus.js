@@ -30,6 +30,7 @@ function ProfitStatus() {
   }, [isClassifiedFromRedux]);
 
   const fetchData = async () => {
+    if (!isClassified) return;
     const response = await fetch(`/account/${userId}/monthly-result`);
     const jsonResponse = await response.json();
     const data = jsonResponse.data;
