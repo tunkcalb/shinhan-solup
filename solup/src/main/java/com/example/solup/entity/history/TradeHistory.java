@@ -59,9 +59,6 @@ public class TradeHistory {
     @Column
     private String name;
 
-    @Column(name = "trade_number")
-    private Integer tradeNumber;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
