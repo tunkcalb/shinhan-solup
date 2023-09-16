@@ -137,12 +137,14 @@ function ProfitStatusPage() {
               <div>{selectedBank} 계좌로 이체 완료!</div>
             </div>
             <div className='modalImg'>
-              <img src={`${process.env.PUBLIC_URL}/shfriends4.png`} alt="완료이미지" />
+              <img src={`${process.env.PUBLIC_URL}/moneySH.png`} alt="완료이미지" />
             </div>
-            <BlueButton title="확인하기" destination="/home"/>
+            <div className='modalBtn'>
+              <BlueButton title="확인하기" destination="/home"/>
+            </div>
           </div>
         </Modal>
-        
+
       </div>
 
     </>

@@ -145,7 +145,7 @@ function EmployeeEnrollment() {
           </div>
 
           <div className="enrollBtnContainer">
-            <button type="submit" className="blueBtn">등록하기</button>
+            <button type="submit" className="blueBtn" onClick={handleSubmit}>등록하기</button>
           </div>
         </form>
       </div>

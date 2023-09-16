@@ -1,6 +1,8 @@
 /* 직원관리 */
 .employeeContainer{
-  padding: 1.5rem 1.25rem 0;
+  padding: 1.5rem 1.25rem 20rem;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .employeeContent{
@@ -16,6 +18,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  
 }
 
 .employeeContainer p{
@@ -29,6 +33,7 @@
   width: 7.25rem;
   height: 2.125rem;
   padding: 0.5rem;
+  
   margin-top: 0.44rem;
   justify-content: center;
   align-items: center;
@@ -44,11 +49,14 @@
 
 /* 직원 등록 */
 .enrollContainer{
-  padding: 0 1.25rem 0;
+  padding: 0 1.25rem 0rem;
   
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  height: 100%;
+  overflow-y: auto;
 }
 
 .enrollForm{
@@ -68,6 +76,7 @@
   background: #FFF;
   box-shadow: 0px 0px 24.92537px 0px rgba(51, 64, 79, 0.15);
   margin-bottom: 0.94rem;
+  border:none;
 
   
   display: flex;
@@ -127,3 +136,11 @@ li{
 .employeeContainer ul{
   padding: 0;
 }
+
+
+.emModalImg{
+  display: flex;
+  justify-content: center;
+}
+
+/* 급여 이체 모달 */
