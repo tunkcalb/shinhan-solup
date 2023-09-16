@@ -1,11 +1,14 @@
 import React from "react";
 import BlueButton from "../BlueButton";
+import { useDispatch } from "react-redux";
 
 import { setIsCategorized } from "../../redux/actions";
 
 function CategorizeFinish() {
+  const dispatch = useDispatch();
+
   const completeCategorize = () => {
-    setIsCategorized(true);
+    dispatch(setIsCategorized(true));
   };
 
   return (

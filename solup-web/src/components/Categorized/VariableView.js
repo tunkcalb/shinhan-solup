@@ -12,8 +12,8 @@ function VariableView() {
   const [account, setAccount] = useState({});
   const [totalWithdraw, setTotalWithdraw] = useState(0);
 
-  // const userId = useSelector(state => state.userId);
-  const userId = 1;
+  const userId = useSelector((state) => state.userId);
+  // const userId = 1;
 
   useEffect(() => {
     updateAccount();
@@ -124,8 +124,7 @@ function VariableView() {
                       display: "block",
                       display: "flex",
                       justifyContent: "space-between",
-                    }}
-                  >
+                    }}>
                     <span
                       style={{
                         display: "inline-block",
@@ -134,8 +133,7 @@ function VariableView() {
                         fontSize: "0.8rem",
                         lineHeight: "2",
                         verticalAlign: "middle",
-                      }}
-                    >
+                      }}>
                       {history.content}({history.briefs})
                     </span>
                     <span style={{ color: "red", fontWeight: "500" }}>
@@ -149,8 +147,7 @@ function VariableView() {
                       color: "#8989c7",
                       fontSize: "0.7rem",
                       verticalAlign: "top",
-                    }}
-                  >
+                    }}>
                     {history.tradeTime}
                   </span>
                 </span>
@@ -168,8 +165,7 @@ function VariableView() {
                         display: "block",
                         display: "flex",
                         justifyContent: "space-between",
-                      }}
-                    >
+                      }}>
                       <span
                         style={{
                           display: "inline-block",
@@ -178,16 +174,14 @@ function VariableView() {
                           fontSize: "0.8rem",
                           lineHeight: "2",
                           verticalAlign: "middle",
-                        }}
-                      >
+                        }}>
                         {history.content}({history.briefs})
                       </span>
                       <span
                         style={{
                           color: "red",
                           fontWeight: "500",
-                        }}
-                      >
+                        }}>
                         -{new Intl.NumberFormat().format(history.withdraw)} 원
                       </span>
                     </span>
@@ -198,8 +192,7 @@ function VariableView() {
                         color: "#8989c7",
                         fontSize: "0.7rem",
                         verticalAlign: "top",
-                      }}
-                    >
+                      }}>
                       {history.tradeTime}
                     </span>
                   </span>

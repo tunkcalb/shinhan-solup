@@ -16,14 +16,18 @@ function ProfitStatus() {
   const [fixedExpenses, setFixedExpenses] = useState("");
   const [variableExpenses, setVariableExpenses] = useState("");
   const [margin, setMargin] = useState("");
-  // 실제 거래내역 정보 (분류가 되었다 가정)
+
+  const isClassifiedFromRedux = useSelector((state) => state.isCategorized);
+  const [isClassified, setIsClassified] = useState(isClassifiedFromRedux);
 
   const userId = useSelector((state) => state.userId);
-  const isClassified = useSelector((state) => state.isCategorized);
 
   useEffect(() => {
+    setIsClassified(isClassifiedFromRedux);
+    console.log(isClassifiedFromRedux);
+    console.log(isClassified);
     fetchData();
-  }, [isClassified]);
+  }, [isClassifiedFromRedux]);
 
   const fetchData = async () => {
     const response = await fetch(`/account/${userId}/monthly-result`);
@@ -33,6 +37,8 @@ function ProfitStatus() {
     setFixedExpenses(data.fixed);
     setVariableExpenses(data.variable);
     setMargin(data.netProfit);
+    console.log(data.income);
+    console.log(data.netProfit);
   };
 
   // 거래내역 분류 페이지로 이동하는 함수
@@ -72,7 +78,9 @@ function ProfitStatus() {
                 alt="고정비카드"
                 className="fc"
               />
-              <div className="profitTextOverlay">
+              <div
+                className="profitTextOverlay"
+                onClick={() => navigate("/fixed")}>
                 <div>고정비</div>
                 <div>
                   <span className="boldSum">
@@ -89,7 +97,9 @@ function ProfitStatus() {
                 alt="변동비카드"
                 className="vc"
               />
-              <div className="profitTextOverlay">
+              <div
+                className="profitTextOverlay"
+                onClick={() => navigate("/variable")}>
                 <div>변동비</div>
                 <div>
                   <span className="boldSum">{variableExpenses}</span>
@@ -106,7 +116,9 @@ function ProfitStatus() {
               alt="마진카드"
               className="marginCard"
             />
-            <div className="profitTextOverlay">
+            <div
+              className="profitTextOverlay"
+              onClick={() => navigate("/livings")}>
               <div>마진</div>
               <div>
                 <span className="boldSum">{margin}</span>
