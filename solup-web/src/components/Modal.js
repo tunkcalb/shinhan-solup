@@ -2,7 +2,7 @@ import React from "react";
 import "./Modal.css";
 
 function Modal({isOpen, onClose, children}) {
-
+  console.log(children)
   // 모달 밖 영역을 클릭할 때 모달을 닫는 이벤트 핸들러
   const handleBackgroundClick = (e) => {
     if (e.target === e.currentTarget) {

@@ -49,8 +49,6 @@ function ProfitStatusPage() {
   };
 
 
-
-
   // 이체 버튼 클릭 시 이벤트 핸들러
   // const handleTransferButtonClick = () => {
   //   alert(`이체 금액 ${transferAmount}원이 ${selectedBank} 계좌로 이체되었습니다.`);
@@ -139,17 +137,14 @@ function ProfitStatusPage() {
               <div>{selectedBank} 계좌로 이체 완료!</div>
             </div>
             <div className='modalImg'>
-              <img src={`${process.env.PUBLIC_URL}/shfriends4.png`} alt="완료이미지" />
+              <img src={`${process.env.PUBLIC_URL}/moneySH.png`} alt="완료이미지" />
             </div>
-            <BlueButton title="확인하기" destination="/home"/>
+            <div className='modalBtn'>
+              <BlueButton title="확인하기" destination="/home"/>
+            </div>
           </div>
         </Modal>
 
-
-        {/* <div>
-          
-            <button onClick={handleTransferButtonClick}>이체하기</button>
-        </div> */}
       </div>
 
     </>

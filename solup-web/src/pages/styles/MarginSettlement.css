@@ -16,7 +16,6 @@
   justify-content: center;
   align-items: center;
 
-  font-family: "Be Vietnam Pro";
   font-weight: bold;
   font-size: 1.375rem;
   color: white;  
@@ -25,7 +24,6 @@
 .marginContent{
   margin-top: 2.31rem;
 
-  font-family: "Be Vietnam Pro";
   font-weight: 700;
   font-size: 1.25rem;  
   color: white;
@@ -63,7 +61,6 @@
 
 .summary{
   text-align: end;
-  font-family: "Be Vietnam Pro";
   font-weight: 700;
   font-size: 0.875rem;  
   color: #306FE1;
