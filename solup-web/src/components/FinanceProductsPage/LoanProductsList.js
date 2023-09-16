@@ -29,9 +29,9 @@ class LoanProductList extends Component {
   render() {
     return (
       <div>
-        <h1>신한은행 대출상품 목록</h1>
+        <div className="debitText">신한은행 대출상품 목록을 확인하세요</div>
         {this.state.loanProducts.map((product, index) => (
-          <div key={index}>
+          <div key={index} className="debitBox">
             <LoanProduct product={product} />
           </div>
         ))}

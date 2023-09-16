@@ -6,6 +6,12 @@
   filter: drop-shadow(0px 0px 50px rgba(48, 111, 225, 0.10));
 }
 
+.loans-3{
+  padding: 1.25rem 1.25rem 10rem;
+  background-color: #fff;
+  filter: drop-shadow(0px 0px 50px rgba(48, 111, 225, 0.10));
+}
+
 /* 대출 현황 */
 .status-1 p, .status-2 p{
   font-size: 1.25rem ;
@@ -111,4 +117,37 @@
   border-radius: 0.25rem;
 
   font-weight: bold;
+}
+
+
+/* 대출상품 목록 */
+.productTitle{
+  font-size: 1rem;
+}
+
+.pd-name{
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 0 0.2rem;
+}
+
+.products div p {
+  margin: 0;
+  color: rgba(51, 62, 99, 0.70) !important;
+}
+
+.pd-content{
+  display: flex;
+  width: 100%;
+}
+
+.pd-content b{
+  width: 30%;
+  background-color: rgb(180, 204, 243);
+  margin-bottom: 0.12rem;
+  padding: 0.1rem;
+}
+.pd-content p{
+  width: 70%;
+  padding: 0.1rem;
 }
