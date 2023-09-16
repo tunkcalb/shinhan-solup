@@ -1,4 +1,4 @@
-.loanProduct {
+.pdLoanProduct {
   width: 330px;
   height: 100px;
   /* display: flex; 추가: 내용을 가운데 정렬하기 위해 */
@@ -30,6 +30,6 @@
   line-height: 1;
 }
 
-h2 {
+.pd-h2 {
   margin-top: 0.8rem;
 }
