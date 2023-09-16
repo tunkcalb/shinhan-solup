@@ -3,8 +3,8 @@ import LoanProductList from "../FinanceProductsPage/LoanProductsList";
 
 function LoanProducts({ loanProducts, onApplyLoan }) {
   return (
-    <div>
-      <h2>대출 상품</h2>
+    <div className="loans-3">
+      <div className="debitTitle">대출상품</div>
       <LoanProductList />
     </div>
   );
