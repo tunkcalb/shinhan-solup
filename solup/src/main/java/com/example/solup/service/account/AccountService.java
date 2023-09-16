@@ -28,6 +28,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -162,10 +163,9 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
 
-        Long accountId = user.getAccount().getId();
-
-        return tradeHistoryRepository.findByAccountIdAndIsCategorized(accountId, true).stream()
-                .map(tradeHistory -> TradeHistoryCategorizeDto.Response.builder()
+        return tradeHistoryRepository.findByAccountIdAndIsCategorized(user.getAccount().getId(), true).stream()
+                .map(tradeHistory ->
+                        TradeHistoryCategorizeDto.Response.builder()
                         .id(tradeHistory.getId())
                         .tradeDate(tradeHistory.getTradeDate())
                         .tradeTime(tradeHistory.getTradeTime())
@@ -175,8 +175,8 @@ public class AccountService {
                         .deposit(tradeHistory.getDeposit())
                         .withdraw(tradeHistory.getWithdraw())
                         .category(tradeHistory.getCategory())
-                        .expenseType(tradeHistory.getFixed() != null ? "고정비" : "변동비")
-                        .expenseCategory(tradeHistory.getFixed() != null ? tradeHistory.getFixed().getCategory() : tradeHistory.getVariable().getCategory())
+                        .expenseType(tradeHistory.getFixed() == null ? "변동비" : "고정비")
+                        .expenseCategory(tradeHistory.getFixed() == null ? tradeHistory.getVariable().getCategory() : tradeHistory.getFixed().getCategory())
                         .build())
                 .collect(Collectors.toList());
     }
@@ -196,6 +196,7 @@ public class AccountService {
                         .name(tradeHistory.getName())
                         .deposit(tradeHistory.getDeposit())
                         .withdraw(tradeHistory.getWithdraw())
+                        .balance(tradeHistory.getBalance())
                         .category(tradeHistory.getCategory())
                         .build())
                 .collect(Collectors.toList());
@@ -216,6 +217,7 @@ public class AccountService {
                         .name(tradeHistory.getName())
                         .deposit(tradeHistory.getDeposit())
                         .withdraw(tradeHistory.getWithdraw())
+                        .balance(tradeHistory.getBalance())
                         .category(tradeHistory.getCategory())
                         .build())
                 .collect(Collectors.toList());
