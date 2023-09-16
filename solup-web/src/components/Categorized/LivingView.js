@@ -103,7 +103,9 @@ function LivingView() {
         <div style={{ marginBottom: "1rem" }}>
           <span className={style.balance}>
             {" "}
-            {!!tradeHistories ? null : totalWithdraw}{" "}
+            {!!tradeHistories
+              ? null
+              : new Intl.NumberFormat().format(totalWithdraw)}{" "}
           </span>
           <span className={style.won}>{!!tradeHistories ? null : "원"}</span>
         </div>
@@ -138,7 +140,7 @@ function LivingView() {
                       {history.content}({history.briefs})
                     </span>
                     <span style={{ color: "red", fontWeight: "500" }}>
-                      -{history.withdraw} 원
+                      -{new Intl.NumberFormat().format(history.withdraw)} 원
                     </span>
                   </span>
                   <span
@@ -187,7 +189,7 @@ function LivingView() {
                           fontWeight: "500",
                         }}
                       >
-                        -{history.withdraw} 원
+                        -{new Intl.NumberFormat().format(history.withdraw)} 원
                       </span>
                     </span>
                     <span
