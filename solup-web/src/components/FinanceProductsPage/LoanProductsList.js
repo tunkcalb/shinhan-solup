@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import LoanProduct from "./LoanProduct";
+import LoanProductItem1 from "./LoanProductItem1";
+import LoanProductItem2 from "./LoanProductItem2";
+import LoanProductItem3 from "./LoanProductItem3";
+import LoanProductItem4 from "./LoanProductItem4";
 
 class LoanProductList extends Component {
   constructor(props) {
@@ -27,16 +31,27 @@ class LoanProductList extends Component {
 
   render() {
     return (
-      <div style={{ margin: "0px auto", textAlign: "center" }}>
-        <h1>신한은행 대출상품 목록</h1>
-        {this.state.loanProducts.map((product, index) => (
-          <div
-            key={index}
-            style={{ display: "inline-block", textAlign: "left" }}
-          >
-            <LoanProduct product={product} />
-          </div>
-        ))}
+      <div
+        style={{ margin: "0px auto", display: "grid", placeItems: "center" }}
+      >
+        {this.state.loanProducts.map((product, index) => {
+          return (
+            <div
+              key={index}
+              style={{
+                display: "inline-block",
+                textAlign: "left",
+                margin: "0px",
+              }}
+            >
+              <LoanProduct product={product} />
+              <LoanProductItem1 />
+              <LoanProductItem2 />
+              <LoanProductItem3 />
+              {/* <LoanProductItem4 /> */}
+            </div>
+          );
+        })}
       </div>
     );
   }
