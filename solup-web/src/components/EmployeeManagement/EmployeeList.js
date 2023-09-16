@@ -66,21 +66,31 @@ function EmployeeList() {
                 <div className="modalPart">
                   <div className="modalText">
                     <div>{employee.name} 님께</div>
-                    <div>월급 {employee.salary}원</div>
+                    <div>
+                      월급 {new Intl.NumberFormat().format(employee.salary)}원
+                    </div>
                     <div>이체하시겠습니까?</div>
                   </div>
                   <div className="modalImg">
-                    <img src={`${process.env.PUBLIC_URL}/moneySH.png`} alt="완료이미지" />
+                    <img
+                      src={`${process.env.PUBLIC_URL}/moneySH.png`}
+                      alt="완료이미지"
+                    />
                   </div>
                   <div className="modalBtn">
-                    <div className="blueBtn" onClick={handleSendButtonClick}>보내기</div>
+                    <div className="blueBtn" onClick={handleSendButtonClick}>
+                      보내기
+                    </div>
                   </div>
                 </div>
               )}
             </Modal>
 
             <li key={employee.id} className="employeeCard">
-              <img src={`${process.env.PUBLIC_URL}/shfriends4.png`} alt="직원 이미지" />
+              <img
+                src={`${process.env.PUBLIC_URL}/shfriends4.png`}
+                alt="직원 이미지"
+              />
               <div className="cardLine"></div>
               <div className="cardContent">
                 <ul>
@@ -99,7 +109,10 @@ function EmployeeList() {
             </li>
           </div>
         ))}
-        <button onClick={() => navigate('/employee-enrollment')} className="employeeCard">
+        <button
+          onClick={() => navigate("/employee-enrollment")}
+          className="employeeCard"
+        >
           <div className="emPlus">직원 추가하기</div>
         </button>
       </ul>

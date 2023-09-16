@@ -137,7 +137,7 @@ function FixedView() {
                       {history.content}({history.briefs})
                     </span>
                     <span style={{ color: "red", fontWeight: "500" }}>
-                      -{history.withdraw} 원
+                      -{new Intl.NumberFormat().format(history.withdraw)} 원
                     </span>
                   </span>
                   <span
@@ -186,7 +186,7 @@ function FixedView() {
                           fontWeight: "500",
                         }}
                       >
-                        -{history.withdraw} 원
+                        -{new Intl.NumberFormat().format(history.withdraw)} 원
                       </span>
                     </span>
                     <span

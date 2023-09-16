@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Loading from "../Loading";
 
 function EmployeeInfo() {
   const { employeeId } = useParams();
@@ -11,9 +12,12 @@ function EmployeeInfo() {
 
   useEffect(() => {
     // /user/staff/{userId}에 GET 요청을 보내 직원의 상세 정보를 가져옵니다.
-    axios.get(`/user/staff/${userId}`)
+    axios
+      .get(`/user/staff/${userId}`)
       .then((response) => {
-        const selectedEmployee = response.data.data.find((e) => e.id === parseInt(employeeId, 10));
+        const selectedEmployee = response.data.data.find(
+          (e) => e.id === parseInt(employeeId, 10)
+        );
         setEmployee(selectedEmployee);
       })
       .catch((error) => {
@@ -22,7 +26,7 @@ function EmployeeInfo() {
   }, [employeeId]);
 
   if (!employee) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
@@ -32,7 +36,9 @@ function EmployeeInfo() {
       <p>은행: {employee.bank}</p>
       <p>계좌번호: {employee.account}</p>
       <p>월급: {employee.salary}</p>
-      <button onClick={() => navigate('/employee-management')}>직원 목록으로</button>
+      <button onClick={() => navigate("/employee-management")}>
+        직원 목록으로
+      </button>
     </div>
   );
 }
