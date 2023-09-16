@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
-import SavingsProductList from '../../components/FinanceProductsPage/SavingProductsList';
-import LoanProductList from '../../components/FinanceProductsPage/LoanProductsList';
+import React, { Component } from "react";
+import SavingsProductList from "../../components/FinanceProductsPage/SavingProductsList";
+import LoanProductList from "../../components/FinanceProductsPage/LoanProductsList";
+import Header from "../../components/Header";
+import NavBar from "../../components/Footer";
+import "./FinanceProductsPage.css";
 
 class FinanceProductsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: 'savings', // 초기 활성 탭은 'savings' (적금)입니다.
+      activeTab: "savings", // 초기 활성 탭은 'savings' (적금)입니다.
     };
   }
 
@@ -19,25 +22,30 @@ class FinanceProductsPage extends Component {
 
     return (
       <div>
-        <h1>금융 상품 목록</h1>
+        <Header title="금융 상품 찾기" />
         <div className="tab-buttons">
-          <button
-            className={activeTab === 'savings' ? 'active' : ''}
-            onClick={() => this.handleTabChange('savings')}
-          >
-            적금상품
-          </button>
-          <button
-            className={activeTab === 'loans' ? 'active' : ''}
-            onClick={() => this.handleTabChange('loans')}
-          >
-            대출상품
-          </button>
+          <span className="span-container">
+            <span
+              className={`tab ${activeTab === "savings" ? "active" : ""}`}
+              onClick={() => this.handleTabChange("savings")}
+            >
+              적금상품
+            </span>
+          </span>
+          <span className="span-container">
+            <span
+              className={`tab ${activeTab === "loans" ? "active" : ""}`}
+              onClick={() => this.handleTabChange("loans")}
+            >
+              대출상품
+            </span>
+          </span>
         </div>
         <div className="tab-content">
-          {activeTab === 'savings' && <SavingsProductList />}
-          {activeTab === 'loans' && <LoanProductList />}
+          {activeTab === "savings" && <SavingsProductList />}
+          {activeTab === "loans" && <LoanProductList />}
         </div>
+        <NavBar />
       </div>
     );
   }
