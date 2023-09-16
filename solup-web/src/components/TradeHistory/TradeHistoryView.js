@@ -16,8 +16,8 @@ function TradeHistoryView() {
   const [expenseType, setExpenseType] = useState("");
   const [expenseCategory, setExpenseCategory] = useState("");
 
-  // const userId = useSelector(state => state.userId);
-  const userId = 1;
+  const userId = useSelector((state) => state.userId);
+  // const userId = 1;
 
   useEffect(() => {
     updateAccount();
@@ -131,8 +131,7 @@ function TradeHistoryView() {
             tradeHistories[index + 1].tradeDate ? (
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => openModal(history)}
-            >
+              onClick={() => openModal(history)}>
               <div className={style.history}>
                 <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} />
                 <span style={{ display: "inline-block", width: "100%" }}>
@@ -141,8 +140,7 @@ function TradeHistoryView() {
                       display: "block",
                       display: "flex",
                       justifyContent: "space-between",
-                    }}
-                  >
+                    }}>
                     <span
                       style={{
                         display: "inline-block",
@@ -151,8 +149,7 @@ function TradeHistoryView() {
                         fontSize: "0.8rem",
                         lineHeight: "2",
                         verticalAlign: "middle",
-                      }}
-                    >
+                      }}>
                       {history.content}({history.briefs})
                     </span>
                     <span style={{ color: "red", fontWeight: "500" }}>
@@ -166,8 +163,7 @@ function TradeHistoryView() {
                       color: "#8989c7",
                       fontSize: "0.7rem",
                       verticalAlign: "top",
-                    }}
-                  >
+                    }}>
                     {history.tradeTime}
                   </span>
                 </span>
@@ -178,8 +174,7 @@ function TradeHistoryView() {
               <div className={style.date}>{monthDay(history.tradeDate)}</div>
               <div
                 style={{ cursor: "pointer" }}
-                onClick={() => openModal(history)}
-              >
+                onClick={() => openModal(history)}>
                 <div className={style.history}>
                   <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} />
                   <span style={{ display: "inline-block", width: "100%" }}>
@@ -188,8 +183,7 @@ function TradeHistoryView() {
                         display: "block",
                         display: "flex",
                         justifyContent: "space-between",
-                      }}
-                    >
+                      }}>
                       <span
                         style={{
                           display: "inline-block",
@@ -198,16 +192,14 @@ function TradeHistoryView() {
                           fontSize: "0.8rem",
                           lineHeight: "2",
                           verticalAlign: "middle",
-                        }}
-                      >
+                        }}>
                         {history.content}({history.briefs})
                       </span>
                       <span
                         style={{
                           color: "red",
                           fontWeight: "500",
-                        }}
-                      >
+                        }}>
                         -{new Intl.NumberFormat().format(history.withdraw)} 원
                       </span>
                     </span>
@@ -218,8 +210,7 @@ function TradeHistoryView() {
                         color: "#8989c7",
                         fontSize: "0.7rem",
                         verticalAlign: "top",
-                      }}
-                    >
+                      }}>
                       {history.tradeTime}
                     </span>
                   </span>
@@ -237,7 +228,7 @@ function TradeHistoryView() {
         userId={userId}
         onClick={handleModalClick}
       />
-      {!!tradeHistories ? null : <CategorizeFinish />}
+      {!!tradeHistories ? <CategorizeFinish /> : null}
       <Navbar />
     </div>
   );

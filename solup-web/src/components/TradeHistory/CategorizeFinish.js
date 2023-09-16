@@ -1,7 +1,16 @@
 import React from "react";
 import BlueButton from "../BlueButton";
+import { useDispatch } from "react-redux";
+
+import { setIsCategorized } from "../../redux/actions";
 
 function CategorizeFinish() {
+  const dispatch = useDispatch();
+
+  const completeCategorize = () => {
+    dispatch(setIsCategorized(true));
+  };
+
   return (
     <div style={{ height: "50%" }}>
       <div style={{ textAlign: "center", marginTop: "3rem" }}>
@@ -23,8 +32,8 @@ function CategorizeFinish() {
           alt="신한프렌즈"
           style={{ width: "60%" }}
         />
-        <div style={{ margin: "2rem" }}>
-          <BlueButton title="손익현황을 볼래요" destination="/" />
+        <div style={{ margin: "2rem" }} onClick={completeCategorize}>
+          <BlueButton title="손익현황을 볼래요" destination="/home" />
         </div>
       </div>
     </div>
