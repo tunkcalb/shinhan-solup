@@ -1,11 +1,9 @@
-
-
 import TradeHistoryView from "../components/TradeHistory/TradeHistoryView";
 
 function TradeHistory() {
   return (
     <div>
-      <TradeHistoryView/>
+      <TradeHistoryView />
     </div>
   );
 }

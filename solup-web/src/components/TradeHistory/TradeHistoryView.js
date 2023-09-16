@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import Header from "../Header.js";
+import Navbar from "../Footer.js";
 import CategorizeModal from "./CategorizeModal.js";
+import CategorizeFinish from "./CategorizeFinish.js";
+import Modal from "../../components/Modal.js";
+
+import style from "./TradeHistoryView.module.css";
 
 function TradeHistoryView() {
   const [tradeHistories, setTradeHistories] = useState([]);
   const [account, setAccount] = useState({});
   const [selectedHistory, setSelectedHistory] = useState(null);
-  const [categorizedHistoryIds, setCategorizedHistoryIds] = useState([]);
+  const [expenseType, setExpenseType] = useState("");
+  const [expenseCategory, setExpenseCategory] = useState("");
 
   // const userId = useSelector(state => state.userId);
   const userId = 1;
@@ -36,7 +42,6 @@ function TradeHistoryView() {
             convertTimeToSeconds(a.tradeTime)
           );
         }
-
         return dateComparison;
       });
 
@@ -69,25 +74,154 @@ function TradeHistoryView() {
     setSelectedHistory(null);
   };
 
+  const handleModalClick = (expenseType, expenseCategory) => {
+    console.log(expenseType, expenseCategory);
+    setExpenseType(expenseType);
+    setExpenseCategory(expenseCategory);
+    updateTradeHistories();
+    console.log(tradeHistories);
+  };
+
+  const monthDay = (date) => {
+    const localDate = new Date(date);
+    // 월을 한글로 변환
+    const months = [
+      "1월",
+      "2월",
+      "3월",
+      "4월",
+      "5월",
+      "6월",
+      "7월",
+      "8월",
+      "9월",
+      "10월",
+      "11월",
+      "12월",
+    ];
+    const monthInKorean = months[localDate.getMonth()];
+
+    // 날짜를 "8월 15일" 형식으로 가공
+    const formattedDate = monthInKorean + " " + localDate.getDate() + "일";
+
+    // 결과 출력
+    console.log(formattedDate); // "8월 15일"
+
+    return formattedDate;
+  };
+
+  const moveToMainPage = () => {
+    // 메인페이지로 이동하는 메서드
+  };
+
   return (
     <div>
       <Header title="신한 주거래 사업자 통장" />
 
-      <div>
-        <p>
+      <div className={style.container}>
+        <div>
           {account.bank} {account.number}
-        </p>
-        <p>{account.balance}</p>
+        </div>
+        <div style={{ marginBottom: "1rem" }}>
+          <span className={style.balance}>{account.balance} </span>
+          <span className={style.won}>원</span>
+        </div>
       </div>
 
       {tradeHistories.map((history, index) => (
-        <div key={history.id}>
-          <h3>
-            {history.tradeDate}({history.tradeTime})
-          </h3>
-          <div style={{ cursor: "pointer" }} onClick={() => openModal(history)}>
-            {history.content}({history.briefs}) -{history.withdraw}
-          </div>
+        <div key={history.id} className={style.container}>
+          {index + 1 < tradeHistories.length &&
+          tradeHistories[index].tradeDate ===
+            tradeHistories[index + 1].tradeDate ? (
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => openModal(history)}>
+              <div className={style.history}>
+                <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} />
+                <span style={{ display: "inline-block", width: "100%" }}>
+                  <span
+                    style={{
+                      display: "block",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        marginLeft: "1rem",
+                        fontWeight: "bold",
+                        fontSize: "0.8rem",
+                        lineHeight: "2",
+                        verticalAlign: "middle",
+                      }}>
+                      {history.content}({history.briefs})
+                    </span>
+                    <span style={{ color: "red", fontWeight: "500" }}>
+                      -{history.withdraw} 원
+                    </span>
+                  </span>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      marginLeft: "1rem",
+                      color: "#8989c7",
+                      fontSize: "0.7rem",
+                      verticalAlign: "top",
+                    }}>
+                    {history.tradeTime}
+                  </span>
+                </span>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className={style.date}>{monthDay(history.tradeDate)}</div>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => openModal(history)}>
+                <div className={style.history}>
+                  <img src={`${process.env.PUBLIC_URL}/shinhanLogo.png`} />
+                  <span style={{ display: "inline-block", width: "100%" }}>
+                    <span
+                      style={{
+                        display: "block",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}>
+                      <span
+                        style={{
+                          display: "inline-block",
+                          marginLeft: "1rem",
+                          fontWeight: "bold",
+                          fontSize: "0.8rem",
+                          lineHeight: "2",
+                          verticalAlign: "middle",
+                        }}>
+                        {history.content}({history.briefs})
+                      </span>
+                      <span
+                        style={{
+                          color: "red",
+                          fontWeight: "500",
+                        }}>
+                        -{history.withdraw} 원
+                      </span>
+                    </span>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        marginLeft: "1rem",
+                        color: "#8989c7",
+                        fontSize: "0.7rem",
+                        verticalAlign: "top",
+                      }}>
+                      {history.tradeTime}
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       ))}
 
@@ -96,7 +230,17 @@ function TradeHistoryView() {
         onClose={closeModal}
         history={selectedHistory}
         userId={userId}
+        onClick={handleModalClick}
       />
+      {!!tradeHistories ? <CategorizeFinish /> : null}
+      {/* {!!tradeHistories ? (
+        <Modal
+          isOpen={true}
+          onClose={moveToMainPage}
+          chilren={<CategorizeFinish />}
+        />
+      ) : null} */}
+      <Navbar />
     </div>
   );
 }

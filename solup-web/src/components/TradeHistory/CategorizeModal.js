@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import style from "./CategorizeModal.module.css";
 
-function CategorizeModal({ isOpen, onClose, history, userId }) {
+function CategorizeModal({ isOpen, onClose, history, userId, onClick }) {
   const [expenseType, setExpenseType] = useState("");
   const [expenseCategory, setExpenseCategory] = useState("");
 
@@ -34,6 +34,7 @@ function CategorizeModal({ isOpen, onClose, history, userId }) {
     } catch (e) {
       console.log(e);
     }
+    onClick(expenseType, expenseCategory);
   };
 
   return (
@@ -41,8 +42,9 @@ function CategorizeModal({ isOpen, onClose, history, userId }) {
       {isOpen && (
         <div className={style.modal}>
           <div className={style.modalContent}>
-            <div>{history.content}</div>
-            <div>{history.briefs}</div>
+            <h2>{history.tradeDate}</h2>
+            <h3>{history.content}</h3>
+            <h3>{history.briefs}</h3>
             <div>
               <label>
                 Expense Type :
@@ -78,7 +80,13 @@ function CategorizeModal({ isOpen, onClose, history, userId }) {
                 </select>
               </label>
             </div>
-            <button onClick={categorize}>분류하기</button>
+            <button
+              onClick={() => {
+                categorize();
+                onClose();
+              }}>
+              분류하기
+            </button>
             <button onClick={onClose}>닫기</button>
           </div>
         </div>
