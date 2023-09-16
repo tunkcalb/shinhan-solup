@@ -1,7 +1,6 @@
 
 
-import TradeHistoryView from "../components/TradeHistory/TradeHistoryView"
-import ClassificationModal from "../components/TradeHistory/ClassificationModal"
+import TradeHistoryView from "../components/TradeHistory/TradeHistoryView";
 
 function TradeHistory() {
   return (

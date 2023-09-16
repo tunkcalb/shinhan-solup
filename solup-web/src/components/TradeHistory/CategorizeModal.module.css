@@ -1,0 +1,21 @@
+/* modal.css (새 CSS 파일로 저장하거나 기존 스타일 파일에 추가합니다) */
+
+/* 모달을 화면 중앙에 위치시키기 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 배경에 어둡게 블러 처리 */
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
