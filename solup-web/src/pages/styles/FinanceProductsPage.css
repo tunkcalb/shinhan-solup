@@ -1,3 +1,17 @@
+/* CustomProducts.js */
+.customProducts{
+  background-color: #fff;
+  padding: 1.25rem 1.25rem 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+
+/*  */
 .tab {
   width: 80%;
   height: 100%;

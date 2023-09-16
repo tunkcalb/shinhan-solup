@@ -9,10 +9,12 @@ function CustomProducts() {
   return (
     <div>
       <Header title="쏠쏠한 맞춤 정보" />
-      <Subsidies />
-      <FinanceProducts />
-      <SupportPrograms />
-      <NavBar className="navbar" />
+      <div className="customProducts">
+        <Subsidies />
+        <FinanceProducts />
+        <SupportPrograms />
+      </div>
+      <NavBar />
     </div>
   );
 }

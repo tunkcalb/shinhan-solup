@@ -3,7 +3,7 @@ import SavingsProductList from "../../components/FinanceProductsPage/SavingProdu
 import LoanProductList from "../../components/FinanceProductsPage/LoanProductsList";
 import Header from "../../components/Header";
 import NavBar from "../../components/Footer";
-import "./FinanceProductsPage.css";
+import "../../pages/styles/FinanceProductsPage.css";
 
 class FinanceProductsPage extends Component {
   constructor(props) {

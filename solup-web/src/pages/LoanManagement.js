@@ -54,7 +54,7 @@ function LoanManagement() {
   return (
     <div >
       <Header title="대출관리"/>
-      <div className="loan">
+      <div>
         <LoanStatus data={loanStatusData} />
         <AutoDebit {...autoDebitData} />
         <Loan_Products loanProducts={loanProductsData} onApplyLoan={handleApplyLoan} />
