@@ -142,12 +142,7 @@ function ProfitStatusPage() {
             <BlueButton title="확인하기" destination="/home"/>
           </div>
         </Modal>
-
-
-        {/* <div>
-          
-            <button onClick={handleTransferButtonClick}>이체하기</button>
-        </div> */}
+        
       </div>
 
     </>

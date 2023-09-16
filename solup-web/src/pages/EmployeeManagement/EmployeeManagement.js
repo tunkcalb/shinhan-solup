@@ -48,8 +48,6 @@ function EmployeeManagement() {
       ) : (
         <div>
           <EmployeeList />
-          {/*여기 없어도 되는 건가? */}
-          {/* <button onClick={() => navigate('/employee-enrollment')}>직원 추가하기</button> */}
         </div>
       )}
       <NavBar />

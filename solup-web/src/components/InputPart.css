@@ -3,7 +3,6 @@
 }
 
 .partTitle{
-  font-family: "Be Vietnam Pro";
   font-size: 1.125rem;
   font-weight: bold;
 }
@@ -20,7 +19,6 @@
 
 .partBox input, span{
   border: none;
-  font-family: "Be Vietnam Pro";
   font-size: 1rem; 
 }
 
