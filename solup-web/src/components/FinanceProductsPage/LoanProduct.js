@@ -3,8 +3,8 @@ import style from "./LoanProduct.module.css";
 
 function LoanProduct({ product }) {
   const handleOpenApp = () => {
-    const appScheme = "com.shinhan.sbanking";
-    const appLink = `intent://${appScheme}/#Intent;scheme=${appScheme};action=android.intent.action.VIEW;package=${appScheme};end`;
+    const appScheme = 'com.shinhan.sbanking';
+    const appLink = `market://details?id=${appScheme}`;
     window.location.href = appLink;
   };
 
