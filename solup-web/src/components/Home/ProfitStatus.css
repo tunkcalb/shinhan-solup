@@ -12,7 +12,6 @@
 }
 
 .boldSum{
-  font-family: Be Vietnam Pro;
   font-size: 1rem;
   font-weight: bold;
   font-size: 1.375rem;
@@ -21,7 +20,6 @@
 
 .categoryContainer div, 
 .categoryContainer span{
-  font-family: Be Vietnam Pro;
   font-weight: 500;
   color: white;
 }
@@ -51,7 +49,6 @@
   width: 5.25rem;
   height: 2.5rem; 
 
-  font-family: Be Vietnam Pro;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -105,7 +102,6 @@
 }
 
 .profitTitle{
-  font-family: "Be Vietnam Pro";
   font-weight: bold;
   font-size: 1.125rem;
 
@@ -128,7 +124,6 @@
 
 .noCategory div{
   text-align: center;
-  font-family: Be Vietnam Pro;
   font-size: 1rem;
   font-weight: 500;
   line-height: normal;

@@ -6,7 +6,20 @@ import { useSelector } from "react-redux";
 function Employee() {
   const { employeeId } = useParams();
   const [employee, setEmployee] = useState(null);
-  const userId = useSelector((state) => state.userId)
+  const userId = useSelector((state) => state.userId);
+
+  const handleDeleteEmployee = () => {
+  // 삭제 요청을 보내고 성공 시 페이지를 리디렉션하거나 다른 작업을 수행할 수 있습니다.
+    axios.delete(`/user/staff/${employeeId}`)
+      .then((response) => {
+      // 삭제가 성공하면 리디렉션 또는 다른 작업을 수행할 수 있습니다.
+      console.log("직원 정보 삭제 완료");
+      })
+      .catch((error) => {
+        console.error("Error deleting employee:", error);
+      });
+  };
+
   useEffect(() => {
     // /user/staff/{userId}에 GET 요청을 보내 직원의 상세 정보를 가져옵니다.
     axios.get(`/user/staff/${userId}`)
