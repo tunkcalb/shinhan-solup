@@ -115,9 +115,8 @@ public class AccountService {
                 tradeHistory.setIsCategorized(true);
                 tradeHistory.setVariable(variable);
             });
-
-            tradeHistoryRepository.saveAll(tradeHistories);
         }
+        tradeHistoryRepository.saveAll(tradeHistories);
     }
 
     public List<TradeHistoryDto.Response> findTradeHistories(Long userId) {
