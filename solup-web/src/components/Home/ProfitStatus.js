@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import "./ProfitStatus.css";
 import "./AccountInfo.css";
@@ -11,20 +12,32 @@ function ProfitStatus() {
   };
 
   // 거래내역 분류 여부를 상태로 관리합니다.
-  const [isClassified, setIsClassified] = useState(false);
+  const [monthlyRevenue, setMonthlyRevenue] = useState("");
+  const [fixedExpenses, setFixedExpenses] = useState("");
+  const [variableExpenses, setVariableExpenses] = useState("");
+  const [margin, setMargin] = useState("");
+  // 실제 거래내역 정보 (분류가 되었다 가정)
 
-  // 실제 거래내역 정보 (분류가 되었다고 가정)
-  const classifiedData = {
-    monthlyRevenue: "100,000",
-    fixedExpenses: "30,000",
-    variableExpenses: "20,000",
-    margin: "50,000",
+  const userId = useSelector((state) => state.userId);
+  const isClassified = useSelector((state) => state.isCategorized);
+
+  useEffect(() => {
+    fetchData();
+  }, [isClassified]);
+
+  const fetchData = async () => {
+    const response = await fetch(`/account/${userId}/monthly-result`);
+    const jsonResponse = await response.json();
+    const data = jsonResponse.data;
+    setMonthlyRevenue(data.income);
+    setFixedExpenses(data.fixed);
+    setVariableExpenses(data.variable);
+    setMargin(data.netProfit);
   };
 
   // 거래내역 분류 페이지로 이동하는 함수
   const redirectToClassificationPage = () => {
-    // 분류 페이지로 이동하는 코드
-    setIsClassified(true);
+    navigate(`/trade-history`);
   };
 
   return (
@@ -43,9 +56,7 @@ function ProfitStatus() {
               <div>이번달 매출</div>
               <div>
                 <span className="boldSum">
-                  {new Intl.NumberFormat().format(
-                    classifiedData.monthlyRevenue
-                  )}
+                  {new Intl.NumberFormat().format(monthlyRevenue)}
                 </span>
                 <span>원</span>
               </div>
@@ -65,9 +76,7 @@ function ProfitStatus() {
                 <div>고정비</div>
                 <div>
                   <span className="boldSum">
-                    {new Intl.NumberFormat().format(
-                      classifiedData.fixedExpenses
-                    )}
+                    {new Intl.NumberFormat().format(fixedExpenses)}
                   </span>
                   <span>원</span>
                 </div>
@@ -83,9 +92,7 @@ function ProfitStatus() {
               <div className="profitTextOverlay">
                 <div>변동비</div>
                 <div>
-                  <span className="boldSum">
-                    {classifiedData.variableExpenses}
-                  </span>
+                  <span className="boldSum">{variableExpenses}</span>
                   <span></span>
                 </div>
               </div>
@@ -102,14 +109,13 @@ function ProfitStatus() {
             <div className="profitTextOverlay">
               <div>마진</div>
               <div>
-                <span className="boldSum">{classifiedData.margin}</span>
+                <span className="boldSum">{margin}</span>
                 <span></span>
               </div>
             </div>
             <button
               onClick={redirectToSettlementPage}
-              className="marginBtnOverlay"
-            >
+              className="marginBtnOverlay">
               정산
             </button>
           </div>
