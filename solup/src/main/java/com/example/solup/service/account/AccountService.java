@@ -85,8 +85,6 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("해당 회원을 찾을 수 없습니다."));
 
-        Long accountId = user.getAccount().getId();
-
         String briefs = request.getBriefs();
         String content = request.getContent();
         String expenseType = request.getExpenseType();
@@ -95,6 +93,7 @@ public class AccountService {
         List<TradeHistory> tradeHistories = tradeHistoryRepository.findByBriefsAndContentAndCategoryAndIsCategorized(
                 briefs, content, 2, false);
 
+        // expenseCategory가 Fixed(고정비일 경우)
         if (Objects.equals(expenseType, "Fixed")) {
             Fixed fixed = new Fixed();
             fixed.setCategory(expenseCategory);
@@ -105,6 +104,8 @@ public class AccountService {
                 tradeHistory.setFixed(fixed);
                 tradeHistory.setIsCategorized(true);
             });
+
+        // expenseCategory가 Variable(변동비일 경우)
         } else if (Objects.equals(expenseType, "Variable")) {
             Variable variable = new Variable();
             variable.setCategory(expenseCategory);
