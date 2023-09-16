@@ -2,6 +2,8 @@ package com.example.solup.service.account;
 
 import com.example.solup.dto.*;
 import com.example.solup.dto.account.AuthenticationDto;
+import com.example.solup.dto.expense.CategorizedHistoriesDto;
+import com.example.solup.dto.expense.LivingHistoryDto;
 import com.example.solup.entity.account.Account;
 import com.example.solup.entity.account.LoanAccount;
 import com.example.solup.entity.history.TradeHistory;
@@ -28,7 +30,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -328,6 +329,93 @@ public class AccountService {
                                 .loanBalance(loanHistory.getLoanBalance())
                                 .name(loanHistory.getName())
                                 .tradeNumber(loanHistory.getTradeNumber())
+                                .build())
+                        .collect(Collectors.toList()))
+                .build();
+    }
+
+    public CategorizedHistoriesDto.Response categorizedVariables(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        List<TradeHistory> variables = tradeHistoryRepository.findCategorizedVariable(user.getAccount().getId());
+
+        Integer totalWithdraw = 0;
+        for (TradeHistory history : variables) {
+            totalWithdraw += history.getWithdraw();
+        }
+
+        return CategorizedHistoriesDto.Response.builder()
+                .totalWithdraw(totalWithdraw)
+                .tradeHistories(variables.stream().map(tradeHistory -> TradeHistoryDto.Response.builder()
+                        .id(tradeHistory.getId())
+                        .tradeDate(tradeHistory.getTradeDate())
+                        .tradeTime(tradeHistory.getTradeTime())
+                        .briefs(tradeHistory.getBriefs())
+                        .content(tradeHistory.getContent())
+                        .name(tradeHistory.getName())
+                        .deposit(tradeHistory.getDeposit())
+                        .withdraw(tradeHistory.getWithdraw())
+                        .balance(tradeHistory.getBalance())
+                        .category(tradeHistory.getCategory())
+                        .build())
+                        .collect(Collectors.toList()))
+                .build();
+    }
+
+    public CategorizedHistoriesDto.Response categorizedFixed(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        List<TradeHistory> histories = tradeHistoryRepository.findCategorizedFixed(user.getAccount().getId());
+
+        Integer totalWithdraw = 0;
+        for (TradeHistory tradeHistory : histories) {
+            totalWithdraw += tradeHistory.getWithdraw();
+        }
+
+        return CategorizedHistoriesDto.Response.builder()
+                .totalWithdraw(totalWithdraw)
+                .tradeHistories(histories.stream().map(tradeHistory -> TradeHistoryDto.Response.builder()
+                                .id(tradeHistory.getId())
+                                .tradeDate(tradeHistory.getTradeDate())
+                                .tradeTime(tradeHistory.getTradeTime())
+                                .briefs(tradeHistory.getBriefs())
+                                .content(tradeHistory.getContent())
+                                .name(tradeHistory.getName())
+                                .deposit(tradeHistory.getDeposit())
+                                .withdraw(tradeHistory.getWithdraw())
+                                .balance(tradeHistory.getBalance())
+                                .category(tradeHistory.getCategory())
+                                .build())
+                        .collect(Collectors.toList()))
+                .build();
+    }
+
+    public LivingHistoryDto.Response getLivings(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        List<TradeHistory> tradeHistories = tradeHistoryRepository.findLiving(user.getAccount().getId());
+
+        Integer totalLiving = 0;
+        for (TradeHistory history : tradeHistories) {
+            totalLiving += history.getWithdraw();
+        }
+
+        return LivingHistoryDto.Response.builder()
+                .totalLiving(totalLiving)
+                .tradeHistories(tradeHistories.stream().map(tradeHistory -> TradeHistoryDto.Response.builder()
+                                .id(tradeHistory.getId())
+                                .tradeDate(tradeHistory.getTradeDate())
+                                .tradeTime(tradeHistory.getTradeTime())
+                                .briefs(tradeHistory.getBriefs())
+                                .content(tradeHistory.getContent())
+                                .name(tradeHistory.getName())
+                                .deposit(tradeHistory.getDeposit())
+                                .withdraw(tradeHistory.getWithdraw())
+                                .balance(tradeHistory.getBalance())
+                                .category(tradeHistory.getCategory())
                                 .build())
                         .collect(Collectors.toList()))
                 .build();

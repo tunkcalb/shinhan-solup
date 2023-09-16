@@ -2,6 +2,8 @@ package com.example.solup.controller.account;
 
 import com.example.solup.dto.*;
 import com.example.solup.dto.account.AuthenticationDto;
+import com.example.solup.dto.expense.CategorizedHistoriesDto;
+import com.example.solup.dto.expense.LivingHistoryDto;
 import com.example.solup.service.account.AccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -69,28 +71,45 @@ public class AccountController {
 
 
     @Operation(description = "손익 현황 조회(이번달 매출/고정비/변동비/마진)", summary = "손익 현황(이번달 매출/고정비/변동비/마진)")
-    @GetMapping("account/{userId}/monthly-result")
+    @GetMapping("/account/{userId}/monthly-result")
     public Response<CategorizedDto.Response> getCategorized(@PathVariable("userId") Long userId) {
         CategorizedDto.Response response = accountService.getCategorized(userId);
         return new Response<>("200", "조회 성공", response);
     }
 
     @Operation(description = "마진 정산하기", summary = "마진 정산하기")
-    @PostMapping("account/{userId}/settle")
+    @PostMapping("/account/{userId}/settle")
     public Response<String> settle(@PathVariable("userId")Long userId, @RequestBody SettlementDto.Request request) {
         return new Response<>("200", "이체 성공", accountService.settle(userId, request));
     }
 
     @Operation(description = "1원 송금")
-    @PostMapping("account/check/{userId}")
+    @PostMapping("/account/check/{userId}")
     public Response<AuthenticationDto.Response> checkAccount(@PathVariable("userId")Long userId, @RequestBody AuthenticationDto.Request request){
         AuthenticationDto.Response response = accountService.checkAccount(userId, request);
         return new Response<>("201", "1원 송금 완료", response);
     }
 
     @Operation(description = "대출 계좌 조회", summary = "대출 계좌 조회")
-    @GetMapping("account/{userId}/loan")
+    @GetMapping("/account/{userId}/loan")
     public Response<LoanAccountDto.Response> getLoanAccount(@PathVariable("userId")Long userId) {
         return new Response<>("200", "대출 계좌 조회 성공", accountService.getLoanAccount(userId));
+    }
+
+    @Operation(description = "분류된 항목중 변동비만", summary = "분류된 것 중 변동비만")
+    @GetMapping("/account/{userId}/categorized-variable")
+    public Response<CategorizedHistoriesDto.Response> getCategorizedVariable(@PathVariable("userId") Long userId) {
+        return new Response<>("200", "분뷰된 변동비 내역 조회 성공", accountService.categorizedVariables(userId));
+    }
+
+    @Operation(description = "분류된 항목중 고정비만", summary = "분류된 것 중 고정비만")
+    @GetMapping("/account/{userId}/categorized-fixed")
+    public Response<CategorizedHistoriesDto.Response> getCategorizedFixed(@PathVariable("userId") Long userId) {
+        return new Response<>("200", "분류된 고정비 내역 조회 성공", accountService.categorizedFixed(userId));
+    }
+    @Operation(description = "이체한 생활비만", summary = "이체한 생활비만")
+    @GetMapping("/account/{userId}/livings")
+    public Response<LivingHistoryDto.Response> getLivings(@PathVariable("userId")Long userId) {
+        return new Response<>("200", "이체한 생활비 내역 조회 성공", accountService.getLivings(userId));
     }
 }
