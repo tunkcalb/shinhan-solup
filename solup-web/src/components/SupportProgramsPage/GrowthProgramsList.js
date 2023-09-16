@@ -13,15 +13,14 @@ function GrowthProgramList({ }) {
         });
     }, []);
   return (
-    <div>
-      <h2>소상공인 성장 프로그램 목록</h2>
+    <div className="itemContainer">
       <ul>
         {data.map((item) => (
-          <li key={item.areaNo}>
-            <h3>{item.areaNm}</h3>
+          <li key={item.areaNo} className="area">
+            <h3>{item.areaNm}</h3> 
             <ul>
               {item.items.map((program) => (
-                <li key={program.title}>
+                <li key={program.title} className="growItem">
                   <a href={program.url} target="_blank" rel="noopener noreferrer">
                     {program.year} {program.title}
                   </a>

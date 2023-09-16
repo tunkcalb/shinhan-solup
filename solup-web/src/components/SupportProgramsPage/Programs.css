@@ -1,0 +1,69 @@
+/* 전체 컴포넌트 감싸는 컨테이너 */
+.itemContainer{
+  background-color: white;
+  padding: 1.25rem 1.25rem 10rem;
+}
+
+/* 재사용 컴포넌트(특화) */
+.itemCard{
+  height: 8rem;
+  border-radius: 0.625rem;
+  background: var(--card-design, linear-gradient(180deg, #D6E1FF 0%, rgba(227, 234, 253, 0.00) 100%));
+  box-shadow: 0px 20px 60px 0px rgba(0, 70, 255, 0.11);
+  padding: 1.25rem;
+  margin-bottom: 1.75rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemContent{
+  margin: 0;
+  padding: 0;
+}
+.itemTitle{
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+}
+
+.itemLine{
+  height: 0.0625rem;
+  background: #FFF;
+  margin: 0.88rem 0 0.88rem;
+}
+
+.itemTexts{
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+/* 성장지원 */
+.itemContainer ul{
+  margin: 0;
+  padding: 0;
+}
+
+.itemContainer h3{
+  margin: 0.5rem;
+}
+
+.growItem{
+  padding: 0.5rem;
+  background-color: #e8eeff;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.growItem a{
+  text-decoration: none;
+  color: #333E63;
+  font-weight: 550;
+}
+
+.area{
+  margin-bottom: 1.5rem;
+}

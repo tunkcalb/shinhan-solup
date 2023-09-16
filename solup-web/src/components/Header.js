@@ -12,9 +12,9 @@ function Header({ title }) {
   return (
     <div className='header'>
       <div className='headerContainer'>
-        <button onClick={handleGoBack}>
+        <div onClick={handleGoBack}>
           <img src={`${process.env.PUBLIC_URL}/backBtn.png`} alt="뒤로가기버튼"/>
-        </button>
+        </div>
         <span className='headerText'>{title}</span>
       </div>
     </div>

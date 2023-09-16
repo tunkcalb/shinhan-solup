@@ -25,7 +25,9 @@ function AutoDebit({ accountNumber }) {
     setPaymentAmount(newPaymentAmount);
   };
 
+  // 계좌 쪼개는 거
   const parsedAccountNumber = `${accountNumber.substring(0, 3)}-${accountNumber.substring(3, 6)}-${accountNumber.substring(6, 12)}`;
+  
   return (
     <div className="loans">
       <div className="debitTitle">대출금 자동 이체</div>
