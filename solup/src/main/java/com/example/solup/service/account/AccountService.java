@@ -245,7 +245,7 @@ public class AccountService {
                 .content(accountContent)
                 .briefs(brief)
                 .name(name)
-                .isCategorized(true)
+                .isCategorized(false)
                 .category(category)
                 .build();
         tradeHistoryRepository.save(tradeHistory);
