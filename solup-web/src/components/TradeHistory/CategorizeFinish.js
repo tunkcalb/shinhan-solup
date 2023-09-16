@@ -24,7 +24,7 @@ function CategorizeFinish() {
           style={{ width: "60%" }}
         />
         <div style={{ margin: "2rem" }}>
-          <BlueButton title="손익현황을 볼래요" />
+          <BlueButton title="손익현황을 볼래요" destination="/" />
         </div>
       </div>
     </div>
