@@ -13,8 +13,8 @@
   line-height: 20px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
-  border-radius: 0.625rem;
+  background-color: #306FE1;
+  border-radius: 0.625rem 0 0 0.625rem;
 
   display: flex;
   align-items: center;

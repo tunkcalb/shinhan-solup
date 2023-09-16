@@ -9,20 +9,20 @@ function AutoDebitSettingsModal({ initialPaymentAmount, closeModal, onPaymentAmo
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <h2>자동이체 설정</h2>
-        <p>현재 납입할 금액: {initialPaymentAmount} 원</p>
+    <div className="debitModal">
+      <div className="debitModalContent">
+        <p>현재 납입할 금액</p>
+        <p className="debitModalText">{new Intl.NumberFormat().format(initialPaymentAmount)} 원</p>
         
-        <input
-          type="number"
-          value={paymentAmount}
-          onChange={(e) => setPaymentAmount(e.target.value)}
-        />
-
-        <button onClick={handleSave}>저장</button>
+        <div className="debitModalInput">
+          <input
+            type="number"
+            value={paymentAmount}
+            onChange={(e) => setPaymentAmount(e.target.value)}
+          />
+          <div onClick={handleSave} className="debitSave">저장</div>
+        </div>
         
-        <button onClick={closeModal}>닫기</button>
       </div>
     </div>
   );
