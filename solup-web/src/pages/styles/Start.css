@@ -1,0 +1,77 @@
+.startContainer{
+  padding: 0rem 1.25rem 0rem;
+  display: flex;
+}
+
+.startContent{
+  width: 100%;
+  margin-top: 7.94rem;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 29rem;
+  padding: 0; */
+}
+
+.mainText{
+  font-weight: bold;
+  font-size:  1.5rem;
+}
+
+.subText{
+  font-weight: 500;
+  font-size: 1rem;
+
+  line-height: 0.8rem;
+  /* letter-spacing: -0.015rem; */
+  letter-spacing: -0.015rem;
+
+  margin-top: 0.62rem;
+}
+.imgContainer{
+  display: flex;
+  justify-content: flex-end;
+  
+  /* padding-right: 1.12rem; */
+  margin-top: 5.69rem;
+}
+
+.imgContainer img {
+  width: 7.%;
+}
+
+.startBtn{
+  /* margin-top: 6.06rem; */
+  margin-top: 4rem;
+}
+
+
+
+/* account-question page */
+.sh2{
+  width: 90%;
+}
+
+.questionBtn{
+  margin-top: 1.5rem;
+}
+
+
+/* account-register */
+.registerText{
+  margin-bottom: 1.94rem;
+}
+
+.registerBtn{
+  margin-top: 12.52rem;
+}
+
+/* ready-to-solup */
+.readyImg{
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+}
+.sh3{
+  width: 80%;
+}
