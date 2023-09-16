@@ -33,25 +33,14 @@ class SavingsProductList extends Component {
 
   render() {
     return (
-      <div
-        style={{ margin: "0px auto", display: "grid", placeItems: "center" }}
-      >
+      <div>
         {this.state.savingsProducts.map((product, index) => {
           return (
-            <div
-              key={index}
-              product={product}
-              style={{
-                display: "inline-block",
-                textAlign: "left",
-                margin: "0px",
-              }}
-            >
+            <div >
               <SavingsProduct product={product} />
               <SavingsProductItem1 />
               <SavingsProductItem2 />
               <SavingsProductItem3 />
-              {/* <LoanProductItem4 /> */}
             </div>
           );
         })}
