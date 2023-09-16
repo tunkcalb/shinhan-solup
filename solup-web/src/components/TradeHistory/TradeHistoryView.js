@@ -118,15 +118,19 @@ function TradeHistoryView() {
     <div>
       <Header title="신한 주거래 사업자 통장" />
 
-      <div className={style.container}>
-        <div>
-          {account.bank} {account.number}
+      {!!tradeHistories ? (
+        <></>
+      ) : (
+        <div className={style.container}>
+          <div>
+            {account.bank} {account.number}
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            <span className={style.balance}>{account.balance} </span>
+            <span className={style.won}>원</span>
+          </div>
         </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <span className={style.balance}>{account.balance} </span>
-          <span className={style.won}>원</span>
-        </div>
-      </div>
+      )}
 
       {tradeHistories.map((history, index) => (
         <div key={history.id} className={style.container}>
