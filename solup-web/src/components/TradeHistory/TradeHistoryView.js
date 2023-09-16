@@ -103,15 +103,7 @@ function TradeHistoryView() {
 
     // 날짜를 "8월 15일" 형식으로 가공
     const formattedDate = monthInKorean + " " + localDate.getDate() + "일";
-
-    // 결과 출력
-    console.log(formattedDate); // "8월 15일"
-
     return formattedDate;
-  };
-
-  const moveToMainPage = () => {
-    // 메인페이지로 이동하는 메서드
   };
 
   return (
@@ -119,8 +111,6 @@ function TradeHistoryView() {
       <Header title="신한 주거래 사업자 통장" />
 
       {!!tradeHistories ? (
-        <></>
-      ) : (
         <div className={style.container}>
           <div>
             {account.bank} {account.number}
@@ -130,7 +120,7 @@ function TradeHistoryView() {
             <span className={style.won}>원</span>
           </div>
         </div>
-      )}
+      ) : null}
 
       {tradeHistories.map((history, index) => (
         <div key={history.id} className={style.container}>
@@ -236,14 +226,7 @@ function TradeHistoryView() {
         userId={userId}
         onClick={handleModalClick}
       />
-      {!!tradeHistories ? <CategorizeFinish /> : null}
-      {/* {!!tradeHistories ? (
-        <Modal
-          isOpen={true}
-          onClose={moveToMainPage}
-          chilren={<CategorizeFinish />}
-        />
-      ) : null} */}
+      {!!tradeHistories ? null : <CategorizeFinish />}
       <Navbar />
     </div>
   );
