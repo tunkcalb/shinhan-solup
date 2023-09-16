@@ -25,7 +25,6 @@
 }
 
 .bankName span{
-  font-family: "Be Vietnam Pro";
   font-size: 1rem;
   font-weight: 500;
   color: white;
@@ -48,13 +47,11 @@
 }
 
 .boldBalance{
-  font-family: "Be Vietnam Pro";
   font-weight: bold;
   font-size: 1.5rem;
 }
 
 .normalBalance{
-  font-family: "Be Vietnam Pro";
   font-weight: 500;
   font-size: 1.125rem;  
 }
@@ -88,7 +85,6 @@
 
 .noAccount div{
   text-align: center;
-  font-family: Be Vietnam Pro;
   font-size: 1rem;
   font-weight: 500;
   line-height: normal;
@@ -100,7 +96,6 @@
 }
 
 .normalText{
-  font-family: "Be Vietnam Pro";
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 1.25rem; /* 111.111% */
@@ -109,7 +104,6 @@
 }
 
 .boldText{
-  font-family: "Be Vietnam Pro";
   font-weight: bold;
   font-size: 1.25rem;
 }
