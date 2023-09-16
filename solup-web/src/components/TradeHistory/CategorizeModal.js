@@ -3,17 +3,31 @@ import React, { useState, useEffect } from "react";
 import style from "./CategorizeModal.module.css";
 
 function CategorizeModal({ isOpen, onClose, history, userId, onClick }) {
-  const [expenseType, setExpenseType] = useState("");
+  const [expenseType, setExpenseType] = useState("Variable");
   const [expenseCategory, setExpenseCategory] = useState("");
+  const [showVariable, setShowVariable] = useState(false);
+  const [showFixed, setShowFixed] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (expenseType === "Variable") {
+      setShowFixed(false);
+      setShowVariable(true);
+    } else if (expenseType === "Fixed") {
+      setShowFixed(true);
+      setShowVariable(false);
+    } else {
+      setShowVariable(false);
+      setShowFixed(false);
+    }
+  }, [expenseType]);
 
-  const updateExpenseType = (e) => {
-    setExpenseType(e.target.value);
+  const updateExpenseType = (type) => {
+    setExpenseType(type);
+    setExpenseCategory("");
   };
 
-  const updateExpenseCategory = (e) => {
-    setExpenseCategory(e.target.value);
+  const updateExpenseCategory = (category) => {
+    setExpenseCategory(category);
   };
 
   const categorize = async () => {
@@ -45,41 +59,86 @@ function CategorizeModal({ isOpen, onClose, history, userId, onClick }) {
             <h2>{history.tradeDate}</h2>
             <h3>{history.content}</h3>
             <h3>{history.briefs}</h3>
-            <div>
-              <label>
-                Expense Type :
-                <select value={expenseType} onChange={updateExpenseType}>
-                  <option value="">선택</option>
-                  <option value="Variable">변동비</option>
-                  <option value="Fixed">고정비</option>
-                </select>
-              </label>
+            <div className={style.expenseTypeContainer}>
+              <div
+                className={`${style.expenseType} ${
+                  expenseType === "Variable" ? style.selected : ""
+                }`}
+                onClick={() => updateExpenseType("Variable")}>
+                변동비
+              </div>
+              <div
+                className={`${style.expenseType} ${
+                  expenseType === "Fixed" ? style.selected : ""
+                }`}
+                onClick={() => updateExpenseType("Fixed")}>
+                고정비
+              </div>
             </div>
-            <div>
-              <label>
-                Expense Category :
-                <select
-                  value={expenseCategory}
-                  onChange={updateExpenseCategory}>
-                  <option value="">선택</option>
-                  {expenseType === "Variable" ? (
-                    <>
-                      <option value="관리비">관리비</option>
-                      <option value="재료비">재료비</option>
-                      <option value="포장재비">포장재비</option>
-                      <option value="소모품비">소모품비</option>
-                    </>
-                  ) : (
-                    <>
-                      <option value="임차료">임차료</option>
-                      <option value="인건비">인건비</option>
-                      <option value="보험료">보험료</option>
-                      <option value="대출이자">대출이자</option>
-                    </>
-                  )}
-                </select>
-              </label>
-            </div>
+            {expenseType === "Variable" && (
+              <div className={style.categoryContainer}>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "관리비" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("관리비")}>
+                  관리비
+                </div>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "재료비" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("재료비")}>
+                  재료비
+                </div>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "포장재비" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("포장재비")}>
+                  포장재비
+                </div>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "소모품비" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("소모품비")}>
+                  소모품비
+                </div>
+              </div>
+            )}
+            {expenseType === "Fixed" && (
+              <div className={style.categoryContainer}>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "임차료" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("임차료")}>
+                  임차료
+                </div>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "인건비" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("인건비")}>
+                  인건비
+                </div>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "보험료" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("보험료")}>
+                  보험료
+                </div>
+                <div
+                  className={`${style.categoryBox} ${
+                    expenseCategory === "대출이자" ? style.selected : ""
+                  }`}
+                  onClick={() => updateExpenseCategory("대출이자")}>
+                  대출이자
+                </div>
+              </div>
+            )}
             <button
               onClick={() => {
                 categorize();
