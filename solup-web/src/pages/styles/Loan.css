@@ -1,0 +1,30 @@
+
+.loans{
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  background-color: #fff;
+  filter: drop-shadow(0px 0px 50px rgba(48, 111, 225, 0.10));
+}
+
+/* 대출 현황 */
+.status-1 p, .status-2 p{
+  font-size: 1.25rem ;
+  font-weight: 600; 
+  margin: 0;
+}
+
+.status-mini{
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  color: #7F8192;
+  margin: 0;
+}
+
+.status-2{
+  display: flex;
+  justify-content: space-between;
+}
+
+.statusContent{
+  margin-bottom: 1.25rem;
+}

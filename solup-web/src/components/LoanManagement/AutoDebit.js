@@ -20,8 +20,8 @@ function AutoDebit({ accountNumber }) {
   };
 
   return (
-    <div>
-      <h2>대출금 자동 이체</h2>
+    <div className="loans">
+      <div className="userTitle">대출금 자동 이체</div>
       <p>대출 계좌번호: {accountNumber}</p>
       <p>납입할 금액: {paymentAmount} 원</p>
       

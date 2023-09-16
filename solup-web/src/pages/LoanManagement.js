@@ -4,6 +4,9 @@ import AutoDebit from "../components/LoanManagement/AutoDebit";
 import LoanProducts from "../components/LoanManagement/LoanProducts";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Header from "../components/Header";
+import NavBar from "../components/Footer";
+import "../pages/styles/Loan.css"
 
 function LoanManagement() {
   const [loanStatusData, setLoanStatusData] = useState(null);
@@ -49,10 +52,14 @@ function LoanManagement() {
   };
 
   return (
-    <div>
-      <LoanStatus data={loanStatusData} />
-      <AutoDebit {...autoDebitData} />
-      <LoanProducts loanProducts={loanProductsData} onApplyLoan={handleApplyLoan} />
+    <div >
+      <Header title="대출관리"/>
+      <div className="loan">
+        <LoanStatus data={loanStatusData} />
+        <AutoDebit {...autoDebitData} />
+        <LoanProducts loanProducts={loanProductsData} onApplyLoan={handleApplyLoan} />
+      </div>
+      <NavBar />
     </div>
   );
 }

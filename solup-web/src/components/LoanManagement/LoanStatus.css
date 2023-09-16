@@ -1,14 +1,32 @@
 /* 프로그레스 바 스타일 */
 .progress {
-    height: 20px;
-    margin-top: 10px;
+    height: 3rem;
+    border-radius: 0.625rem;
+    margin-bottom: 1rem;
+    background-color: #EBEBEB;
+    
   }
   
-  .progress-bar {
-    text-align: center;
-    line-height: 20px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-  }
-  
+.progress-bar {
+  height: 3rem;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 0.625rem;
+
+  display: flex;
+  align-items: center;
+  padding-left: 0.73rem ;
+
+  text-align: start;
+}
+
+.progress-text{
+  align-items: start;
+}
+.pt-1{
+  font-size: 0.778rem;
+  text-align: start;
+}
