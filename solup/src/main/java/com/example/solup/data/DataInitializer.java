@@ -50,6 +50,7 @@ public class DataInitializer implements CommandLineRunner {
         return tradeHistoryRepository.existsById(1L);
     }
 
+    // 카드 더미데이터
     public void InitCards() {
         Card card1 = new Card();
         card1.setName("신한");
@@ -64,6 +65,7 @@ public class DataInitializer implements CommandLineRunner {
         cardRepository.save(card3);
     }
 
+    // 거래내역 더미데이터
     public void InitTradeHistories() throws JsonProcessingException {
         String jsonDatas = "[\n" +
                 "  {\n" +
@@ -2636,6 +2638,7 @@ public class DataInitializer implements CommandLineRunner {
         }
     }
 
+    // 대출 상환 더미데이터
     public void InitLoanHistories() throws JsonProcessingException {
 
         String jsonData = "[\n" +
