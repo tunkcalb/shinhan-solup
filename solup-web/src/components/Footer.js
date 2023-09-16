@@ -10,7 +10,7 @@ function NavBar () {
           <img src={`${process.env.PUBLIC_URL}/nav1.png`} alt="대출"/>
           <div>대출</div>
         </Link>
-        <Link to="/sales-analysis" className="navItem">
+        <Link to="/revenue-analysis-view" className="navItem">
           <img src={`${process.env.PUBLIC_URL}/nav2.png`} alt="매출"/>
           <div>매출</div>
         </Link>

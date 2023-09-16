@@ -3,7 +3,7 @@ import React from 'react';
 function LoanProduct({ product }) {
   const handleOpenApp = () => {
     const appScheme = 'com.shinhan.sbanking';
-    const appLink = `intent://${appScheme}/#Intent;scheme=${appScheme};action=android.intent.action.VIEW;package=${appScheme};end`;
+    const appLink = `market://details?id=${appScheme}`;
     window.location.href = appLink;
   };
 
