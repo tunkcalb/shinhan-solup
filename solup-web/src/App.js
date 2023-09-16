@@ -30,6 +30,9 @@ import EmployeeEnrollment from "./pages/EmployeeManagement/EmployeeEnrollment";
 import EmployeeInfo from "./pages/EmployeeManagement/EmployeeInfo";
 import LoanManagement from "./pages/LoanManagement";
 import RevenueAnalysisView from "./components/RevenueAnalysis/RevenueAnalysisView";
+import FixedView from "./components/Categorized/FixedView";
+import VariableView from "./components/Categorized/VariableView";
+import LivingView from "./components/Categorized/LivingView";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -87,6 +90,9 @@ function App() {
             <Route path="/support-programs" element={<SupportProgramsPage />} />
             <Route path="/guide" element={<Guide />} />
             <Route path="/loan-management" element={<LoanManagement />} />
+            <Route path="/fixed" element={<FixedView />} />
+            <Route path="/variable" element={<VariableView />} />
+            <Route path="/livings" element={<LivingView />} />
           </Routes>
         </div>
       </PersistGate>

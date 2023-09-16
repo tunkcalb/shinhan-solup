@@ -1,0 +1,29 @@
+.container {
+  margin: 0 1rem 0 1rem;
+}
+
+.balance {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.won {
+  font-size: 1.2rem;
+}
+
+.date {
+  color: #8989c7;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.history {
+  margin: 0.8rem 0 0.8rem 0;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
