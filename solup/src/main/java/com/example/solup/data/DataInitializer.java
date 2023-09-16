@@ -137,7 +137,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215823\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"140000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"828000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -170,7 +170,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"1046000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -181,7 +181,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"100000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"1146000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -258,7 +258,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"100000\",\n" +
+                "    \"deposit\": \"60000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"1516000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -269,7 +269,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"160000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"1676000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -280,7 +280,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"80000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"1756000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -302,7 +302,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"1886000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -313,7 +313,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"60000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"1936000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -324,7 +324,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"1976000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -335,7 +335,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"2106000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -346,7 +346,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"2226000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -368,7 +368,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"2326000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -379,7 +379,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"100000\",\n" +
+                "    \"deposit\": \"60000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"2426000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -390,7 +390,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"70000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"2496000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -401,7 +401,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"60000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"2556000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -434,7 +434,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"120214\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"2646000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -456,7 +456,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"100000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"2796000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -467,7 +467,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"160000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"2956000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -478,7 +478,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"80000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"3036000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -500,7 +500,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"100000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"3066000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -522,7 +522,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"3186000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -533,7 +533,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"3316000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -544,7 +544,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"110000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"3426000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -588,7 +588,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"105000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"3449000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -599,7 +599,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"70000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"3519000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -621,7 +621,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"3719000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -654,7 +654,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"150000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"3929000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -665,7 +665,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"110000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"4039000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -687,7 +687,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"145623\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"4179000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -709,7 +709,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"4269000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -720,7 +720,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"90000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"4359000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -731,7 +731,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"20000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"4379000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -742,7 +742,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"150000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"4529000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -753,7 +753,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"70000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"4599000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -786,7 +786,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"200000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"4799000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -797,7 +797,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"4839000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -808,7 +808,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"60000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"4969000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -819,7 +819,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"5089000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -841,7 +841,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"5209000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -852,7 +852,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"60000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"5269000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -863,7 +863,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"5319000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -874,7 +874,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"5449000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -885,7 +885,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"5569000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -907,7 +907,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"5689000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -918,7 +918,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"5739000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -929,7 +929,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"5779000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -951,7 +951,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"70000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"5979000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -984,7 +984,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"20000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"6069000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -995,7 +995,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"80000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"6149000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1006,7 +1006,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"6279000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1027,8 +1027,8 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeDate\": \"20230814\",\n" +
                 "    \"tradeTime\": \"153822\",\n" +
                 "    \"briefs\": \"가스비\",\n" +
-                "    \"withdraw\": \"90000\",\n" +
-                "    \"deposit\": \"\",\n" +
+                "    \"withdraw\": \"\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"부산도시가스\",\n" +
                 "    \"balance\": \"6459000\",\n" +
                 "    \"category\": \"2\",\n" +
@@ -1050,7 +1050,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"6589000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1061,7 +1061,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"6639000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1072,7 +1072,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"60000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"6679000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1083,7 +1083,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"6809000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1149,7 +1149,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"4031000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1160,7 +1160,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"4081000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1171,7 +1171,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"4121000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1237,7 +1237,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"4191000\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1303,7 +1303,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"150000\",\n" +
+                "    \"deposit\": \"120000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"4608200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1314,7 +1314,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"78000\",\n" +
+                "    \"deposit\": \"98000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"4686200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1369,7 +1369,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"70000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"5020200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1380,7 +1380,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"150000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"5170200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1391,7 +1391,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"100000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"5210200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1413,7 +1413,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"160000\",\n" +
+                "    \"deposit\": \"120000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"5450200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1435,7 +1435,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"5570200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1446,7 +1446,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"5620200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1457,7 +1457,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"5660200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1468,7 +1468,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"5790200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1501,7 +1501,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"130000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"6030200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1512,7 +1512,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"6080200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1523,7 +1523,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"90600\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"6120200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1534,7 +1534,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"108000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"6250200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1589,7 +1589,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"6448200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1600,7 +1600,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"6498200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1611,7 +1611,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"6538200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1622,7 +1622,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"6668200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1666,7 +1666,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"99000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"6818200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1677,7 +1677,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"6868200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1688,7 +1688,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"6908200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1699,7 +1699,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"97000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"7038200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1732,7 +1732,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"113000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"7288200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1743,7 +1743,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"7338200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1754,7 +1754,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"7378200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1765,7 +1765,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"7508200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1798,7 +1798,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"7768200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1809,7 +1809,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"7818200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1820,7 +1820,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"7858200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1831,7 +1831,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"7988200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1875,7 +1875,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"100000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"7198200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1897,7 +1897,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"20000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"7308200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1908,7 +1908,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"150000\",\n" +
+                "    \"deposit\": \"50000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"7458200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1952,7 +1952,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"200000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"7728200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -1963,7 +1963,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"98000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"7768200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2007,7 +2007,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"120000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"8138200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2018,7 +2018,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"60000\",\n" +
+                "    \"deposit\": \"89000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"8198200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2029,7 +2029,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"99000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"8248200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2040,7 +2040,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"93000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"8378200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2051,7 +2051,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"8498200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2073,7 +2073,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"130000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"8618200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2084,7 +2084,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"8668200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2095,7 +2095,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"121000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"8708200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2161,7 +2161,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"89000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"8980200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2172,7 +2172,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"98000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"9030200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2183,7 +2183,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"79000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"9070200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2194,7 +2194,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"9200200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2205,7 +2205,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"97800\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"9320200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2227,7 +2227,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"79000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"9410200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2238,7 +2238,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"98000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"9460200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2249,7 +2249,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"83000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"9500200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2260,7 +2260,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"110000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"9630200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2271,7 +2271,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"9750200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2293,7 +2293,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"90000\",\n" +
+                "    \"deposit\": \"89000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"9790200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2304,7 +2304,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"200000\",\n" +
+                "    \"deposit\": \"127000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"9990200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2315,7 +2315,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"90000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"10030200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2326,7 +2326,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"67000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"10160200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2337,7 +2337,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"120000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"10280200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2359,7 +2359,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"170000\",\n" +
+                "    \"deposit\": \"50000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"10380200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2392,7 +2392,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"10620200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2425,7 +2425,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"130000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"10870200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2436,7 +2436,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"80000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"10920200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2447,7 +2447,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"70000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"10960200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2458,7 +2458,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"215504\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"130000\",\n" +
+                "    \"deposit\": \"97000\",\n" +
                 "    \"content\": \"쏠쏠카드\",\n" +
                 "    \"balance\": \"11090200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2469,7 +2469,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"153701\",\n" +
                 "    \"briefs\": \"땡겨요결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"70000\",\n" +
+                "    \"deposit\": \"89000\",\n" +
                 "    \"content\": \"땡겨요\",\n" +
                 "    \"balance\": \"11160200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2502,7 +2502,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"20000\",\n" +
+                "    \"deposit\": \"67000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"11250200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2557,7 +2557,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"140214\",\n" +
                 "    \"briefs\": \"현금결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"180000\",\n" +
+                "    \"deposit\": \"88000\",\n" +
                 "    \"content\": \"김싸피\",\n" +
                 "    \"balance\": \"11760200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2568,7 +2568,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"211704\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"50000\",\n" +
+                "    \"deposit\": \"77000\",\n" +
                 "    \"content\": \"신한카드\",\n" +
                 "    \"balance\": \"11810200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2579,7 +2579,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"tradeTime\": \"213821\",\n" +
                 "    \"briefs\": \"카드결제 입금\",\n" +
                 "    \"withdraw\": \"\",\n" +
-                "    \"deposit\": \"40000\",\n" +
+                "    \"deposit\": \"98000\",\n" +
                 "    \"content\": \"싸피카드\",\n" +
                 "    \"balance\": \"11850200\",\n" +
                 "    \"category\": \"1\",\n" +
@@ -2607,7 +2607,7 @@ public class DataInitializer implements CommandLineRunner {
                 "    \"category\": \"1\",\n" +
                 "    \"name\": \"땡겨요\"\n" +
                 "  }\n" +
-                "]";
+                "]\n";
 
         ObjectMapper objectMapper = new ObjectMapper();
         List<TradeHistoryTemp> temps = objectMapper.readValue(jsonDatas, new TypeReference<List<TradeHistoryTemp>>() {});
