@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 function SupportPrograms() {
+  const navigate = useNavigate();
   return (
-    <div className="productContainer">
+    <div className="productContainer" onClick={() => navigate('/support-programs')}>
       <div className="productContent">
         <p className="customTitle">지원 프로그램 찾기</p>
         <p>가게 영업에 어려움을 겪고 계신가요?</p>

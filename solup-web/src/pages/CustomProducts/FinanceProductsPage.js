@@ -23,7 +23,7 @@ class FinanceProductsPage extends Component {
     return (
       <div>
         <Header title="금융 상품 찾기" />
-        <div className="tab-buttons">
+        <div className="tabContainer">
           <span className="span-container">
             <span
               className={`tab ${activeTab === "savings" ? "active" : ""}`}
@@ -41,10 +41,13 @@ class FinanceProductsPage extends Component {
             </span>
           </span>
         </div>
-        <div className="tab-content">
-          {activeTab === "savings" && <SavingsProductList />}
-          {activeTab === "loans" && <LoanProductList />}
+        <div className="tabContent">
+          {/* <div> */}
+            {activeTab === "savings" && <SavingsProductList />}
+            {activeTab === "loans" && <LoanProductList />}
+          {/* </div> */}
         </div>
+
         <NavBar />
       </div>
     );

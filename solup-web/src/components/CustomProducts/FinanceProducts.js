@@ -1,9 +1,11 @@
 import React from "react";
 import "./FinanceProducts.css";
+import { useNavigate } from "react-router";
 
 function FinanceProducts() {
+  const navigate = useNavigate();
   return (
-    <div className="productContainer">
+    <div className="productContainer" onClick={() => navigate('/finance-products')}>
       <div className="productContent">
         <p className="customTitle">금융상품 찾기</p>
           <p>소상공인 대상 대출 상품부터</p>
