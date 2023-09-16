@@ -31,27 +31,37 @@ class LoanProductList extends Component {
 
   render() {
     return (
-      <div
-        style={{ margin: "0px auto", display: "grid", placeItems: "center" }}
-      >
-        {this.state.loanProducts.map((product, index) => {
-          return (
-            <div
-              key={index}
-              style={{
-                display: "inline-block",
-                textAlign: "left",
-                margin: "0px",
-              }}
-            >
-              <LoanProduct product={product} />
-              <LoanProductItem1 />
-              <LoanProductItem2 />
-              <LoanProductItem3 />
-              {/* <LoanProductItem4 /> */}
-            </div>
-          );
-        })}
+
+      <div>
+        <div className="debitText">신한은행 대출상품 목록을 확인하세요</div>
+        {this.state.loanProducts.map((product, index) => (
+          <div key={index} className="debitBox">
+            <LoanProduct product={product} />
+          </div>
+        ))}
+
+//       <div
+//         style={{ margin: "0px auto", display: "grid", placeItems: "center" }}
+//       >
+//         {this.state.loanProducts.map((product, index) => {
+//           return (
+//             <div
+//               key={index}
+//               style={{
+//                 display: "inline-block",
+//                 textAlign: "left",
+//                 margin: "0px",
+//               }}
+//             >
+//               <LoanProduct product={product} />
+//               <LoanProductItem1 />
+//               <LoanProductItem2 />
+//               <LoanProductItem3 />
+//               {/* <LoanProductItem4 /> */}
+//             </div>
+//           );
+//         })}
+
       </div>
     );
   }

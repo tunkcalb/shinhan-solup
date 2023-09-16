@@ -9,11 +9,20 @@ function LoanProduct({ product }) {
   };
 
   return (
-    <div className={style.loanProduct} onClick={handleOpenApp}>
-      <h2>{product.fin_prdt_nm}</h2>
-      <p>은행 이름: {product.kor_co_nm}</p>
-      <p>가입 방법: {product.join_way}</p>
-      {/* <p>대출 상품 유형: {product.crdt_prdt_type_nm}</p> */}
+    <div className='products'>
+      <p className='pd-name'>{product.fin_prdt_nm}</p>
+      <div>
+        <div className='pd-content'>
+          <b>은행명</b><p>{product.kor_co_nm}</p>
+        </div>
+        <div className='pd-content'>
+          <b>가입</b><p>{product.join_way}</p>
+        </div>
+        <div className='pd-content'>
+          <b>상품유형</b><p>{product.crdt_prdt_type_nm}</p>
+        </div>
+      </div>
+      <button onClick={handleOpenApp} className='blueBtn'>쏠에서 확인하기</button>
     </div>
   );
 }
