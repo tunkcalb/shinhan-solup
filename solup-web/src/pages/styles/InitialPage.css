@@ -1,0 +1,37 @@
+.initialPage{
+  padding: 0 1.25rem ;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.mainLogo{
+  display: flex;
+  justify-content: center;
+}
+.mainLogo img{
+  width: 75%;
+  margin-bottom: 0.625rem;
+}
+
+.initText{
+  display: flex;
+  justify-content: center;
+}
+
+.initText span{
+font-size: 1.125rem;
+font-weight: bold;
+}
+
+.initLight{
+  font-weight: 500 !important
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10.12rem;
+}

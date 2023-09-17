@@ -1,0 +1,78 @@
+/* modal.css (새 CSS 파일로 저장하거나 기존 스타일 파일에 추가합니다) */
+
+/* 모달을 화면 중앙에 위치시키기 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 배경에 어둡게 블러 처리 */
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Container */
+.categoryContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Expense Type Container */
+.expenseTypeContainer {
+  display: flex;
+}
+
+/* Expense Type */
+.expenseType {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.expenseType.selected {
+  background-color: #0078d4;
+  color: #fff;
+}
+
+/* Category Box */
+.categoryBox {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Additional Styling (Optional) */
+.categoryBox select {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.categoryBox select:hover {
+  background-color: #e0e0e0;
+}
+
+.categoryBox select:focus {
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #0078d4;
+}
+
+.selected {
+  background-color: #0078d4; /* 선택된 박스의 배경색을 파란색으로 지정합니다. */
+  color: white; /* 글자색을 흰색으로 지정합니다. */
+  font-weight: bold; /* 글자 두께를 두꺼운 것으로 지정합니다. */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능한 것처럼 보이게 합니다. */
+}
